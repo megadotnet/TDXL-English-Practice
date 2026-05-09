@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>感情色彩词汇学习卡片</title>
+<style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f4f8; margin: 0; }
+    .card { background: white; border-radius: 15px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); padding: 40px; width: 320px; text-align: center; margin-bottom: 20px; }
+    .word { font-size: 36px; font-weight: bold; color: #2c3e50; margin-bottom: 15px; }
+    .meaning-box { display: none; margin-top: 20px; padding-top: 20px; border-top: 1px dashed #ccc; }
+    .meaning { font-size: 18px; color: #e74c3c; font-weight: bold; margin-bottom: 10px; }
+    .example { font-style: italic; color: #34495e; font-size: 15px; line-height: 1.5; text-align: left; }
+    button { background-color: #3498db; color: white; border: none; padding: 10px 15px; text-align: center; font-size: 14px; margin: 5px; cursor: pointer; border-radius: 8px; transition: 0.2s; }
+    button:hover { background-color: #2980b9; }
+    .btn-speak { background-color: #f39c12; }
+    .btn-speak:hover { background-color: #d68910; }
+    .controls { display: flex; justify-content: center; gap: 15px; }
+</style>
+</head>
+<body>
+
+<div class="card" id="flashcard">
+    <div class="word" id="wordDisplay">assuage</div>
+    <button class="btn-speak" onclick="speakWord()">🔊 朗读发音</button>
+    <button onclick="toggleMeaning()">👀 显示/隐藏释义</button>
+    
+    <div class="meaning-box" id="meaningBox">
+        <div class="meaning" id="meaningDisplay">减轻，缓和 (褒义)</div>
+        <div class="example" id="exampleDisplay">Her gentle words assuaged his fear.</div>
+    </div>
+</div>
+
+<div class="controls">
+    <button onclick="prevWord()">⬅️ 上一个</button>
+    <button onclick="nextWord()">下一个 ➡️</button>
+</div>
+
+<script>
+    // 这里是我们的词汇数据库，你可以随时往里面添加更多词！
+const words = [
+    { word: "acclaimed", meaning: "受到赞扬的 (褒义)", example: "The acclaimed scientist received a warm welcome." },
+    { word: "affirmation", meaning: "肯定，确认 (褒义)", example: "A simple word of affirmation can cheer up a discouraged friend." },
+    { word: "affordable", meaning: "负担得起的 (褒义)", example: "The city needs more affordable housing for young families." },
+    { word: "appease", meaning: "安抚，平息 (褒义)", example: "The manager tried to appease the angry customer with a sincere apology." },
+    { word: "appreciation", meaning: "欣赏，感激 (褒义)", example: "He expressed his sincere appreciation for their generous support." },
+    { word: "approval", meaning: "赞成，认可 (褒义)", example: "Her design won instant approval from the committee." },
+    { word: "assuage", meaning: "减轻，缓和 (褒义)", example: "Her gentle words assuaged his fear, and a sense of peace slowly returned to him." },
+    { word: "attract", meaning: "吸引 (褒义)", example: "The unique design attracted many potential buyers." },
+    { word: "believe", meaning: "相信 (褒义)", example: "I firmly believe that hard work pays off." },
+    { word: "benefit", meaning: "好处，益处 (褒义)", example: "Regular exercise provides enormous benefit to both body and mind." },
+    { word: "booming", meaning: "繁荣的 (褒义)", example: "The booming tourism industry created thousands of jobs." },
+    { word: "boost", meaning: "促进，推动 (褒义)", example: "A good night's sleep can boost your learning efficiency." },
+    { word: "complimentary", meaning: "赞美的 (褒义)", example: "The critic wrote a highly complimentary review of the film." },
+    { word: "confident", meaning: "自信的，坚信的 (褒义)", example: "She felt confident about passing the exam." },
+    { word: "content", meaning: "满意的，满足的 (褒义)", example: "He felt truly content with his simple but happy life." },
+    { word: "cure", meaning: "治愈 (褒义)", example: "Time often cures deep sadness if we allow ourselves to heal." },
+    { word: "desirable", meaning: "令人满意的，值得拥有的 (褒义)", example: "A peaceful neighborhood is a highly desirable place to raise children." },
+    { word: "durable", meaning: "耐用的，持久的 (褒义)", example: "They produce durable furniture that can last for decades." },
+    { word: "ease", meaning: "缓解，减轻 (褒义)", example: "A sincere apology can ease the tension in the room." },
+    { word: "effective", meaning: "有效的 (褒义)", example: "This method proved highly effective in reducing errors." },
+    { word: "encourage", meaning: "鼓励 (褒义)", example: "Teachers should constantly encourage students to ask questions." },
+    { word: "enthusiasm", meaning: "热情，热忱 (褒义)", example: "Her enthusiasm for the project was truly infectious." },
+    { word: "enthusiastic", meaning: "热心的，非常感兴趣的 (褒义)", example: "The audience gave an enthusiastic response to the speech." },
+    { word: "enviable", meaning: "令人羡慕的 (褒义)", example: "She has an enviable ability to stay calm under pressure." },
+    { word: "essential", meaning: "必不可少的，至关重要的 (褒义)", example: "Good communication is essential to a healthy relationship, and it helps resolve conflicts peacefully." },
+    { word: "favorable", meaning: "赞成的，有利的 (褒义)", example: "The proposal received a favorable response from the board." },
+    { word: "faith", meaning: "信任，信念 (褒义)", example: "She never lost faith in her own potential." },
+    { word: "foster", meaning: "培养，促进 (褒义)", example: "The school aims to foster creativity and independent thinking." },
+    { word: "fruitful", meaning: "富有成效的 (褒义)", example: "The two sides had a fruitful discussion on future cooperation." },
+    { word: "generously", meaning: "慷慨地 (褒义)", example: "She gave her time generously, and her kindness deeply touched the whole community." },
+    { word: "gratitude", meaning: "感激，感谢 (褒义)", example: "He expressed his gratitude to the medical staff, whose dedication had saved his life." },
+    { word: "hardworking", meaning: "勤奋的 (褒义)", example: "She is a hardworking and reliable member of our team." },
+    { word: "hopeful", meaning: "满怀希望的 (褒义)", example: "There is a hopeful sign that the economy is recovering, which has lifted the public's mood." },
+    { word: "illustrate", meaning: "说明，举例说明 (褒义)", example: "This story illustrates the importance of honesty, so the teacher often tells it in class." },
+    { word: "impressive", meaning: "令人赞叹的 (褒义)", example: "His resume is highly impressive, but what truly sets him apart is his genuine passion for innovation." },
+    { word: "improve", meaning: "改善，提高 (褒义)", example: "They worked hard to improve the quality of service, which soon led to higher customer satisfaction." },
+    { word: "justify", meaning: "证明……合理 (褒义)", example: "Hard work does not always guarantee success, but it can still justify one's efforts in retrospect." },
+    { word: "mild", meaning: "温和的，轻微的 (褒义)", example: "She gave a mild but firm response, which successfully calmed the angry customer." },
+    { word: "miracle", meaning: "奇迹 (褒义)", example: "The rescue team created a miracle, and the entire nation celebrated their heroic deed." },
+    { word: "moderate", meaning: "适度的，温和的 (褒义)", example: "He holds moderate views on most issues, so people from different sides are willing to talk with him." },
+    { word: "nice", meaning: "好的 (褒义)", example: "The weather is nice, so we decided to have a picnic in the park." },
+    { word: "optimistic", meaning: "乐观的 (褒义)", example: "An optimistic attitude can reduce stress, which is essential for maintaining mental health." },
+    { word: "persuade", meaning: "劝说，说服 (褒义)", example: "The advertisement persuades consumers to buy the product, which boosts the company's sales significantly." },
+    { word: "positive", meaning: "积极的，正面的 (褒义)", example: "We must take positive steps to solve the problem, or it will only get worse." },
+    { word: "promote", meaning: "促进，提升 (褒义)", example: "The organization aims to promote cultural exchange, and it has launched many successful programs." },
+    { word: "prove", meaning: "证明 (褒义)", example: "She worked hard to prove herself capable, and eventually everyone admired her determination." },
+    { word: "rational", meaning: "理性的，理智的 (褒义)", example: "She is rational even in an emergency, so her team trusts her judgment completely." },
+    { word: "reasonable", meaning: "合理的 (褒义)", example: "It is reasonable to expect progress if we keep practicing." },
+    { word: "reliable", meaning: "可靠的 (褒义)", example: "This brand is known for reliable quality, which explains its large and loyal customer base." },
+    { word: "relieved", meaning: "放心的，宽慰的 (褒义)", example: "The passengers were relieved that the flight was only slightly delayed, which meant they wouldn't miss the connection." },
+    { word: "respect", meaning: "尊重 (褒义)", example: "He earned great respect from his colleagues through his honest work, and his opinion became highly valued." },
+    { word: "rewarding", meaning: "值得的，有报酬的 (褒义)", example: "She found the volunteer work rewarding, so she continued to serve the community for many years." },
+    { word: "satisfaction", meaning: "满足，满意 (褒义)", example: "Customer satisfaction has been our top priority, and it has built a strong brand loyalty." },
+    { word: "soothing", meaning: "慰藉的，使人宽心的 (褒义)", example: "His voice had a soothing effect, which eased the tension during the negotiation." },
+    { word: "strengthen", meaning: "加强 (褒义)", example: "Open communication strengthens trust between partners, which is the foundation of a lasting relationship." },
+    { word: "successful", meaning: "成功的 (褒义)", example: "The product launch was extremely successful, which surpassed even the most optimistic predictions." },
+    { word: "supportive", meaning: "支持的，拥护的 (褒义)", example: "A supportive boss can boost your morale, which makes a huge difference at work." },
+    { word: "sustainable", meaning: "可持续的 (褒义)", example: "The company pursued sustainable growth rather than rapid expansion, which ensured its long-term stability." },
+    { word: "sympathetic", meaning: "同情的，赞同的 (褒义)", example: "She is sympathetic towards those who struggle, which makes her a great counselor." },
+    { word: "thrive", meaning: "繁荣，兴旺 (褒义)", example: "When children are given proper support, they thrive both academically and socially." },
+    { word: "tolerance", meaning: "宽容，容忍 (褒义)", example: "We should teach children tolerance, for it is the foundation of a harmonious society." },
+    { word: "trust", meaning: "信任 (褒义)", example: "Mutual trust is the cornerstone of this team, and that is why we can work so efficiently." },
+    { word: "valuable", meaning: "有价值的 (褒义)", example: "She offered some valuable advice that helped me solve the problem, for which I remain grateful." },
+    { word: "victory", meaning: "胜利 (褒义)", example: "The election victory was a turning point for the country, which brought hope to millions of citizens." },
+    { word: "vital", meaning: "至关重要的 (褒义)", example: "It is vital that we act now to reverse the damage, which is already threatening our future." },
+    { word: "willing", meaning: "愿意的 (褒义)", example: "He was willing to take risks, and that courage eventually led him to success." },
+    { word: "addictive", meaning: "上瘾的 (贬义)", example: "The game is highly addictive, so many students neglect their homework." },
+    { word: "adverse", meaning: "不利的 (贬义)", example: "Adverse weather conditions forced the cancellation of the event, which disappointed thousands of fans." },
+    { word: "aggressive", meaning: "挑衅的，好斗的 (贬义)", example: "He became verbally aggressive during the argument, which upset everyone in the room." },
+    { word: "ambiguous", meaning: "模棱两可的 (贬义)", example: "His reply was ambiguous, which only increased our suspicion." },
+    { word: "anxious", meaning: "焦虑的 (贬义)", example: "The constant noise made him anxious, and he could barely concentrate on his work." },
+    { word: "apprehensive", meaning: "忧虑的，担心的 (贬义)", example: "She was apprehensive before the surgery, but the nurse's gentle reassurance calmed her down." },
+    { word: "biased", meaning: "有偏见的 (贬义)", example: "The judge was accused of being biased, which led to public outrage." },
+    { word: "blunder", meaning: "犯愚蠢的错误 (贬义)", example: "His costly blunder resulted in a huge financial loss, which nearly ruined the project." },
+    { word: "burden", meaning: "负担 (贬义)", example: "She felt she was a burden to her family, which made her deeply depressed." },
+    { word: "burdensome", meaning: "负担沉重的 (贬义)", example: "These burdensome regulations hindered innovation, so many startups moved elsewhere." },
+    { word: "compromising", meaning: "有失体面的 (贬义)", example: "She found herself in a compromising situation, which forced her to resign." },
+    { word: "conceited", meaning: "自负的，傲慢的 (贬义)", example: "She is so conceited that no one wants to cooperate with her." },
+    { word: "contemptuous", meaning: "蔑视的，鄙视的 (贬义)", example: "His contemptuous tone offended everyone at the table, and the meeting ended in an awkward silence." },
+    { word: "contradictory", meaning: "矛盾的 (贬义)", example: "His actions were completely contradictory to his words, which destroyed his credibility." },
+    { word: "costly", meaning: "昂贵的，代价高的 (贬义)", example: "The delay proved extremely costly, and the whole project had to be suspended." },
+    { word: "crisis", meaning: "危机 (贬义)", example: "If we fail to address this crisis, it will spiral into an uncontrollable disaster." },
+    { word: "cynical", meaning: "愤世嫉俗的，怀疑的 (贬义)", example: "Years of disappointment had made her cynical, so she rarely trusted anyone's promise." },
+    { word: "deceptive", meaning: "欺骗性的 (贬义)", example: "Appearances can be deceptive, so we must not judge too quickly." },
+    { word: "decline", meaning: "下降，衰退 (贬义)", example: "The decline in sales worried the management, so they decided to restructure the team." },
+    { word: "desperate", meaning: "绝望的，拼命的 (贬义)", example: "He made a desperate attempt to save the company, but it was already too late." },
+    { word: "desperation", meaning: "绝望 (贬义)", example: "The policy was born out of desperation rather than careful planning, which explained its many flaws." },
+    { word: "destructive", meaning: "破坏性的 (贬义)", example: "Jealousy is a highly destructive emotion that can ruin relationships." },
+    { word: "deteriorate", meaning: "恶化 (贬义)", example: "If we don't take immediate action, the situation will deteriorate beyond control." },
+    { word: "disappointed", meaning: "失望的 (贬义)", example: "The fans were disappointed that the concert was canceled, and many demanded a refund." },
+    { word: "discontent", meaning: "不满 (贬义)", example: "Discontent was widespread, so the management had to hold an emergency meeting." },
+    { word: "discrimination", meaning: "歧视 (贬义)", example: "She faced blatant discrimination at work, which severely affected her mental health." },
+    { word: "dismiss", meaning: "不考虑，解雇 (贬义)", example: "He dismissed the warning as trivial, which later proved to be a grave error." },
+    { word: "distrust", meaning: "不信任 (贬义)", example: "Mutual distrust made cooperation impossible, so the project collapsed eventually." },
+    { word: "doubt", meaning: "怀疑 (贬义)", example: "She doubted his sincerity, which put a strain on their friendship." },
+    { word: "fatal", meaning: "致命的 (贬义)", example: "The doctor said the injury might be fatal, which plunged the whole family into despair." },
+    { word: "flaw", meaning: "缺陷 (贬义)", example: "The design had a critical flaw, which caused the machine to malfunction repeatedly." },
+    { word: "foolish", meaning: "愚蠢的 (贬义)", example: "He felt foolish after realizing his mistake, which taught him a lifelong lesson." },
+    { word: "frighten", meaning: "吓唬，使惊恐 (贬义)", example: "The sudden noise frightened the baby, so she burst into tears immediately." },
+    { word: "gloomy", meaning: "悲观的，阴郁的 (贬义)", example: "The economic outlook is quite gloomy, which has caused widespread concern among investors." },
+    { word: "harm", meaning: "伤害 (贬义)", example: "The rumor did great harm to her reputation, which took years to restore." },
+    { word: "hesitancy", meaning: "迟疑，踌躇 (贬义)", example: "The government's hesitancy led to public frustration, which eventually erupted in protests." },
+    { word: "illegal", meaning: "非法的 (贬义)", example: "He was involved in an illegal transaction, which resulted in a prison sentence." },
+    { word: "impair", meaning: "损害，削弱 (贬义)", example: "The injury impaired his ability to walk, which made him dependent on others for daily tasks." },
+    { word: "implausible", meaning: "似乎不合情理的 (贬义)", example: "The plot of the movie was so implausible that many viewers left the cinema early." },
+    { word: "impractical", meaning: "不切实际的 (贬义)", example: "It is impractical to finish this project within one week, which any experienced manager can tell you." },
+    { word: "inability", meaning: "无能力 (贬义)", example: "The team's inability to adapt led to repeated failures, which demoralized everyone." },
+    { word: "inadequate", meaning: "不足的 (贬义)", example: "Her preparation was inadequate, so she felt extremely nervous during the interview." },
+    { word: "inconsistent", meaning: "不一致的，前后矛盾的 (贬义)", example: "His performance has been wildly inconsistent, which frustrates both the coach and the fans." },
+    { word: "indignation", meaning: "愤怒，愤慨 (贬义)", example: "He expressed his indignation at the injustice, which resonated with many citizens." },
+    { word: "inexcusable", meaning: "不可原谅的 (贬义)", example: "His rude behavior is absolutely inexcusable, so we demand a formal apology." },
+    { word: "intolerable", meaning: "无法容忍的 (贬义)", example: "The working conditions were intolerable, which is why the workers went on strike." },
+    { word: "lack", meaning: "缺乏 (贬义)", example: "He lacks the necessary experience for this position, which puts the whole team under pressure." },
+    { word: "misguide", meaning: "误导 (贬义)", example: "He was misguided by his own arrogance, which ultimately led to his ruin." },
+    { word: "negative", meaning: "消极的，负面的 (贬义)", example: "His negative attitude spread quickly, which damaged the team's overall morale." },
+    { word: "objection", meaning: "反对 (贬义)", example: "His objection was overruled, which made him feel utterly frustrated." },
+    { word: "outdated", meaning: "过时的 (贬义)", example: "His teaching methods are hopelessly outdated, so students often feel bored and disengaged." },
+    { word: "pessimistic", meaning: "悲观的 (贬义)", example: "A pessimistic outlook can become a self-fulfilling prophecy, which is why we must stay hopeful." },
+    { word: "poorly", meaning: "糟糕地 (贬义)", example: "She performed poorly in the interview, which cost her the job opportunity." },
+    { word: "pressure", meaning: "压力 (贬义)", example: "Too much pressure can lead to burnout, which has become a common issue in modern society." },
+    { word: "radical", meaning: "激进的 (贬义)", example: "Some argue that radical reforms may destabilize the market, which could harm the entire industry." },
+    { word: "risk", meaning: "风险 (贬义)", example: "He risked everything on this investment, which eventually led to bankruptcy." },
+    { word: "sarcastic", meaning: "讽刺的 (贬义)", example: "His tone was dripping with sarcastic mockery, so nobody wanted to engage in further discussion." },
+    { word: "scared", meaning: "恐惧的，害怕的 (贬义)", example: "He was scared of failing the exam, which kept him awake all night." },
+    { word: "skeptical", meaning: "怀疑的 (贬义)", example: "She is deeply skeptical of the official explanation, which has caused a lot of debate." },
+    { word: "struggle", meaning: "挣扎，奋斗 (贬义)", example: "The company is in a desperate struggle to survive, which has forced them to lay off many workers." },
+    { word: "suffer", meaning: "遭受，受苦 (贬义)", example: "Many children suffer from malnutrition in this area, which calls for immediate international aid." },
+    { word: "threaten", meaning: "威胁 (贬义)", example: "Pollution threatens our clean water supply, which is essential for public health." },
+    { word: "unable", meaning: "不能的 (贬义)", example: "The team was unable to meet the deadline, which caused serious financial penalties." },
+    { word: "uncertain", meaning: "不确定的 (贬义)", example: "The economic outlook is uncertain, which makes investors extremely nervous." },
+    { word: "uncomfortable", meaning: "不舒服的 (贬义)", example: "He felt uncomfortable being the center of attention, which made him avoid public speaking." },
+    { word: "underestimate", meaning: "低估 (贬义)", example: "They underestimated the difficulty of the task, which led to a complete failure." },
+    { word: "unfair", meaning: "不公的 (贬义)", example: "She protested against the unfair treatment loudly, and her words moved many to join her." },
+    { word: "unlikely", meaning: "不可能的 (贬义)", example: "It seems unlikely that they will meet the deadline, which worries the project manager a lot." },
+    { word: "unrealistic", meaning: "不切实际的 (贬义)", example: "Setting unrealistic goals can demotivate employees, which ultimately lowers productivity." },
+    { word: "unreasonable", meaning: "不合理的 (贬义)", example: "She made an unreasonable demand, which caused an immediate conflict in the team." },
+    { word: "vulnerable", meaning: "脆弱的，易受伤害的 (贬义)", example: "Without proper protection, the refugees are left vulnerable to extreme weather, which adds to their suffering." },
+    { word: "weakness", meaning: "弱点 (贬义)", example: "The team exploited the opponent's defensive weakness, which won them the game." },
+    { word: "worry", meaning: "担心 (贬义)", example: "She worries too much about trivial matters, which prevents her from enjoying life." },
+    { word: "wrong", meaning: "错误的 (贬义)", example: "It is wrong to blame others for your own mistakes, which we should all learn to avoid." },
+    { word: "ambiguous", meaning: "模棱两可的 (中性)", example: "His statement remained ambiguous, which could be interpreted in multiple ways." },
+    { word: "cautious", meaning: "谨慎的 (中性)", example: "We should be cautious about relying solely on statistics, but we should not ignore them entirely." },
+    { word: "detached", meaning: "超然的，客观的 (中性)", example: "A detached observer can often notice things that passionate participants miss." },
+    { word: "disinterested", meaning: "公正的，无私的 (中性)", example: "We need a disinterested third party to mediate, which will ensure fairness." },
+    { word: "even", meaning: "(使)平坦 (中性)", example: "We need to even the surface of the board, so it can be painted evenly." },
+    { word: "factual", meaning: "根据事实的 (中性)", example: "He insisted on a factual account, which means no speculation is allowed." },
+    { word: "impartial", meaning: "不偏不倚的，公平的 (中性)", example: "The media should remain impartial, which allows the public to form their own opinions." },
+    { word: "indifference", meaning: "漠不关心 (中性)", example: "Indifference among voters can lead to low turnout, which often affects the legitimacy of an election." },
+    { word: "indifferent", meaning: "漠不关心的 (中性)", example: "He is not indifferent; he just finds it hard to express his emotions." },
+    { word: "mixed", meaning: "混合的，混杂的 (中性)", example: "Her feelings toward the change were mixed, which made it hard for her to make a final decision." },
+    { word: "moderate", meaning: "适度的，中等的 (中性)", example: "A moderate stance often wins more supporters, because it avoids extreme views." },
+    { word: "objective", meaning: "客观的 (中性)", example: "We need an objective analysis, not a one-sided argument, which is why we hired an external consultant." },
+    { word: "permissive", meaning: "放任的，宽大的 (中性)", example: "Some experts believe that a permissive approach can foster creativity, but others warn it may lack discipline." },
+    { word: "preference", meaning: "偏爱，偏好 (中性)", example: "The survey shows a clear preference for remote work, which challenges traditional office-based models." },
+    { word: "reduce", meaning: "减少 (中性)", example: "The company reduced the price by 20%, which attracted more customers." },
+    { word: "reserved", meaning: "矜持的，内向的 (中性)", example: "Although she appears reserved, she communicates very effectively in small groups." },
+    { word: "sensitive", meaning: "敏感的，灵敏的 (中性)", example: "A sensitive personality can be both a gift and a challenge, depending on the situation." },
+    { word: "speed up", meaning: "加速 (中性)", example: "We need to speed up our response time, but we must not sacrifice quality." },
+    { word: "tend to", meaning: "倾向于 (中性)", example: "Students tend to study less during the summer, which may affect their academic performance in autumn." },
+    { word: "tolerant", meaning: "宽容的 (中性)", example: "We should be tolerant of different opinions, for diversity is a strength in any community." },
+    { word: "uncertainty", meaning: "不确定性 (中性)", example: "Economic uncertainty can delay investment, which is a common phenomenon during elections." },
+    { word: "unprejudiced", meaning: "无偏见的，公正的 (中性)", example: "We should strive to be unprejudiced when we interview candidates, so that we can select the right person." },
+    { word: "vague", meaning: "模糊的，不清楚的 (中性)", example: "They had only a vague idea about what would happen, which made planning impossible." }
+];
+    let currentIndex = 0;
+
+    function updateCard() {
+        document.getElementById('wordDisplay').innerText = words[currentIndex].word;
+        document.getElementById('meaningDisplay').innerText = words[currentIndex].meaning;
+        document.getElementById('exampleDisplay').innerText = words[currentIndex].example;
+        document.getElementById('meaningBox').style.display = 'none'; // 切换单词时自动隐藏释义
+    }
+
+    function toggleMeaning() {
+        const box = document.getElementById('meaningBox');
+        box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function speakWord() {
+        const synth = window.speechSynthesis;
+        const utterThis = new SpeechSynthesisUtterance(words[currentIndex].word);
+        utterThis.lang = 'en-US'; // 设置为美式英语发音
+        utterThis.rate = 0.85; // 稍微放慢一点点语速，方便听清细节
+        synth.speak(utterThis);
+    }
+
+    function nextWord() {
+        currentIndex = (currentIndex + 1) % words.length;
+        updateCard();
+    }
+
+    function prevWord() {
+        currentIndex = (currentIndex - 1 + words.length) % words.length;
+        updateCard();
+    }
+
+    // 页面加载时初始化第一张卡片
+    updateCard();
+</script>
+</body>
+</html>
