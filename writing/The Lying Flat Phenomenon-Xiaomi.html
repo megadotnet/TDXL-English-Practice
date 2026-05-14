@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语学术写作六维深度解析报告 — "Lying Flat" Phenomenon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Mono:wght@400;500&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F6F1E9;
+  --surface: #FFFFFF;
+  --surface-alt: #FAF7F2;
+  --text: #2D2A26;
+  --text-muted: #7A7570;
+  --accent: #8B4513;
+  --accent-light: #D2A679;
+  --accent-bg: #FDF5EC;
+  --green-deep: #1B4332;
+  --green-light: #D8F3DC;
+  --border: #E8E0D4;
+  --subj: #1D4ED8;
+  --pred: #16A34A;
+  --obj: #EA580C;
+  --attr: #7E22CE;
+  --adv: #DC2626;
+  --comp: #6B7280;
+  --tag-tense: #2563EB;
+  --tag-voice: #059669;
+  --tag-clause: #7C3AED;
+  --tag-special: #DC2626;
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Source Serif 4', 'Noto Sans SC', serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-cn: 'Noto Sans SC', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HEADER ── */
+.report-header {
+  text-align: center;
+  padding: 60px 0 40px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 50px;
+}
+.report-header h1 {
+  font-family: var(--font-display);
+  font-size: 2.4em;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.report-header .subtitle {
+  font-size: 1.15em;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+.report-header .meta {
+  margin-top: 20px;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ── TOC ── */
+.toc {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 30px 35px;
+  margin-bottom: 50px;
+}
+.toc h2 {
+  font-family: var(--font-display);
+  font-size: 1.5em;
+  color: var(--green-deep);
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+.toc ol {
+  padding-left: 24px;
+  columns: 2;
+  column-gap: 30px;
+}
+.toc li {
+  font-size: 0.92em;
+  margin-bottom: 6px;
+  break-inside: avoid;
+}
+.toc a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent-light);
+  transition: color 0.2s;
+}
+.toc a:hover { color: var(--green-deep); }
+
+/* ── SENTENCE CARD ── */
+.sentence-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 45px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+.sentence-header {
+  background: linear-gradient(135deg, var(--green-deep), #2D6A4F);
+  color: #fff;
+  padding: 18px 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+.sentence-header .sid {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: rgba(255,255,255,0.18);
+  padding: 2px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.sentence-header .section-label {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-left: auto;
+  font-family: var(--font-mono);
+}
+
+.sentence-body { padding: 28px 30px; }
+
+/* ── Original Sentence Display ── */
+.orig-sentence {
+  background: var(--accent-bg);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  margin-bottom: 22px;
+  font-size: 1.05em;
+  line-height: 1.9;
+  border-radius: 0 6px 6px 0;
+}
+.orig-sentence .subj { color: var(--subj); font-weight: 600; }
+.orig-sentence .pred { color: var(--pred); font-weight: 600; }
+.orig-sentence .obj { color: var(--obj); font-weight: 600; }
+.orig-sentence .attr { color: var(--attr); font-weight: 600; }
+.orig-sentence .adv { color: var(--adv); font-weight: 600; }
+.orig-sentence .comp { color: var(--comp); font-weight: 600; }
+
+/* ── Grammar Tags ── */
+.grammar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 20px;
+}
+.g-tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.78em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.g-tag.tense { background: #DBEAFE; color: #1E40AF; }
+.g-tag.voice { background: #D1FAE5; color: #065F46; }
+.g-tag.clause { background: #EDE9FE; color: #5B21B6; }
+.g-tag.special { background: #FEE2E2; color: #991B1B; }
+
+/* ── DIMENSION SECTIONS ── */
+.dim-section {
+  margin-bottom: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+.dim-section:first-child { border-top: none; padding-top: 0; }
+
+.dim-title {
+  font-family: var(--font-display);
+  font-size: 1.12em;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.dim-title .dim-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  font-size: 0.78em;
+  font-family: var(--font-mono);
+  color: #fff;
+  flex-shrink: 0;
+}
+.d1 .dim-num { background: #2563EB; }
+.d2 .dim-num { background: #7C3AED; }
+.d3 .dim-num { background: #EA580C; }
+.d4 .dim-num { background: #059669; }
+.d5 .dim-num { background: #DC2626; }
+.d6 .dim-num { background: #0D9488; }
+
+.dim-note {
+  font-size: 0.88em;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 10px;
+  padding-left: 8px;
+  border-left: 3px solid var(--accent-light);
+}
+
+/* ── TABLES ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88em;
+  margin-bottom: 12px;
+}
+th {
+  background: #F3EDE4;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 2px solid var(--accent-light);
+  font-size: 0.85em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--surface-alt); }
+
+.mono { font-family: var(--font-mono); font-size: 0.92em; }
+.formal { color: #1E40AF; }
+.neutral-c { color: #6D28D9; }
+.informal { color: #B45309; }
+.awl-tag, .cefr-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-size: 0.72em;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  vertical-align: middle;
+  margin-left: 3px;
+}
+.awl-tag { background: #FEF3C7; color: #92400E; }
+.cefr-tag { background: #DBEAFE; color: #1E40AF; }
+
+/* ── TREE DIAGRAM ── */
+.tree {
+  font-family: var(--font-mono);
+  font-size: 0.84em;
+  line-height: 1.9;
+  background: #FAFAF8;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+.tree .t-s { color: var(--subj); font-weight: 700; }
+.tree .t-p { color: var(--pred); font-weight: 700; }
+.tree .t-o { color: var(--obj); font-weight: 700; }
+.tree .t-a { color: var(--attr); font-weight: 700; }
+.tree .t-v { color: var(--adv); font-weight: 700; }
+.tree .t-c { color: var(--comp); font-weight: 700; }
+
+.depth-note {
+  font-size: 0.82em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+/* ── TEMPLATE / MEMORY ── */
+.template-box {
+  background: var(--green-light);
+  border: 1px solid #95D5B2;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.template-box .slot {
+  background: #fff;
+  border: 1px dashed #52B788;
+  padding: 1px 6px;
+  border-radius: 3px;
+  color: #2D6A4F;
+  font-weight: 500;
+}
+.mnemonic {
+  background: #FFF7ED;
+  border-left: 3px solid #F97316;
+  padding: 10px 16px;
+  margin: 10px 0;
+  font-family: var(--font-cn);
+  font-size: 0.95em;
+  color: #9A3412;
+  border-radius: 0 6px 6px 0;
+}
+
+.error-table td:first-child { width: 60px; text-align: center; font-weight: 600; }
+.error-table .correct { color: #16A34A; }
+.error-table .wrong { color: #DC2626; }
+
+/* ── APPLICATION TABLE ── */
+.app-table .score {
+  display: inline-block;
+  width: 22px; height: 22px;
+  line-height: 22px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 0.75em;
+  font-weight: 700;
+  color: #fff;
+}
+.score-0 { background: #9CA3AF; }
+.score-1 { background: #60A5FA; }
+.score-2 { background: #34D399; }
+.score-3 { background: #FBBF24; }
+.score-4 { background: #F97316; }
+.score-5 { background: #EF4444; }
+
+/* ── IMITATION ── */
+.imitation {
+  background: #F0F4FF;
+  border: 1px solid #C7D2FE;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-top: 14px;
+}
+.imitation h4 {
+  font-size: 0.88em;
+  color: #4338CA;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+}
+.imitation ol { padding-left: 20px; }
+.imitation li {
+  margin-bottom: 6px;
+  font-size: 0.9em;
+}
+
+/* ── INDEX ── */
+.index-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 30px 35px;
+  margin-top: 50px;
+}
+.index-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.6em;
+  color: var(--green-deep);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--green-deep);
+  padding-bottom: 10px;
+}
+.index-section h3 {
+  font-size: 1.05em;
+  color: var(--accent);
+  margin: 18px 0 8px;
+  font-family: var(--font-display);
+}
+.index-section ul {
+  padding-left: 18px;
+  font-size: 0.88em;
+}
+.index-section li { margin-bottom: 4px; }
+.index-section .idx-ref {
+  font-family: var(--font-mono);
+  color: var(--green-deep);
+  font-weight: 500;
+  font-size: 0.82em;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .container { padding: 20px 14px; }
+  .toc ol { columns: 1; }
+  .sentence-body { padding: 18px 16px; }
+  .report-header h1 { font-size: 1.6em; }
+  table { font-size: 0.8em; }
+  th, td { padding: 6px 8px; }
+}
+
+/* ── PRINT ── */
+@media print {
+  body::before { display: none; }
+  .sentence-card { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+  .container { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="report-header">
+  <h1>英语学术写作六维深度解析报告</h1>
+  <div class="subtitle">The "Lying Flat" Phenomenon Among Chinese Youth: A Balanced Perspective</div>
+  <div class="meta">
+    共 16 句 · 6 维度 × 16 = 96 项分析 · 48 仿写例句 · 完整检索索引<br>
+    适用：SCI/SSCI 论文写作 · IELTS 7+ · TOEFL 25+ · 学术英语教学
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- LEGEND -->
+<!-- ════════════════════════════════════════════════ -->
+<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:18px 24px;margin-bottom:40px;font-size:0.85em;">
+  <strong style="font-family:var(--font-display);color:var(--green-deep);">颜色图例 Color Legend：</strong><br>
+  句子成分：<span style="color:var(--subj);font-weight:700;">■ 主语 Subject</span> &nbsp;
+  <span style="color:var(--pred);font-weight:700;">■ 谓语 Predicate</span> &nbsp;
+  <span style="color:var(--obj);font-weight:700;">■ 宾语 Object</span> &nbsp;
+  <span style="color:var(--attr);font-weight:700;">■ 定语 Attribute</span> &nbsp;
+  <span style="color:var(--adv);font-weight:700;">■ 状语 Adverbial</span> &nbsp;
+  <span style="color:var(--comp);font-weight:700;">■ 补语 Complement</span><br>
+  语法标签：<span class="g-tag tense">时态</span> <span class="g-tag voice">语态</span>
+  <span class="g-tag clause">从句</span> <span class="g-tag special">特殊结构</span><br>
+  词级标记：<span class="awl-tag">AWL</span> = Academic Word List &nbsp; <span class="cefr-tag">CEFR</span> = Common European Framework
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- TABLE OF CONTENTS -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="toc">
+  <h2>目录 Table of Contents</h2>
+  <ol>
+    <li><a href="#s1">S1 — 引出社会关注话题</a></li>
+    <li><a href="#s2">S2 — 总述利弊</a></li>
+    <li><a href="#s3">S3 — 过渡：先说优点</a></li>
+    <li><a href="#s4">S4 — 优点一：缓解压力</a></li>
+    <li><a href="#s5">S5 — 补充解释优点一</a></li>
+    <li><a href="#s6">S6 — 优点二：促进社会反思</a></li>
+    <li><a href="#s7">S7 — 引言过渡：事物两面</a></li>
+    <li><a href="#s8">S8 — 引出负面</a></li>
+    <li><a href="#s9">S9 — 缺点一：削弱进取精神</a></li>
+    <li><a href="#s10">S10 — 展开缺点一</a></li>
+    <li><a href="#s11">S11 — 缺点二：抑制社会活力</a></li>
+    <li><a href="#s12">S12 — 展开缺点二</a></li>
+    <li><a href="#s13">S13 — 结论总述：扬长避短</a></li>
+    <li><a href="#s14">S14 — 建议一：个人层面</a></li>
+    <li><a href="#s15">S15 — 建议二：社会层面</a></li>
+    <li><a href="#s16">S16 — 收尾：愿景</a></li>
+  </ol>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S1                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s1">
+  <div class="sentence-header">
+    <span class="sid">S1</span>
+    <span>引出社会关注话题</span>
+    <span class="section-label">INTRO ¶1</span>
+  </div>
+  <div class="sentence-body">
+
+    <!-- ─── 原句彩色标注 ─── -->
+    <div class="orig-sentence">
+      <span class="adv">Nowadays</span>, <span class="pred">there is</span> <span class="obj">a widespread concern</span> <span class="adv">over the issue</span>
+      <span class="attr">that <span class="subj">Chinese young people</span> <span class="pred">tend to adopt</span> <span class="obj">a "lying flat" lifestyle</span>
+      <span class="adv">under fierce social competition</span></span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag clause">Appositive Clause (that…competition)</span>
+      <span class="g-tag special">Existential "there is"</span>
+    </div>
+
+    <!-- DIM 1: GRAMMAR -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时 (Simple Present)</strong> + <strong>主动语态</strong>。"there is" 表示客观存在的状态，"tend to adopt" 表示倾向性行为。在学术写作中，一般现在时用于陈述普遍事实或当前研究背景。</td></tr>
+        <tr><td>从句类型</td><td><strong>同位语从句 (Appositive Clause)</strong>：that Chinese young people tend to adopt… 解释说明 "the issue" 的具体内容。同位语从句是学术写作中定义研究话题的核心手段。</td></tr>
+        <tr><td>特殊结构</td><td><strong>存在句 (Existential Construction)</strong>：there is a widespread concern over… 该结构在学术写作中常用于引出研究关注点，避免主观色彩。<br><strong>无倒装、无虚拟语气、无省略。</strong></td></tr>
+      </table>
+      <div class="dim-note">SCI/SSCI 启示：存在句 + 同位语从句的组合是论文 Introduction 部分开篇的经典句型，用于从宏观背景聚焦到具体议题，雅思大作文首段同理可得 7+ 的 Task Achievement 分。</div>
+    </div>
+
+    <!-- DIM 2: VOCABULARY -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>序号</th><th>原型</th><th>IPA</th><th>词性</th><th>释义 (EN/CN)</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">nowadays</td><td class="mono">/ˈnaʊədeɪz/</td><td>adv</td><td>in the present time / 当今，如今</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>2</td><td class="mono">widespread</td><td class="mono">/ˈwaɪdspred/</td><td>adj</td><td>existing over a large area / 广泛的，普遍的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL4</span></td></tr>
+        <tr><td>3</td><td class="mono">concern</td><td class="mono">/kənˈsɜːrn/</td><td>n</td><td>a matter of interest or importance / 关注，关切</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>4</td><td class="mono">issue</td><td class="mono">/ˈɪʃuː/</td><td>n</td><td>an important topic for discussion / 议题，问题</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL1</span></td></tr>
+        <tr><td>5</td><td class="mono">tend</td><td class="mono">/tend/</td><td>v</td><td>to be likely to do sth / 倾向于，往往会</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL3</span></td></tr>
+        <tr><td>6</td><td class="mono">adopt</td><td class="mono">/əˈdɑːpt/</td><td>v</td><td>to choose to take up / 采纳，采取</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL3</span></td></tr>
+        <tr><td>7</td><td class="mono">lifestyle</td><td class="mono">/ˈlaɪfstaɪl/</td><td>n</td><td>the way a person lives / 生活方式</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>8</td><td class="mono">fierce</td><td class="mono">/fɪrs/</td><td>adj</td><td>intense or aggressive / 激烈的，猛烈的</td><td class="neutral-c">中性</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>9</td><td class="mono">competition</td><td class="mono">/ˌkɑːmpəˈtɪʃən/</td><td>n</td><td>the act of competing / 竞争</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>10</td><td class="mono">social</td><td class="mono">/ˈsoʊʃəl/</td><td>adj</td><td>relating to society / 社会的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL1</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3: COLLOCATIONS -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文释义</th><th>语域</th><th>字符位置</th></tr>
+        <tr><td>Adj + N</td><td class="mono">widespread concern</td><td>普遍的关注</td><td class="formal">正式</td><td>20–38</td></tr>
+        <tr><td>V + N</td><td class="mono">adopt a lifestyle</td><td>采取一种生活方式</td><td class="formal">正式</td><td>79–96</td></tr>
+        <tr><td>Adj + N</td><td class="mono">fierce competition</td><td>激烈的竞争</td><td class="neutral-c">中性</td><td>118–138</td></tr>
+        <tr><td>Adj + N</td><td class="mono">social competition</td><td>社会竞争</td><td class="formal">正式</td><td>125–147</td></tr>
+        <tr><td>固定短语</td><td class="mono">tend to do</td><td>倾向于做某事</td><td class="formal">正式</td><td>68–77</td></tr>
+        <tr><td>学术连接词</td><td class="mono">nowadays</td><td>当今</td><td class="neutral-c">中性</td><td>0–8</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4: SENTENCE STRUCTURE -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: Nowadays]</span>,
+<span class="t-p">[Pred: there is]</span> <span class="t-o">[Obj: a widespread concern]</span>
+  <span class="t-v">[Adv: over the issue]</span>
+    <span class="t-a">[Appositive Clause]:
+      [that
+        <span class="t-s">[Subj: Chinese young people]</span>
+        <span class="t-p">[Pred: tend to adopt]</span>
+        <span class="t-o">[Obj: a "lying flat" lifestyle]</span>
+        <span class="t-v">[Adv: under fierce social competition]</span>
+      ]</span></div>
+      <div class="depth-note">最深嵌套：2 层（主句 → 同位语从句）。结构清晰，适合学术写作开篇。雅思 Task 2 首段可直接套用。</div>
+    </div>
+
+    <!-- DIM 5: MEMORY -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        There is <span class="slot">【Adj 广泛的】</span> concern over the issue that
+        <span class="slot">【Subj 群体】</span> tend to <span class="slot">【V 行为】</span> <span class="slot">【Obj 方式/现象】</span> under <span class="slot">【Adj 竞争/压力】</span> <span class="slot">【N 背景】</span>.
+      </div>
+      <div class="mnemonic">口诀："现广泛关注 + 何人何行 + 何种背景下"—— 14 字速记。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr>
+          <td class="wrong">易错1</td>
+          <td>There is a widespread concern <strong>of</strong> the issue…</td>
+          <td class="correct">concern <strong>over</strong> the issue</td>
+          <td>"concern over/about" 为固定搭配，不用 "of"</td>
+        </tr>
+        <tr>
+          <td class="wrong">易错2</td>
+          <td>…young people tend <strong>adopting</strong>…</td>
+          <td class="correct">tend <strong>to adopt</strong></td>
+          <td>"tend to + 动词原形"，不可接 doing</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- DIM 6: APPLICATION -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2</td><td>开头段：引出话题背景 + 表明议题。适用于所有 5 种题型（同意与否、双边讨论、利弊分析、原因解决、双重问题）。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>学术讨论中首句介绍话题背景，引出讨论焦点。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>TOEFL Integrated</td><td>不太适用——综合写作需基于阅读/听力。</td><td><span class="score score-2">2</span></td></tr>
+        <tr><td>论文 Introduction</td><td>开篇第一句，从宏观背景引入研究话题。SCI/SSCI 高频句型。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>论文 Method / Results / Discussion / Conclusion</td><td>不适用——此句型用于背景介绍。</td><td><span class="score score-1">1</span></td></tr>
+        <tr><td>商务邮件 / 会议报告</td><td>可用于引出讨论议题。</td><td><span class="score score-3">3</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5（学术期刊引言水平）</div>
+    </div>
+
+    <!-- IMITATION -->
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Nowadays, there is a <strong>growing</strong> concern over the issue that <strong>university graduates</strong> tend to <strong>pursue stable employment</strong> under <strong>economic uncertainty</strong>. <span class="cefr-tag">B2</span> <span class="awl-tag">AWL1–3</span></li>
+        <li>Currently, there is a <strong>heightened</strong> concern over the issue that <strong>urban residents</strong> tend to <strong>prefer online shopping</strong> under <strong>technological transformation</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–5</span></li>
+        <li>In recent years, there is a <strong>mounting</strong> concern over the issue that <strong>working professionals</strong> tend to <strong>neglect mental health</strong> under <strong>excessive occupational demands</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL4–8</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S2                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s2">
+  <div class="sentence-header">
+    <span class="sid">S2</span>
+    <span>总述利弊</span>
+    <span class="section-label">INTRO ¶1</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">In fact</span>, <span class="pred">there are</span> <span class="obj">both advantages and disadvantages</span>
+      <span class="adv">in young people's lying flat phenomenon <span class="attr">in contemporary China</span></span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Existential "there are"</span>
+      <span class="g-tag special">Parallel Structure (both…and…)</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。存在句 "there are" 引出客观评述。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句结构，但含有复杂的介词短语叠加。</td></tr>
+        <tr><td>特殊结构</td><td><strong>平行结构</strong>："both advantages and disadvantages" 为对等并列。<br><strong>存在句</strong>：there are…<br><strong>插入语</strong>："In fact" 作句首连接性状语。</td></tr>
+      </table>
+      <div class="dim-note">学术写作中，"both advantages and disadvantages" 是双边讨论/利弊分析作文的经典总领句，也是论文 Discussion 部分常用框架。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">advantage</td><td class="mono">/ədˈvæntɪdʒ/</td><td>n</td><td>a condition giving greater chance of success / 优势</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B1</span> <span class="awl-tag">AWL3</span></td></tr>
+        <tr><td>2</td><td class="mono">disadvantage</td><td class="mono">/ˌdɪsədˈvæntɪdʒ/</td><td>n</td><td>an unfavorable condition / 劣势，不利因素</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B1</span> <span class="awl-tag">AWL3</span></td></tr>
+        <tr><td>3</td><td class="mono">phenomenon</td><td class="mono">/fəˈnɑːmɪnən/</td><td>n</td><td>a fact or event that can be observed / 现象</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>4</td><td class="mono">contemporary</td><td class="mono">/kənˈtempəreri/</td><td>adj</td><td>belonging to the present time / 当代的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL5</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>固定短语</td><td class="mono">both A and B</td><td>…和…都</td><td class="formal">正式</td><td>12–42</td></tr>
+        <tr><td>Adj + N</td><td class="mono">contemporary China</td><td>当代中国</td><td class="formal">正式</td><td>76–96</td></tr>
+        <tr><td>学术连接词</td><td class="mono">in fact</td><td>事实上</td><td class="neutral-c">中性</td><td>0–6</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: In fact]</span>,
+<span class="t-p">[Pred: there are]</span>
+  <span class="t-o">[Obj: both advantages and disadvantages]</span>
+  <span class="t-v">[Adv/Prep Phrase: in young people's lying flat phenomenon]</span>
+    <span class="t-a">[Attr: in contemporary China]</span></div>
+      <div class="depth-note">最深嵌套：1 层。简单句，逻辑层次通过介词短语逐层限定。清晰易读，适合雅思大作文总领句。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        In fact, there are both <span class="slot">【N 优点 pl.】</span> and <span class="slot">【N 缺点 pl.】</span> in <span class="slot">【N 现象/行为】</span> in <span class="slot">【Adj+N 地域/时代】</span>.
+      </div>
+      <div class="mnemonic">口诀："事实上利弊共存 + 何现象 + 何背景下" —— 六字核心。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…there are both advantages <strong>as well as</strong> disadvantages…</td><td class="correct">both advantages <strong>and</strong> disadvantages</td><td>"both" 固定搭配 "and"，不与 "as well as" 同用</td></tr>
+        <tr><td class="wrong">易错2</td><td>…in young people's lying flat <strong>phenomenons</strong>…</td><td class="correct">phenomenon → phenomena (复数)</td><td>此处单数即可；若需复数用 phenomena</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 双边讨论</td><td>总述段：点明正反两面。配合 "discuss both views" 题型。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>IELTS Task 2 — 利弊分析</td><td>首段总述利弊。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>讨论帖首句概述话题的复杂性。</td><td><span class="score score-3">3</span></td></tr>
+        <tr><td>论文 Discussion</td><td>概述研究发现的正面与局限。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>商务报告</td><td>引出方案的利弊分析。</td><td><span class="score score-3">3</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>In fact, there are both <strong>merits and demerits</strong> in <strong>remote work arrangements</strong> in <strong>modern enterprises</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5</span></li>
+        <li>In fact, there are both <strong>strengths and weaknesses</strong> in <strong>artificial intelligence adoption</strong> in <strong>contemporary education</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–5</span></li>
+        <li>In fact, there are both <strong>benefits and drawbacks</strong> in <strong>globalization processes</strong> in <strong>developing nations</strong>. <span class="cefr-tag">B2</span> <span class="awl-tag">AWL2–5</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S3                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s3">
+  <div class="sentence-header">
+    <span class="sid">S3</span>
+    <span>过渡：先说优点</span>
+    <span class="section-label">BODY ¶1</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">Generally speaking</span>, <span class="subj">it</span> <span class="pred">has</span> <span class="obj">several positive aspects</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Participial Phrase as Adverbial (Generally speaking)</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td><strong>分词短语作状语</strong>："Generally speaking" 为独立分词结构，逻辑主语与句子主语不一致（泛指），在学术写作中视为固定用法。<br>"it" 指代上文的 "lying flat phenomenon"。</td></tr>
+      </table>
+      <div class="dim-note">过渡句虽短，但在雅思评分标准 Coherence and Cohesion 中至关重要。此句实现从"总述"到"分述正面"的逻辑过渡。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">generally</td><td class="mono">/ˈdʒenərəli/</td><td>adv</td><td>in most cases / 总体而言</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B1</span></td></tr>
+        <tr><td>2</td><td class="mono">positive</td><td class="mono">/ˈpɑːzətɪv/</td><td>adj</td><td>good or useful / 积极的，正面的</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B1</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>3</td><td class="mono">aspect</td><td class="mono">/ˈæspekt/</td><td>n</td><td>a particular part of sth / 方面</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>固定短语</td><td class="mono">generally speaking</td><td>总的来说</td><td class="neutral-c">中性</td><td>0–17</td></tr>
+        <tr><td>Adj + N</td><td class="mono">positive aspects</td><td>积极方面</td><td class="formal">正式</td><td>26–42</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: Generally speaking]</span>,
+<span class="t-s">[Subj: it]</span> <span class="t-p">[Pred: has]</span> <span class="t-o">[Obj: several positive aspects]</span></div>
+      <div class="depth-note">最深嵌套：0 层。简单句，作为段落过渡的信号句。写作中不宜过长，简洁有力即可。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        Generally speaking, it has several <span class="slot">【Adj 正面/负面】</span> <span class="slot">【N 方面】</span>.
+      </div>
+      <div class="mnemonic">口诀："总说它有几个正面/反面" —— 五字速记。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td><strong>General speaking</strong>…</td><td class="correct"><strong>Generally</strong> speaking</td><td>需用副词 "generally"，不用形容词 "general"</td></tr>
+        <tr><td class="wrong">易错2</td><td>…it has several <strong>positive aspect</strong>.</td><td class="correct">several positive <strong>aspects</strong></td><td>"several" 后接可数名词复数</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2</td><td>主体段开头过渡句，引导正面/反面论述。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>帖子中过渡到第一分论点。</td><td><span class="score score-3">3</span></td></tr>
+        <tr><td>论文各部分</td><td>较少直接使用，但可在 Discussion 中用于过渡："Generally speaking, the results support…"</td><td><span class="score score-3">3</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-3">3</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Generally speaking, it has several <strong>notable drawbacks</strong>. <span class="cefr-tag">B2</span></li>
+        <li>Generally speaking, this approach offers <strong>multiple practical benefits</strong>. <span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></li>
+        <li>On the whole, it presents <strong>considerable advantages</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL3</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S4                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s4">
+  <div class="sentence-header">
+    <span class="sid">S4</span>
+    <span>优点一：缓解压力</span>
+    <span class="section-label">BODY ¶1</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">Firstly</span>, <span class="attr">moderate</span> <span class="subj">lying flat</span> <span class="pred">helps</span> <span class="obj">young people</span>
+      <span class="comp">alleviate overwhelming pressure</span> <span class="adv">from intense social involution</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Object Complement: help sb do sth</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td><strong>宾语补足语结构</strong>："helps young people alleviate…" = help + 宾语 + 动词原形。学术写作中 "help sb (to) do" 为高频表达。<br><strong>无 to</strong> 的不定式作宾补（美式更常见省 to）。</td></tr>
+      </table>
+      <div class="dim-note">"help sb alleviate/do" 结构在雅思和学术写作中表现因果/解决关系，是 cause-effect 和 problem-solution 类题目的核心句式。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">moderate</td><td class="mono">/ˈmɑːdərət/</td><td>adj</td><td>within reasonable limits / 适度的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL7</span></td></tr>
+        <tr><td>2</td><td class="mono">alleviate</td><td class="mono">/əˈliːvieɪt/</td><td>v</td><td>to make sth less severe / 缓解，减轻</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL6</span></td></tr>
+        <tr><td>3</td><td class="mono">overwhelming</td><td class="mono">/ˌoʊvərˈwelmɪŋ/</td><td>adj</td><td>very great in amount / 压倒性的</td><td class="neutral-c">中性</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>4</td><td class="mono">pressure</td><td class="mono">/ˈpreʃər/</td><td>n</td><td>the force of sth pressing / 压力</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>5</td><td class="mono">intense</td><td class="mono">/ɪnˈtens/</td><td>adj</td><td>extreme in degree / 激烈的，强烈的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL6</span></td></tr>
+        <tr><td>6</td><td class="mono">involution</td><td class="mono">/ˌɪnvəˈluːʃən/</td><td>n</td><td>inward turning; excessive competition / 内卷</td><td class="formal">正式</td><td><span class="cefr-tag">C2</span> (新词)</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">alleviate pressure</td><td>缓解压力</td><td class="formal">正式</td><td>37–58</td></tr>
+        <tr><td>Adj + N</td><td class="mono">overwhelming pressure</td><td>巨大的压力</td><td class="neutral-c">中性</td><td>37–58</td></tr>
+        <tr><td>Adj + N</td><td class="mono">social involution</td><td>社会内卷</td><td class="formal">正式</td><td>64–83</td></tr>
+        <tr><td>Adj + N</td><td class="mono">moderate lying flat</td><td>适度躺平</td><td class="neutral-c">中性</td><td>9–25</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: Firstly]</span>,
+<span class="t-a">[Attr: moderate]</span> <span class="t-s">[Subj: lying flat]</span>
+<span class="t-p">[Pred: helps]</span>
+  <span class="t-o">[Obj: young people]</span>
+  <span class="t-c">[Obj Comp: alleviate overwhelming pressure]</span>
+    <span class="t-v">[Adv: from intense social involution]</span></div>
+      <div class="depth-note">最深嵌套：1 层（介词短语作后置定语修饰 pressure）。结构清晰，help + sb + do 为学术因果论证核心句式。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        Firstly, <span class="slot">【Adj 适度的】</span> <span class="slot">【N/doing 行为】</span> helps <span class="slot">【N 人群】</span> <span class="slot">【V 缓解/解决】</span> <span class="slot">【Adj+N 问题】</span> from <span class="slot">【Adj+N 根源】</span>.
+      </div>
+      <div class="mnemonic">口诀："适度X帮助人缓解Y来自Z" —— 六字公式。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…helps young people <strong>alleviating</strong>…</td><td class="correct">helps young people <strong>alleviate</strong></td><td>"help sb + 原形"，不用 -ing</td></tr>
+        <tr><td class="wrong">易错2</td><td>…<strong>moderate</strong> lying flat helps… (口语化拼写错误)</td><td class="correct">moderate /ˈmɑːdərət/，不写 "modrate"</td><td>注意拼写中的 -er- 部分</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 利弊/原因解决</td><td>分论点展开：阐述某措施如何解决问题。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>讨论中列举第一个原因/好处。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Results / Discussion</td><td>阐释研究结果对问题的缓解作用。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Firstly, <strong>regular</strong> <strong>exercise</strong> helps <strong>employees</strong> alleviate <strong>chronic stress</strong> from <strong>prolonged sedentary work</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL6–8</span></li>
+        <li>Firstly, <strong>appropriate</strong> <strong>regulation</strong> helps <strong>startups</strong> alleviate <strong>financial burden</strong> from <strong>market volatility</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5–8</span></li>
+        <li>Firstly, <strong>balanced</strong> <strong>nutrition</strong> helps <strong>students</strong> alleviate <strong>mental fatigue</strong> from <strong>academic pressure</strong>. <span class="cefr-tag">B2</span> <span class="awl-tag">AWL2–7</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S5                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s5">
+  <div class="sentence-header">
+    <span class="sid">S5</span>
+    <span>补充解释优点一</span>
+    <span class="section-label">BODY ¶1</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="subj">Fierce competition in study and work</span> <span class="pred">often triggers</span>
+      <span class="obj">anxiety and physical exhaustion</span>,
+      <span class="pred">and</span> <span class="subj">a measured approach to lying flat</span>
+      <span class="pred">allows</span> <span class="obj">them</span>
+      <span class="comp">to rest and adjust themselves promptly</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Compound Sentence (and)</span>
+      <span class="g-tag special">Parallel Structure: rest and adjust</span>
+      <span class="g-tag special">Parallel Structure: anxiety and physical exhaustion</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。<strong>并列复合句</strong>，两个分句由 "and" 连接。</td></tr>
+        <tr><td>特殊结构</td><td><strong>平行结构×2</strong>：① "anxiety and physical exhaustion"（名词并列）；② "rest and adjust themselves"（动词并列）。<br><strong>allow sb to do sth</strong>：使役动词结构，不定式作宾补。</td></tr>
+      </table>
+      <div class="dim-note">并列句 + 平行结构在雅思写作 Coherence and Cohesion 维度加分。SCI 论文中，因果链条的展开常用此句式。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">trigger</td><td class="mono">/ˈtrɪɡər/</td><td>v</td><td>to cause sth to happen / 引发，触发</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>2</td><td class="mono">anxiety</td><td class="mono">/æŋˈzaɪəti/</td><td>n</td><td>a feeling of worry / 焦虑</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL8</span></td></tr>
+        <tr><td>3</td><td class="mono">exhaustion</td><td class="mono">/ɪɡˈzɔːstʃən/</td><td>n</td><td>extreme tiredness / 精疲力竭</td><td class="neutral-c">中性</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>4</td><td class="mono">measured</td><td class="mono">/ˈmeʒərd/</td><td>adj</td><td>carefully considered / 慎重的，有分寸的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>5</td><td class="mono">approach</td><td class="mono">/əˈproʊtʃ/</td><td>n</td><td>a way of dealing with sth / 方法，途径</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>6</td><td class="mono">adjust</td><td class="mono">/əˈdʒʌst/</td><td>v</td><td>to change slightly to fit / 调整</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>7</td><td class="mono">promptly</td><td class="mono">/ˈprɑːmptli/</td><td>adv</td><td>without delay / 迅速地，及时地</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">trigger anxiety</td><td>引发焦虑</td><td class="neutral-c">中性</td><td>50–66</td></tr>
+        <tr><td>Adj + N</td><td class="mono">physical exhaustion</td><td>身体疲劳</td><td class="neutral-c">中性</td><td>71–91</td></tr>
+        <tr><td>Adj + N</td><td class="mono">measured approach</td><td>慎重的方法</td><td class="formal">正式</td><td>97–117</td></tr>
+        <tr><td>固定短语</td><td class="mono">to lying flat</td><td>对于躺平</td><td class="neutral-c">中性</td><td>118–131</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-s">[Subj: Fierce competition <span class="t-v">[Adv: in study and work]</span>]</span>
+  <span class="t-p">[Pred: often triggers]</span>
+  <span class="t-o">[Obj: anxiety and physical exhaustion]</span>,
+<span class="t-p">[Conj: and]</span>
+<span class="t-s">[Subj: a measured approach to lying flat]</span>
+  <span class="t-p">[Pred: allows]</span>
+  <span class="t-o">[Obj: them]</span>
+  <span class="t-c">[Obj Comp: to rest and adjust themselves promptly]</span></div>
+      <div class="depth-note">最深嵌套：1 层（不定式短语内含并列动词）。并列句提供"问题→对策"的逻辑链，是议论文展开论证的基本单元。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        <span class="slot">【Adj+N 问题源】</span> often triggers <span class="slot">【N 问题1】</span> and <span class="slot">【N 问题2】</span>,
+        and <span class="slot">【Adj+N 对策】</span> allows <span class="slot">【pron 他们】</span> to <span class="slot">【V1】</span> and <span class="slot">【V2】</span> <span class="slot">【Adv 方式】</span>.
+      </div>
+      <div class="mnemonic">口诀："X引发问题1和2，Y方案允许人做A和B" —— 并列因果链。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…allows them <strong>resting</strong>…</td><td class="correct">allows them <strong>to rest</strong></td><td>"allow sb <strong>to do</strong>" 必须带 to</td></tr>
+        <tr><td class="wrong">易错2</td><td>…anxiety and <strong>physically</strong> exhaustion…</td><td class="correct">anxiety and <strong>physical</strong> exhaustion</td><td>"physical" 为形容词修饰名词，不用副词</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 原因解决</td><td>原因→结果→解决措施链式论证。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>展开第一论点的解释与例证。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Discussion</td><td>阐述变量关系及对策效果。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li><strong>High workload in the office</strong> often triggers <strong>burnout and chronic fatigue</strong>, and <strong>a flexible schedule</strong> allows employees to <strong>recover and recharge regularly</strong>. <span class="cefr-tag">C1</span></li>
+        <li><strong>Excessive screen time</strong> often triggers <strong>insomnia and eye strain</strong>, and <strong>digital detox</strong> allows individuals to <strong>rest and recuperate effectively</strong>. <span class="cefr-tag">C1</span></li>
+        <li><strong>Poor urban planning</strong> often triggers <strong>congestion and pollution</strong>, and <strong>a green infrastructure approach</strong> allows cities to <strong>adapt and thrive sustainably</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL7</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S6                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s6">
+  <div class="sentence-header">
+    <span class="sid">S6</span>
+    <span>优点二：促进社会反思</span>
+    <span class="section-label">BODY ¶1</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">Secondly</span>, <span class="subj">this phenomenon</span> <span class="pred">prompts</span>
+      <span class="obj">societal reflection on irrational cutthroat competition</span>,
+      <span class="pred">encouraging</span> <span class="obj">the reduction of unnecessary internal consumption</span>
+      <span class="pred">and fostering</span> <span class="obj">a healthier social atmosphere</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Present Participial Phrase as Adverbial (encouraging…, fostering…)</span>
+      <span class="g-tag special">Parallel Structure: encouraging… and fostering…</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句 + 分词短语扩展。</td></tr>
+        <tr><td>特殊结构</td><td><strong>现在分词短语作结果/伴随状语</strong>："encouraging… and fostering…" 进一步展开主句动作的连带效果。<br><strong>平行结构</strong>：encouraging X and fostering Y —— 两个现在分词并列。</td></tr>
+      </table>
+      <div class="dim-note">分词短语替代 "and it encourages…" 可使句子更紧凑，是雅思 7+ 和 SCI 论文的标志性简练句法。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">prompt</td><td class="mono">/prɑːmpt/</td><td>v</td><td>to cause or bring about / 促使</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>2</td><td class="mono">societal</td><td class="mono">/səˈsaɪətəl/</td><td>adj</td><td>relating to society / 社会的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>3</td><td class="mono">reflection</td><td class="mono">/rɪˈflekʃən/</td><td>n</td><td>deep thought about sth / 反思</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL6</span></td></tr>
+        <tr><td>4</td><td class="mono">irrational</td><td class="mono">/ɪˈræʃənəl/</td><td>adj</td><td>not logical or reasonable / 不合理的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>5</td><td class="mono">cutthroat</td><td class="mono">/ˈkʌtθroʊt/</td><td>adj</td><td>extremely competitive / 残酷竞争的</td><td class="informal">非正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>6</td><td class="mono">reduction</td><td class="mono">/rɪˈdʌkʃən/</td><td>n</td><td>the act of making sth smaller / 减少</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>7</td><td class="mono">consumption</td><td class="mono">/kənˈsʌmpʃən/</td><td>n</td><td>the using up of resources / 消耗</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL4</span></td></tr>
+        <tr><td>8</td><td class="mono">foster</td><td class="mono">/ˈfɑːstər/</td><td>v</td><td>to encourage the development of / 促进</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL8</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">prompts reflection</td><td>促使反思</td><td class="formal">正式</td><td>24–50</td></tr>
+        <tr><td>Adj + N</td><td class="mono">cutthroat competition</td><td>残酷竞争</td><td class="informal">非正式</td><td>57–80</td></tr>
+        <tr><td>V + N</td><td class="mono">foster a social atmosphere</td><td>营造良好社会氛围</td><td class="formal">正式</td><td>120–152</td></tr>
+        <tr><td>Adj + N</td><td class="mono">internal consumption</td><td>内部消耗</td><td class="formal">正式</td><td>100–120</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: Secondly]</span>,
+<span class="t-s">[Subj: this phenomenon]</span>
+  <span class="t-p">[Pred: prompts]</span>
+  <span class="t-o">[Obj: societal reflection on irrational cutthroat competition]</span>,
+  <span class="t-v">[Participial Phrase (Result/Attendant):</span>
+    <span class="t-p">encouraging</span> <span class="t-o">the reduction of unnecessary internal consumption</span>
+    <span class="t-p">and fostering</span> <span class="t-o">a healthier social atmosphere</span><span class="t-v">]</span></div>
+      <div class="depth-note">最深嵌套：2 层（主句 → 分词短语内含介词短语修饰）。分词短语作结果状语使论证层层递进，逻辑紧凑。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        Secondly, <span class="slot">【pron 这个现象】</span> prompts <span class="slot">【Adj+N 反思/讨论】</span>,
+        <span class="slot">【V-ing1 促进】</span> <span class="slot">【N 效果1】</span>
+        and <span class="slot">【V-ing2 培育】</span> <span class="slot">【Adj+N 效果2】</span>.
+      </div>
+      <div class="mnemonic">口诀："第二，X促使反思，带动效果1和效果2" —— 分词拓展法。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…prompts societal reflection <strong>in</strong>…</td><td class="correct">reflection <strong>on</strong></td><td>"reflection on sth" 为固定搭配</td></tr>
+        <tr><td class="wrong">易错2</td><td>…encouraging the reduction… and <strong>foster</strong>…</td><td class="correct">…and <strong>fostering</strong>…</td><td>并列分词需保持一致：encouraging … and fostering</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 利弊/双边</td><td>正面分论点 + 分词拓展效果。评分标准 CC 和 LR 均受益。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>论述中展示因果链条的多层次展开。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Discussion</td><td>阐述研究发现对更广泛领域的启示。</td><td><span class="score score-5">5</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5（学术期刊水平）</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Secondly, <strong>this reform</strong> prompts <strong>institutional reflection on outdated bureaucratic practices</strong>, <strong>encouraging</strong> the <strong>elimination of redundant procedures</strong> and <strong>fostering</strong> a <strong>more efficient administrative culture</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL4–8</span></li>
+        <li>Secondly, <strong>this policy</strong> prompts <strong>public reflection on environmental degradation</strong>, <strong>encouraging</strong> the <strong>adoption of sustainable practices</strong> and <strong>fostering</strong> a <strong>greener collective consciousness</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5–7</span></li>
+        <li>Secondly, <strong>this movement</strong> prompts <strong>cultural reflection on gender inequality</strong>, <strong>encouraging</strong> the <strong>abolition of discriminatory norms</strong> and <strong>fostering</strong> a <strong>more inclusive societal environment</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5–8</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S7                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s7">
+  <div class="sentence-header">
+    <span class="sid">S7</span>
+    <span>过渡：事物两面</span>
+    <span class="section-label">BODY ¶2</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">Just as a popular saying goes</span>, "<span class="subj">every coin</span> <span class="pred">has</span> <span class="obj">two sides</span>."
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag clause">Adverbial Clause of Comparison (as… goes)</span>
+      <span class="g-tag special">Quotation / 引用</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td><strong>状语从句（比较/方式）</strong>："Just as a popular saying goes" 修饰主句，表示引用方式。</td></tr>
+        <tr><td>特殊结构</td><td><strong>引用句 (Quotation)</strong>：谚语作为论证过渡，增加说服力和修辞色彩。</td></tr>
+      </table>
+      <div class="dim-note">引用谚语/名言是雅思写作中增强 Language Resource 的修辞手段，但不宜过多（全文 1–2 次）。SCI 论文中极少使用谚语，更适合议论文和报告。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">saying</td><td class="mono">/ˈseɪɪŋ/</td><td>n</td><td>a well-known phrase / 谚语，格言</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>固定短语</td><td class="mono">just as … goes</td><td>正如…所说</td><td class="neutral-c">中性</td><td>0–28</td></tr>
+        <tr><td>固定短语</td><td class="mono">every coin has two sides</td><td>凡事皆有两面</td><td class="neutral-c">中性</td><td>31–60</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv Clause (Comparison): Just as a popular saying goes]</span>,
+  "<span class="t-s">[Subj: every coin]</span> <span class="t-p">[Pred: has]</span> <span class="t-o">[Obj: two sides]</span>."</div>
+      <div class="depth-note">最深嵌套：1 层（状语从句）。结构简洁，作为段落过渡信号。学术写作中可替换为更正式的表达。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        Just as a popular saying goes, "<span class="slot">【谚语/名言】</span>."
+      </div>
+      <div class="mnemonic">口诀："正如一句老话说…" —— 四字引入法。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>Just as a popular saying <strong>said</strong>…</td><td class="correct">Just as a popular saying <strong>goes</strong></td><td>固定搭配 "as the saying goes"，用一般现在时</td></tr>
+        <tr><td class="wrong">易错2</td><td>Just as <strong>the</strong> popular saying goes…</td><td class="correct"><strong>a</strong> popular saying / <strong>the</strong> saying goes</td><td>两种都可，但 "a popular saying" 更自然</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 所有题型</td><td>段落间过渡，从正面转入反面。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>讨论中引入辩证观点。</td><td><span class="score score-3">3</span></td></tr>
+        <tr><td>SCI 论文</td><td>不适用——期刊论文避免谚语。</td><td><span class="score score-1">1</span></td></tr>
+        <tr><td>商务邮件</td><td>不太推荐，可能显得不够专业。</td><td><span class="score score-1">1</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-2">2</span>/5（适合议论文，不适合学术期刊）</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Just as a popular saying goes, "<strong>prevention is better than cure</strong>." <span class="cefr-tag">B2</span></li>
+        <li>Just as a well-known proverb states, "<strong>knowledge is power</strong>." <span class="cefr-tag">B2</span></li>
+        <li>Just as an old adage suggests, "<strong>too much of a good thing can be harmful</strong>." <span class="cefr-tag">C1</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S8                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s8">
+  <div class="sentence-header">
+    <span class="sid">S8</span>
+    <span>引出负面</span>
+    <span class="section-label">BODY ¶2</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="subj">The young people's lying flat phenomenon</span>
+      <span class="pred">is</span> <span class="comp">no exception</span>
+      <span class="pred">and has</span> <span class="obj">notable negative implications</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Compound Predicate (is… and has…)</span>
+      <span class="g-tag special">Idiom: no exception</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句，并列谓语。</td></tr>
+        <tr><td>特殊结构</td><td><strong>并列谓语</strong>：is no exception and has… 同一主语两个谓语。<br><strong>习语</strong>："no exception" = 也不例外。"be no exception" 是议论文高频过渡表达。</td></tr>
+      </table>
+      <div class="dim-note">"A is no exception" 结构在雅思 Task 2 中用于从一般性论述过渡到具体话题，逻辑连贯性强。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">exception</td><td class="mono">/ɪkˈsepʃən/</td><td>n</td><td>sth not included in a rule / 例外</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL5</span></td></tr>
+        <tr><td>2</td><td class="mono">notable</td><td class="mono">/ˈnoʊtəbəl/</td><td>adj</td><td>worthy of attention / 显著的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL6</span></td></tr>
+        <tr><td>3</td><td class="mono">negative</td><td class="mono">/ˈneɡətɪv/</td><td>adj</td><td>harmful or bad / 消极的，负面的</td><td class="formal">正式</td><td><span class="cefr-tag">B1</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>4</td><td class="mono">implication</td><td class="mono">/ˌɪmplɪˈkeɪʃən/</td><td>n</td><td>a possible consequence / 影响，含义</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL3</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>固定短语</td><td class="mono">be no exception</td><td>也不例外</td><td class="formal">正式</td><td>43–57</td></tr>
+        <tr><td>Adj + N</td><td class="mono">negative implications</td><td>负面影响</td><td class="formal">正式</td><td>63–86</td></tr>
+        <tr><td>Adj + N</td><td class="mono">notable implications</td><td>显著的含义</td><td class="formal">正式</td><td>63–86</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-s">[Subj: The young people's lying flat phenomenon]</span>
+<span class="t-p">[Pred1: is]</span> <span class="t-c">[Comp: no exception]</span>
+<span class="t-p">[Pred2: and has]</span> <span class="t-o">[Obj: notable negative implications]</span></div>
+      <div class="depth-note">最深嵌套：0 层。并列谓语结构简洁有力，适合议论文中转折段的起始句。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        <span class="slot">【N 话题】</span> is no exception and has <span class="slot">【Adj+N 负面影响 pl.】</span>.
+      </div>
+      <div class="mnemonic">口诀："X也不例外，有显著负面影响" —— 转折过渡句。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…is no <strong>exceptional</strong>…</td><td class="correct">is no <strong>exception</strong></td><td>"exception" 为名词，"exceptional" 为形容词</td></tr>
+        <tr><td class="wrong">易错2</td><td>…and <strong>have</strong> notable negative implications.</td><td class="correct">and <strong>has</strong></td><td>主语 "phenomenon" 为单数，用 "has"</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 双边/利弊</td><td>从正面论述转入反面论述的过渡句。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>转折过渡，引出反面论点。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Discussion</td><td>引出研究的局限性或负面影响。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li><strong>The digital revolution</strong> is no exception and has <strong>profound societal implications</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL3–5</span></li>
+        <li><strong>Globalization</strong> is no exception and has <strong>significant economic consequences</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–3</span></li>
+        <li><strong>Climate change</strong> is no exception and has <strong>alarming environmental repercussions</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S9                   ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s9">
+  <div class="sentence-header">
+    <span class="sid">S9</span>
+    <span>缺点一：削弱进取精神</span>
+    <span class="section-label">BODY ¶2</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">To begin with</span>, <span class="attr">excessive</span> <span class="subj">lying flat</span>
+      <span class="pred">undermines</span> <span class="obj">young people's enterprising spirit</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Infinitive Phrase as Adverbial (To begin with)</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td><strong>不定式短语作连接性状语</strong>："To begin with" 为固定表达，相当于 "Firstly"，用于引出第一个论点。</td></tr>
+      </table>
+      <div class="dim-note">"To begin with" 比 "Firstly" 稍正式，适合雅思和学术论文中段落开头的分论点标记。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">excessive</td><td class="mono">/ɪkˈsesɪv/</td><td>adj</td><td>more than necessary / 过度的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL6</span></td></tr>
+        <tr><td>2</td><td class="mono">undermine</td><td class="mono">/ˌʌndərˈmaɪn/</td><td>v</td><td>to gradually weaken / 削弱，破坏</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL8</span></td></tr>
+        <tr><td>3</td><td class="mono">enterprising</td><td class="mono">/ˈentərpraɪzɪŋ/</td><td>adj</td><td>showing initiative and resourcefulness / 有进取心的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>4</td><td class="mono">spirit</td><td class="mono">/ˈspɪrɪt/</td><td>n</td><td>a particular quality or attitude / 精神</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">undermine spirit</td><td>削弱精神</td><td class="formal">正式</td><td>37–68</td></tr>
+        <tr><td>Adj + N</td><td class="mono">enterprising spirit</td><td>进取精神</td><td class="formal">正式</td><td>50–68</td></tr>
+        <tr><td>Adj + N</td><td class="mono">excessive lying flat</td><td>过度躺平</td><td class="neutral-c">中性</td><td>15–35</td></tr>
+        <tr><td>固定短语</td><td class="mono">to begin with</td><td>首先</td><td class="formal">正式</td><td>0–13</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: To begin with]</span>,
+<span class="t-a">[Attr: excessive]</span> <span class="t-s">[Subj: lying flat]</span>
+<span class="t-p">[Pred: undermines]</span>
+  <span class="t-o">[Obj: young people's enterprising spirit]</span></div>
+      <div class="depth-note">最深嵌套：0 层。简洁的 SVO 结构，适合作为分论点主题句 (topic sentence)。学术写作中主题句宜简短有力。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        To begin with, <span class="slot">【Adj 过度的】</span> <span class="slot">【N 行为】</span>
+        undermines <span class="slot">【N 群体's】</span> <span class="slot">【Adj+N 品质】</span>.
+      </div>
+      <div class="mnemonic">口诀："首当其冲，过度X削弱Y精神" —— 六字模板。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…undermine young people's <strong>enterprise</strong> spirit.</td><td class="correct"><strong>enterprising</strong> spirit</td><td>"enterprising" 为形容词修饰 spirit，"enterprise" 为名词</td></tr>
+        <tr><td class="wrong">易错2</td><td><strong>To begin</strong>…（缺少 with）</td><td class="correct">To begin <strong>with</strong></td><td>"to begin with" 是固定短语，不可省略 "with"</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 同意与否/利弊</td><td>反面分论点主题句。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>列举第一个缺点/原因。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Discussion</td><td>指出研究发现的负面效应。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>To begin with, <strong>excessive</strong> <strong>screen time</strong> undermines <strong>children's creative imagination</strong>. <span class="cefr-tag">B2</span> <span class="awl-tag">AWL6</span></li>
+        <li>To begin with, <strong>unregulated</strong> <strong>social media use</strong> undermines <strong>teenagers' critical thinking ability</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–8</span></li>
+        <li>To begin with, <strong>overreliance on automation</strong> undermines <strong>workers' professional competence</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL6–8</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S10                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s10">
+  <div class="sentence-header">
+    <span class="sid">S10</span>
+    <span>展开缺点一</span>
+    <span class="section-label">BODY ¶2</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="subj">Blindly abandoning struggle and embracing passivity</span>
+      <span class="pred">impedes</span> <span class="obj">personal growth</span>,
+      <span class="pred">weakens</span> <span class="obj">social competitiveness</span>,
+      <span class="pred">and results in</span> <span class="obj">missed development opportunities</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Gerund Phrase as Subject</span>
+      <span class="g-tag special">Triple Parallel Predicate (impedes…, weakens…, and results in…)</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td><strong>动名词短语作主语</strong>："Blindly abandoning struggle and embracing passivity" —— 动名词复合结构作主语，需用第三人称单数谓语（impedes, weakens）。<br><strong>三重平行谓语</strong>：impedes X, weakens Y, and results in Z。</td></tr>
+      </table>
+      <div class="dim-note">三重平行结构是雅思写作评分标准 Grammatical Range and Accuracy 的高分信号。SCI 论文中用于列举多重结果。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">blindly</td><td class="mono">/ˈblaɪndli/</td><td>adv</td><td>without thought or judgment / 盲目地</td><td class="neutral-c">中性</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>2</td><td class="mono">abandon</td><td class="mono">/əˈbændən/</td><td>v</td><td>to give up completely / 放弃</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL8</span></td></tr>
+        <tr><td>3</td><td class="mono">struggle</td><td class="mono">/ˈstrʌɡəl/</td><td>n</td><td>a great effort / 奋斗</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>4</td><td class="mono">embrace</td><td class="mono">/ɪmˈbreɪs/</td><td>v</td><td>to accept willingly / 拥抱，接受</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>5</td><td class="mono">passivity</td><td class="mono">/pæˈsɪvəti/</td><td>n</td><td>lack of active response / 被动性</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>6</td><td class="mono">impede</td><td class="mono">/ɪmˈpiːd/</td><td>v</td><td>to delay or prevent / 阻碍</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL8</span></td></tr>
+        <tr><td>7</td><td class="mono">growth</td><td class="mono">/ɡroʊθ/</td><td>n</td><td>the process of developing / 成长</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL3</span></td></tr>
+        <tr><td>8</td><td class="mono">weaken</td><td class="mono">/ˈwiːkən/</td><td>v</td><td>to make weaker / 削弱</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>9</td><td class="mono">competitiveness</td><td class="mono">/kəmˈpetɪtɪvnəs/</td><td>n</td><td>ability to compete successfully / 竞争力</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>10</td><td class="mono">opportunity</td><td class="mono">/ˌɑːpərˈtuːnəti/</td><td>n</td><td>a favorable chance / 机会</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">abandon struggle</td><td>放弃奋斗</td><td class="formal">正式</td><td>9–27</td></tr>
+        <tr><td>V + N</td><td class="mono">embrace passivity</td><td>接受消极</td><td class="formal">正式</td><td>32–50</td></tr>
+        <tr><td>V + N</td><td class="mono">impede growth</td><td>阻碍成长</td><td class="formal">正式</td><td>53–72</td></tr>
+        <tr><td>V + N</td><td class="mono">weaken competitiveness</td><td>削弱竞争力</td><td class="formal">正式</td><td>74–100</td></tr>
+        <tr><td>固定短语</td><td class="mono">result in</td><td>导致</td><td class="formal">正式</td><td>102–113</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-s">[Subj: Blindly abandoning struggle and embracing passivity]</span>
+  <span class="t-p">[Pred1: impedes]</span> <span class="t-o">[Obj1: personal growth]</span>,
+  <span class="t-p">[Pred2: weakens]</span> <span class="t-o">[Obj2: social competitiveness]</span>,
+  <span class="t-p">[Pred3: and results in]</span> <span class="t-o">[Obj3: missed development opportunities]</span></div>
+      <div class="depth-note">最深嵌套：0 层（并列结构）。动名词作主语 + 三重并列谓语，结构对称、逻辑递进，是高分范文的标志性句法。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        <span class="slot">【Adv 盲目地】</span> <span class="slot">【V-ing1 放弃】</span> <span class="slot">【N1】</span> and <span class="slot">【V-ing2 接受】</span> <span class="slot">【N2】</span>
+        impedes <span class="slot">【N3】</span>, weakens <span class="slot">【N4】</span>, and results in <span class="slot">【N5】</span>.
+      </div>
+      <div class="mnemonic">口诀："盲目弃A迎B，阻碍C削弱D导致E" —— 五字递减链。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>Blindly abandoning… <strong>impede</strong>…</td><td class="correct"><strong>impedes</strong></td><td>动名词短语作主语视为单数，谓语加 -s</td></tr>
+        <tr><td class="wrong">易错2</td><td>…results in <strong>miss</strong> development opportunities.</td><td class="correct"><strong>missed</strong> development</td><td>"missed" 为过去分词作定语，修饰 opportunities</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 同意与否/利弊</td><td>反面论据展开：列举多重负面影响。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>展开论点，列举多个后果。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>论文 Results / Discussion</td><td>阐述某因素导致的多重负面结果。</td><td><span class="score score-5">5</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li><strong>Excessively relying on technology and neglecting face-to-face interaction</strong> impedes <strong>social skill development</strong>, weakens <strong>interpersonal bonds</strong>, and results in <strong>increased social isolation</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–8</span></li>
+        <li><strong>Persistently ignoring regulations and exploiting loopholes</strong> impedes <strong>market fairness</strong>, weakens <strong>public trust</strong>, and results in <strong>long-term economic instability</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–7</span></li>
+        <li><strong>Continuously postponing reform and clinging to tradition</strong> impedes <strong>institutional progress</strong>, weakens <strong>organizational efficiency</strong>, and results in <strong>missed innovation opportunities</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–8</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S11                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s11">
+  <div class="sentence-header">
+    <span class="sid">S11</span>
+    <span>缺点二：抑制社会活力</span>
+    <span class="section-label">BODY ¶2</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">In addition</span>, <span class="attr">the pervasive</span> <span class="subj">trend of lying flat</span>
+      <span class="pred">dampens</span> <span class="obj">social vitality</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">无特殊结构（简洁 SVO）</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td>标准 SVO 结构，"In addition" 为过渡连接词。简洁的 topic sentence。</td></tr>
+      </table>
+      <div class="dim-note">短小精悍的主题句在雅思写作中常与后续展开句形成"主题句+支撑"结构，是 Coherence 的核心。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">pervasive</td><td class="mono">/pərˈveɪsɪv/</td><td>adj</td><td>present throughout / 普遍的，弥漫的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL10</span></td></tr>
+        <tr><td>2</td><td class="mono">trend</td><td class="mono">/trend/</td><td>n</td><td>a general direction of change / 趋势</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL5</span></td></tr>
+        <tr><td>3</td><td class="mono">dampen</td><td class="mono">/ˈdæmpən/</td><td>v</td><td>to make sth weaker / 抑制，使减弱</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>4</td><td class="mono">vitality</td><td class="mono">/vaɪˈtæləti/</td><td>n</td><td>energy and enthusiasm / 活力</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL10</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">dampen social vitality</td><td>抑制社会活力</td><td class="formal">正式</td><td>39–57</td></tr>
+        <tr><td>Adj + N</td><td class="mono">pervasive trend</td><td>普遍的趋势</td><td class="formal">正式</td><td>12–27</td></tr>
+        <tr><td>学术连接词</td><td class="mono">in addition</td><td>此外</td><td class="formal">正式</td><td>0–10</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: In addition]</span>,
+<span class="t-a">[Attr: the pervasive]</span> <span class="t-s">[Subj: trend of lying flat]</span>
+<span class="t-p">[Pred: dampens]</span>
+  <span class="t-o">[Obj: social vitality]</span></div>
+      <div class="depth-note">最深嵌套：0 层。最简洁的 SVO 句型，作为分论点主题句。学术写作中主题句越简洁，读者越容易抓住论点。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        In addition, the <span class="slot">【Adj 普遍的】</span> trend of <span class="slot">【N 行为】</span>
+        <span class="slot">【V 抑制/削弱】</span> <span class="slot">【N 社会品质】</span>.
+      </div>
+      <div class="mnemonic">口诀："此外，X趋势削弱社会活力" —— 四字公式。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…the <strong>pervasion</strong> trend…</td><td class="correct">the <strong>pervasive</strong> trend</td><td>"pervasive" 为形容词，"pervasion" 为名词</td></tr>
+        <tr><td class="wrong">易错2</td><td>In <strong>addition to</strong> the trend dampens…</td><td class="correct">In addition, the trend <strong>dampens</strong>…</td><td>"in addition" 后接句子用逗号；"in addition to" 后接名词/动名词</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2</td><td>第二个分论点主题句。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>讨论帖中补充第二个论点。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Discussion</td><td>补充指出另一维度的影响。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-4">4</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>In addition, the <strong>alarming</strong> trend of <strong>brain drain</strong> dampens <strong>regional innovation</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5</span></li>
+        <li>In addition, the <strong>widespread</strong> trend of <strong>digital addiction</strong> dampens <strong>educational engagement</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL4–5</span></li>
+        <li>In addition, the <strong>growing</strong> trend of <strong>urban migration</strong> dampens <strong>rural economic development</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–5</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S12                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s12">
+  <div class="sentence-header">
+    <span class="sid">S12</span>
+    <span>展开缺点二</span>
+    <span class="section-label">BODY ¶2</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">As the driving force behind progress</span>,
+      <span class="subj">young people's passive attitude toward challenges</span>
+      <span class="pred">significantly hampers</span>
+      <span class="obj">long-term innovation and economic advancement</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Prepositional Phrase as Adverbial (As…)</span>
+      <span class="g-tag special">Parallel Object: innovation and advancement</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。<strong>介词短语 "As the driving force behind progress"</strong> 作状语，含有隐含的同位/比喻功能，说明主语的角色身份。</td></tr>
+        <tr><td>特殊结构</td><td><strong>平行宾语</strong>：innovation and economic advancement。<br><strong>As 介词短语前置</strong>：先交代背景角色，再陈述观点，增加句式变化。</td></tr>
+      </table>
+      <div class="dim-note">"As + NP" 前置状语在雅思 7+ 作文和 SCI 论文中常见，用于交代主语的身份或角色背景，增加句子的信息密度。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">driving</td><td class="mono">/ˈdraɪvɪŋ/</td><td>adj</td><td>providing the force to move / 驱动的</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>2</td><td class="mono">force</td><td class="mono">/fɔːrs/</td><td>n</td><td>power or strength / 力量</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B1</span></td></tr>
+        <tr><td>3</td><td class="mono">progress</td><td class="mono">/ˈprɑːɡres/</td><td>n</td><td>forward movement / 进步</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL1</span></td></tr>
+        <tr><td>4</td><td class="mono">passive</td><td class="mono">/ˈpæsɪv/</td><td>adj</td><td>accepting without resistance / 被动的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL8</span></td></tr>
+        <tr><td>5</td><td class="mono">attitude</td><td class="mono">/ˈætɪtuːd/</td><td>n</td><td>a way of thinking or feeling / 态度</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL4</span></td></tr>
+        <tr><td>6</td><td class="mono">significantly</td><td class="mono">/sɪɡˈnɪfɪkəntli/</td><td>adv</td><td>in an important way / 显著地</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL1</span></td></tr>
+        <tr><td>7</td><td class="mono">hamper</td><td class="mono">/ˈhæmpər/</td><td>v</td><td>to prevent from doing easily / 妨碍</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>8</td><td class="mono">innovation</td><td class="mono">/ˌɪnəˈveɪʃən/</td><td>n</td><td>the introduction of new ideas / 创新</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL5</span></td></tr>
+        <tr><td>9</td><td class="mono">advancement</td><td class="mono">/ədˈvænsmənt/</td><td>n</td><td>the process of moving forward / 进步</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>固定短语</td><td class="mono">driving force behind</td><td>背后的驱动力</td><td class="formal">正式</td><td>3–30</td></tr>
+        <tr><td>Adj + N</td><td class="mono">passive attitude</td><td>消极态度</td><td class="formal">正式</td><td>43–60</td></tr>
+        <tr><td>固定短语</td><td class="mono">attitude toward</td><td>对…的态度</td><td class="formal">正式</td><td>60–80</td></tr>
+        <tr><td>V + N</td><td class="mono">hamper innovation</td><td>妨碍创新</td><td class="formal">正式</td><td>90–110</td></tr>
+        <tr><td>Adj + N</td><td class="mono">economic advancement</td><td>经济发展</td><td class="formal">正式</td><td>115–140</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv/Prep Phrase: As the driving force behind progress]</span>,
+<span class="t-s">[Subj: young people's passive attitude toward challenges]</span>
+<span class="t-p">[Pred: significantly hampers]</span>
+  <span class="t-o">[Obj: long-term innovation and economic advancement]</span></div>
+      <div class="depth-note">最深嵌套：1 层（介词短语内含后置定语 "behind progress"）。"As…" 前置状语使主语角色鲜明，论证更有说服力。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        As the <span class="slot">【N 驱动力/关键角色】</span> behind <span class="slot">【N 目标】</span>,
+        <span class="slot">【N 群体's Adj+N 态度/行为】</span> significantly <span class="slot">【V 妨碍】</span> <span class="slot">【N 成果1 and N 成果2】</span>.
+      </div>
+      <div class="mnemonic">口诀："作为X背后的推力，Y的Z态度显著妨碍A和B" —— 双重信息句。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…attitude <strong>for</strong> challenges…</td><td class="correct">attitude <strong>toward/towards</strong> challenges</td><td>"attitude toward(s)" 为固定搭配</td></tr>
+        <tr><td class="wrong">易错2</td><td>…<strong>significance</strong> hampers…</td><td class="correct">…<strong>significantly</strong> hampers…</td><td>修饰动词需用副词 "significantly"</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2</td><td>展开分论点：阐述因果关系和影响范围。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>展开讨论，强调某因素的广泛影响。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>论文 Discussion</td><td>"As the driving force behind…" 可用于讨论部分的理论框架引用。</td><td><span class="score score-5">5</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>As the <strong>cornerstone of democracy</strong>, <strong>voters' apathy toward civic participation</strong> significantly hampers <strong>governance quality and public accountability</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL4–8</span></li>
+        <li>As the <strong>primary engine of economic growth</strong>, <strong>entrepreneurs' reluctance to invest</strong> significantly hampers <strong>technological progress and employment creation</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–8</span></li>
+        <li>As the <strong>foundation of scientific advancement</strong>, <strong>researchers' conservative attitude toward risk</strong> significantly hampers <strong>breakthrough discoveries and paradigm shifts</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5–8</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S13                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s13">
+  <div class="sentence-header">
+    <span class="sid">S13</span>
+    <span>结论总述：扬长避短</span>
+    <span class="section-label">CONCLUSION</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">To sum up</span>, <span class="subj">we</span> <span class="pred">should fully leverage</span>
+      <span class="obj">the benefits of the lying flat phenomenon</span>
+      <span class="adv">while mitigating its drawbacks</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present (Modal: should)</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag clause">Reduced Adverbial Clause (while + V-ing)</span>
+      <span class="g-tag special">Ellipsis: while (we are) mitigating…</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时 + 情态动词 should</strong> + <strong>主动语态</strong>。should 表示建议/义务。</td></tr>
+        <tr><td>从句类型</td><td><strong>省略状语从句</strong>："while mitigating…" = "while we are mitigating…"，省略了主语和 be 动词。</td></tr>
+        <tr><td>特殊结构</td><td><strong>while + V-ing</strong> 表示让步/同时进行，为学术写作高频结构。<br><strong>不定式短语作目的/连接状语</strong>："To sum up" 标记结论段。</td></tr>
+      </table>
+      <div class="dim-note">"while + V-ing" 省略结构是雅思 7+ 和 SCI 论文中展示语法多样性的关键句式，体现高级语法控制力。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">leverage</td><td class="mono">/ˈlevərɪdʒ/</td><td>v</td><td>to use sth to maximum advantage / 利用</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>2</td><td class="mono">benefit</td><td class="mono">/ˈbenɪfɪt/</td><td>n</td><td>an advantage or profit / 好处</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>3</td><td class="mono">mitigate</td><td class="mono">/ˈmɪtɪɡeɪt/</td><td>v</td><td>to make less severe / 减轻，缓和</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL8</span></td></tr>
+        <tr><td>4</td><td class="mono">drawback</td><td class="mono">/ˈdrɔːbæk/</td><td>n</td><td>a disadvantage / 缺点</td><td class="neutral-c">中性</td><td><span class="cefr-tag">C1</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">leverage benefits</td><td>利用好处</td><td class="formal">正式</td><td>26–48</td></tr>
+        <tr><td>V + N</td><td class="mono">mitigate drawbacks</td><td>减轻缺点</td><td class="formal">正式</td><td>55–75</td></tr>
+        <tr><td>固定短语</td><td class="mono">to sum up</td><td>总而言之</td><td class="neutral-c">中性</td><td>0–8</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: To sum up]</span>,
+<span class="t-s">[Subj: we]</span>
+  <span class="t-p">[Pred: should fully leverage]</span>
+  <span class="t-o">[Obj: the benefits of the lying flat phenomenon]</span>
+  <span class="t-v">[Adv Clause (Concessive/Temporal): while mitigating its drawbacks]</span>
+    <span class="t-v">  ← (ellipsis: while we are mitigating…)</span></div>
+      <div class="depth-note">最深嵌套：1 层（while 从句省略）。总结段首句要求简洁而全面，此句完美实现"扬长避短"的核心论点。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        To sum up, <span class="slot">【pron we/one】</span> should fully <span class="slot">【V 利用】</span>
+        the benefits of <span class="slot">【N 现象】</span>
+        while <span class="slot">【V-ing 减轻】</span> its <span class="slot">【N 缺点】</span>.
+      </div>
+      <div class="mnemonic">口诀："总结：应充分利用好处，同时减轻弊端" —— 并行对策句。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…while <strong>mitigate</strong> its drawbacks.</td><td class="correct">while <strong>mitigating</strong></td><td>"while" 后省略主语时接 V-ing 形式</td></tr>
+        <tr><td class="wrong">易错2</td><td>…should <strong>full</strong> leverage…</td><td class="correct">should <strong>fully</strong> leverage</td><td>修饰动词用副词 "fully"，不用形容词 "full"</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 所有题型</td><td>结论段：总结观点 + 提出平衡立场。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>总结帖，平衡两面。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Conclusion</td><td>总结研究发现 + 指出需改进之处。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>会议报告</td><td>总结发言，提出综合建议。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>To sum up, we should fully <strong>exploit</strong> the benefits of <strong>technological innovation</strong> while <strong>addressing</strong> its <strong>ethical concerns</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL5–8</span></li>
+        <li>To sum up, we should fully <strong>harness</strong> the benefits of <strong>globalization</strong> while <strong>mitigating</strong> its <strong>adverse effects</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2–8</span></li>
+        <li>To sum up, we should fully <strong>capitalize on</strong> the benefits of <strong>open-source collaboration</strong> while <strong>managing</strong> its <strong>security risks</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S14                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s14">
+  <div class="sentence-header">
+    <span class="sid">S14</span>
+    <span>建议一：个人层面</span>
+    <span class="section-label">CONCLUSION</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">Specifically</span>, <span class="subj">young people</span>
+      <span class="pred">should adopt</span> <span class="obj">rational lying flat</span>
+      <span class="adv">as a pressure-relief strategy</span>
+      <span class="adv">rather than succumbing to passive inertia</span>,
+      <span class="pred">maintaining</span> <span class="obj">a balance between rest and self-improvement</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present (Modal: should)</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">rather than + V-ing (对比结构)</span>
+      <span class="g-tag special">Present Participial Phrase (maintaining…) as Adverbial</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时 + should</strong> + <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句 + 分词短语。</td></tr>
+        <tr><td>特殊结构</td><td><strong>"rather than + V-ing"</strong>：对比结构，表示"而不是"。学术写作中高频用于建议/对策段。<br><strong>分词短语作伴随/结果状语</strong>："maintaining a balance…" 进一步说明采纳该策略后的效果。</td></tr>
+      </table>
+      <div class="dim-note">"rather than + V-ing" 是雅思和 SCI 论文中的高级对比手段，比 "but not" 更正式、更精炼。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">rational</td><td class="mono">/ˈræʃənəl/</td><td>adj</td><td>based on reason / 理性的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL6</span></td></tr>
+        <tr><td>2</td><td class="mono">strategy</td><td class="mono">/ˈstrætədʒi/</td><td>n</td><td>a plan of action / 策略</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL4</span></td></tr>
+        <tr><td>3</td><td class="mono">succumb</td><td class="mono">/səˈkʌm/</td><td>v</td><td>to give way to / 屈服于</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>4</td><td class="mono">inertia</td><td class="mono">/ɪˈnɜːrʃə/</td><td>n</td><td>lack of activity or movement / 惰性</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL10</span></td></tr>
+        <tr><td>5</td><td class="mono">maintain</td><td class="mono">/meɪnˈteɪn/</td><td>v</td><td>to keep in a certain state / 维持</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL3</span></td></tr>
+        <tr><td>6</td><td class="mono">balance</td><td class="mono">/ˈbæləns/</td><td>n</td><td>an even distribution / 平衡</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL7</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">adopt a strategy</td><td>采纳策略</td><td class="formal">正式</td><td>22–35</td></tr>
+        <tr><td>Adj + N</td><td class="mono">rational lying flat</td><td>理性躺平</td><td class="neutral-c">中性</td><td>28–47</td></tr>
+        <tr><td>固定短语</td><td class="mono">rather than</td><td>而不是</td><td class="formal">正式</td><td>66–76</td></tr>
+        <tr><td>固定短语</td><td class="mono">succumb to</td><td>屈服于</td><td class="formal">正式</td><td>77–89</td></tr>
+        <tr><td>V + N</td><td class="mono">maintain a balance</td><td>保持平衡</td><td class="formal">正式</td><td>100–118</td></tr>
+        <tr><td>固定短语</td><td class="mono">between A and B</td><td>在A和B之间</td><td class="neutral-c">中性</td><td>119–145</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: Specifically]</span>,
+<span class="t-s">[Subj: young people]</span>
+  <span class="t-p">[Pred: should adopt]</span>
+  <span class="t-o">[Obj: rational lying flat]</span>
+  <span class="t-v">[Adv: as a pressure-relief strategy]</span>
+  <span class="t-v">[Adv (Contrast): rather than succumbing to passive inertia]</span>,
+  <span class="t-v">[Participial Phrase (Result): maintaining a balance between rest and self-improvement]</span></div>
+      <div class="depth-note">最深嵌套：1 层（介词短语内含并列名词）。信息密度高，多个状语和修饰语叠加，是高级学术写作的标志。建议初学者分两句话写。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        Specifically, <span class="slot">【N 人群】</span> should <span class="slot">【V 采纳】</span> <span class="slot">【Adj+N 理性策略】</span>
+        as <span class="slot">【N 手段】</span> rather than <span class="slot">【V-ing 屈服于】</span> <span class="slot">【N 消极状态】</span>,
+        <span class="slot">【V-ing 维持】</span> <span class="slot">【N 平衡】</span> between <span class="slot">【N1】</span> and <span class="slot">【N2】</span>.
+      </div>
+      <div class="mnemonic">口诀："具体说，人应采纳理性X而非屈Y，保持A与B的平衡" —— 对策+结果句。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…rather than <strong>succumb</strong> to…</td><td class="correct">rather than <strong>succumbing</strong> to</td><td>"rather than" 后接 V-ing 表对比</td></tr>
+        <tr><td class="wrong">易错2</td><td>…a balance <strong>of</strong> rest and self-improvement.</td><td class="correct">a balance <strong>between</strong> A <strong>and</strong> B</td><td>"balance between A and B" 为固定搭配</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 原因解决</td><td>解决方案段：提出具体建议 + 对比。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>提出个人层面的具体方案。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>论文 Conclusion</td><td>提出建议或实践启示。</td><td><span class="score score-5">5</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Specifically, <strong>employees</strong> should adopt <strong>flexible scheduling</strong> as <strong>a wellness strategy</strong> rather than <strong>enduring chronic overwork</strong>, <strong>maintaining</strong> a balance between <strong>productivity</strong> and <strong>health</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL4–8</span></li>
+        <li>Specifically, <strong>students</strong> should embrace <strong>critical reading</strong> as <strong>a learning method</strong> rather than <strong>relying on rote memorization</strong>, <strong>maintaining</strong> a balance between <strong>efficiency</strong> and <strong>depth</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL6</span></li>
+        <li>Specifically, <strong>governments</strong> should pursue <strong>measured intervention</strong> as <strong>a policy tool</strong> rather than <strong>resorting to excessive regulation</strong>, <strong>maintaining</strong> a balance between <strong>growth</strong> and <strong>stability</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL3–7</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S15                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s15">
+  <div class="sentence-header">
+    <span class="sid">S15</span>
+    <span>建议二：社会层面</span>
+    <span class="section-label">CONCLUSION</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">Concurrently</span>, <span class="subj">society</span>
+      <span class="pred">must optimize</span> <span class="obj">the competitive environment</span>
+      <span class="adv">to curb excessive involution</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present (Modal: must)</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Infinitive of Purpose (to curb…)</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时 + must</strong>（表强烈建议/必要性）+ <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td><strong>目的不定式 (Infinitive of Purpose)</strong>："to curb excessive involution" 说明动作的目的。可替换为 "in order to"。</td></tr>
+      </table>
+      <div class="dim-note">"must + V + to do" 是论文 Conclusion 部分提建议/指出必要性的标准句型。"must" 比 "should" 语气更强，适合政策建议。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">concurrently</td><td class="mono">/kənˈkɜːrəntli/</td><td>adv</td><td>at the same time / 同时</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>2</td><td class="mono">optimize</td><td class="mono">/ˈɑːptɪmaɪz/</td><td>v</td><td>to make as effective as possible / 优化</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL9</span></td></tr>
+        <tr><td>3</td><td class="mono">competitive</td><td class="mono">/kəmˈpetɪtɪv/</td><td>adj</td><td>relating to competition / 竞争的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>4</td><td class="mono">environment</td><td class="mono">/ɪnˈvaɪrənmənt/</td><td>n</td><td>surroundings or conditions / 环境</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL1</span></td></tr>
+        <tr><td>5</td><td class="mono">curb</td><td class="mono">/kɜːrb/</td><td>v</td><td>to control or limit / 抑制，控制</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">optimize the environment</td><td>优化环境</td><td class="formal">正式</td><td>20–50</td></tr>
+        <tr><td>Adj + N</td><td class="mono">competitive environment</td><td>竞争环境</td><td class="formal">正式</td><td>33–55</td></tr>
+        <tr><td>V + N</td><td class="mono">curb involution</td><td>抑制内卷</td><td class="formal">正式</td><td>58–80</td></tr>
+        <tr><td>学术连接词</td><td class="mono">concurrently</td><td>同时</td><td class="formal">正式</td><td>0–12</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv: Concurrently]</span>,
+<span class="t-s">[Subj: society]</span>
+  <span class="t-p">[Pred: must optimize]</span>
+  <span class="t-o">[Obj: the competitive environment]</span>
+  <span class="t-v">[Adv (Purpose): to curb excessive involution]</span></div>
+      <div class="depth-note">最深嵌套：0 层。SVO + 目的状语，结构清晰。与 S14（个人层面）形成"个人+社会"双层建议的对称结构。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        Concurrently, <span class="slot">【N 社会/机构】</span> must <span class="slot">["V 优化/改善"]</span>
+        the <span class="slot">["Adj+N 环境/条件"]</span>
+        to <span class="slot">["V 控制/遏制"]</span> <span class="slot">["Adj+N 问题"]</span>.
+      </div>
+      <div class="mnemonic">口诀："同时，社会必须优化环境以遏制问题" —— 五词核心。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td>…must <strong>to optimize</strong>…</td><td class="correct">must <strong>optimize</strong></td><td>情态动词后接动词原形，不加 to</td></tr>
+        <tr><td class="wrong">易错2</td><td><strong>Concurrent</strong>, society must…</td><td class="correct"><strong>Concurrently</strong>, society must…</td><td>修饰整个句子用副词形式 "concurrently"</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 原因解决</td><td>解决方案：社会层面建议。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>提出宏观层面方案。</td><td><span class="score score-4">4</span></td></tr>
+        <tr><td>论文 Conclusion</td><td>政策建议或实践启示。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>会议报告 / 商务邮件</td><td>提出组织层面的改进建议。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>Concurrently, <strong>educational institutions</strong> must <strong>redesign</strong> the <strong>assessment framework</strong> to <strong>reduce</strong> <strong>excessive standardization</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–9</span></li>
+        <li>Concurrently, <strong>employers</strong> must <strong>restructure</strong> the <strong>workplace culture</strong> to <strong>address</strong> <strong>chronic burnout</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL2</span></li>
+        <li>Concurrently, <strong>policymakers</strong> must <strong>reform</strong> the <strong>regulatory system</strong> to <strong>prevent</strong> <strong>market monopolization</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–9</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                      S E N T E N C E   S16                  ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="sentence-card" id="s16">
+  <div class="sentence-header">
+    <span class="sid">S16</span>
+    <span>收尾：愿景</span>
+    <span class="section-label">CONCLUSION</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="orig-sentence">
+      <span class="adv">By doing so</span>, <span class="subj">we</span> <span class="pred">can harness</span>
+      <span class="obj">a balanced lying flat mindset</span>
+      <span class="adv">to achieve individual progress and sustainable social development</span>.
+    </div>
+
+    <div class="grammar-tags">
+      <span class="g-tag tense">Simple Present (Modal: can)</span>
+      <span class="g-tag voice">Active Voice</span>
+      <span class="g-tag special">Prepositional Phrase as Adverbial (By doing so)</span>
+      <span class="g-tag special">Infinitive of Purpose (to achieve…)</span>
+      <span class="g-tag special">Parallel Object: progress and development</span>
+    </div>
+
+    <!-- DIM 1 -->
+    <div class="dim-section d1">
+      <div class="dim-title"><span class="dim-num">1</span>语法层面 Grammar</div>
+      <table>
+        <tr><th style="width:180px;">语法项</th><th>解析</th></tr>
+        <tr><td>时态 & 语态</td><td><strong>一般现在时 + can</strong>（表能力/可能性）+ <strong>主动语态</strong>。</td></tr>
+        <tr><td>从句类型</td><td>无从句。简单句。</td></tr>
+        <tr><td>特殊结构</td><td><strong>介词短语作条件/方式状语</strong>："By doing so" 指代前述建议，回指前文。<br><strong>目的不定式</strong>："to achieve…" 表明行动的最终目标。<br><strong>平行宾语</strong>："individual progress and sustainable social development"。</td></tr>
+      </table>
+      <div class="dim-note">"By doing so, we can… to achieve…" 是学术论文 Conclusion 最后一句的标准收尾句型，在雅思写作中用于结束全文、展望未来。</div>
+    </div>
+
+    <!-- DIM 2 -->
+    <div class="dim-section d2">
+      <div class="dim-title"><span class="dim-num">2</span>词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>级别</th></tr>
+        <tr><td>1</td><td class="mono">harness</td><td class="mono">/ˈhɑːrnɪs/</td><td>v</td><td>to control and use / 利用，驾驭</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>2</td><td class="mono">balanced</td><td class="mono">/ˈbælənst/</td><td>adj</td><td>keeping things in proportion / 平衡的</td><td class="neutral-c">中性</td><td><span class="cefr-tag">B2</span></td></tr>
+        <tr><td>3</td><td class="mono">mindset</td><td class="mono">/ˈmaɪndset/</td><td>n</td><td>a way of thinking / 心态，思维模式</td><td class="neutral-c">中性</td><td><span class="cefr-tag">C1</span></td></tr>
+        <tr><td>4</td><td class="mono">achieve</td><td class="mono">/əˈtʃiːv/</td><td>v</td><td>to succeed in doing / 实现</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>5</td><td class="mono">individual</td><td class="mono">/ˌɪndɪˈvɪdʒuəl/</td><td>adj</td><td>relating to one person / 个人的</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL2</span></td></tr>
+        <tr><td>6</td><td class="mono">sustainable</td><td class="mono">/səˈsteɪnəbəl/</td><td>adj</td><td>able to continue over time / 可持续的</td><td class="formal">正式</td><td><span class="cefr-tag">C1</span> <span class="awl-tag">AWL7</span></td></tr>
+        <tr><td>7</td><td class="mono">development</td><td class="mono">/dɪˈveləpmənt/</td><td>n</td><td>the process of growing / 发展</td><td class="formal">正式</td><td><span class="cefr-tag">B2</span> <span class="awl-tag">AWL1</span></td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 3 -->
+    <div class="dim-section d3">
+      <div class="dim-title"><span class="dim-num">3</span>词汇搭配 Collocations</div>
+      <table>
+        <tr><th>搭配类型</th><th>搭配</th><th>中文</th><th>语域</th><th>位置</th></tr>
+        <tr><td>V + N</td><td class="mono">harness a mindset</td><td>驾驭一种心态</td><td class="formal">正式</td><td>19–45</td></tr>
+        <tr><td>Adj + N</td><td class="mono">balanced mindset</td><td>平衡的心态</td><td class="neutral-c">中性</td><td>27–45</td></tr>
+        <tr><td>V + N</td><td class="mono">achieve progress</td><td>取得进步</td><td class="formal">正式</td><td>49–68</td></tr>
+        <tr><td>Adj + N</td><td class="mono">sustainable development</td><td>可持续发展</td><td class="formal">正式</td><td>80–107</td></tr>
+        <tr><td>固定短语</td><td class="mono">by doing so</td><td>通过这样做</td><td class="formal">正式</td><td>0–10</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 4 -->
+    <div class="dim-section d4">
+      <div class="dim-title"><span class="dim-num">4</span>句子成分 Sentence Structure</div>
+      <div class="tree"><span class="t-v">[Adv (Means): By doing so]</span>,
+<span class="t-s">[Subj: we]</span>
+  <span class="t-p">[Pred: can harness]</span>
+  <span class="t-o">[Obj: a balanced lying flat mindset]</span>
+  <span class="t-v">[Adv (Purpose): to achieve
+    [individual progress] and [sustainable social development]]</span></div>
+      <div class="depth-note">最深嵌套：1 层（目的不定式内含平行宾语）。全文收束句，信息完整、语气积极、结构工整。</div>
+    </div>
+
+    <!-- DIM 5 -->
+    <div class="dim-section d5">
+      <div class="dim-title"><span class="dim-num">5</span>记忆方法 Memory</div>
+      <div class="template-box">
+        By doing so, we can <span class="slot">["V 利用/实现"]</span>
+        <span class="slot">["Adj+N 策略/心态"]</span>
+        to achieve <span class="slot">["N 个体成果"]</span> and <span class="slot">["Adj+N 社会成果"]</span>.
+      </div>
+      <div class="mnemonic">口诀："通过这样做，我们能实现个体进步和社会可持续发展" —— 收束愿景句。</div>
+      <table class="error-table">
+        <tr><th></th><th>错误 ❌</th><th>正确 ✅</th><th>说明</th></tr>
+        <tr><td class="wrong">易错1</td><td><strong>By do so</strong>…</td><td class="correct">By <strong>doing</strong> so</td><td>"by" 后接 V-ing 表方式</td></tr>
+        <tr><td class="wrong">易错2</td><td>…achieve individual progress and <strong>sustain</strong> social development.</td><td class="correct">…and <strong>sustainable</strong> social development</td><td>"sustainable" 为形容词修饰名词；"sustain" 为动词</td></tr>
+      </table>
+    </div>
+
+    <!-- DIM 6 -->
+    <div class="dim-section d6">
+      <div class="dim-title"><span class="dim-num">6</span>应用场景 Application</div>
+      <table class="app-table">
+        <tr><th>场景</th><th>具体用途</th><th>适用度</th></tr>
+        <tr><td>IELTS Task 2 — 所有题型</td><td>全文最后一句：展望积极未来。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>TOEFL Independent</td><td>总结帖的结束句，强调综合效益。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>论文 Conclusion</td><td>最后一句：概括研究价值和前景。</td><td><span class="score score-5">5</span></td></tr>
+        <tr><td>会议报告</td><td>结束发言，展望积极结果。</td><td><span class="score score-4">4</span></td></tr>
+      </table>
+      <div class="dim-note">正式等级：<span class="score score-5">5</span>/5</div>
+    </div>
+
+    <div class="imitation">
+      <h4>仿写例句 Imitation Sentences</h4>
+      <ol>
+        <li>By doing so, we can <strong>leverage</strong> <strong>a nuanced educational approach</strong> to achieve <strong>academic excellence</strong> and <strong>holistic student development</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–7</span></li>
+        <li>By doing so, we can <strong>embrace</strong> <strong>a forward-looking governance model</strong> to achieve <strong>political stability</strong> and <strong>sustainable national progress</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–7</span></li>
+        <li>By doing so, we can <strong>adopt</strong> <strong>a collaborative research framework</strong> to achieve <strong>scientific breakthroughs</strong> and <strong>long-term technological advancement</strong>. <span class="cefr-tag">C1</span> <span class="awl-tag">AWL1–5</span></li>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗ -->
+<!-- ║                 RETRIEVAL INDEX  一键检索索引                ║ -->
+<!-- ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="index-section" id="index">
+  <h2>一键检索索引 Retrieval Index</h2>
+
+  <h3>一、搭配索引 Collocation Index (字母序)</h3>
+  <table>
+    <tr><th>搭配</th><th>类型</th><th>中文</th><th>句号</th></tr>
+    <tr><td class="mono">abandon struggle</td><td>V+N</td><td>放弃奋斗</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">achieve progress</td><td>V+N</td><td>取得进步</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">adopt a lifestyle / strategy</td><td>V+N</td><td>采取生活方式/策略</td><td><span class="idx-ref">S1, S14</span></td></tr>
+    <tr><td class="mono">alleviate pressure</td><td>V+N</td><td>缓解压力</td><td><span class="idx-ref">S4</span></td></tr>
+    <tr><td class="mono">attitude toward</td><td>固定短语</td><td>对…的态度</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">balanced mindset</td><td>Adj+N</td><td>平衡的心态</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">be no exception</td><td>固定短语</td><td>也不例外</td><td><span class="idx-ref">S8</span></td></tr>
+    <tr><td class="mono">between A and B</td><td>固定短语</td><td>在A和B之间</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">both A and B</td><td>固定短语</td><td>A和B都</td><td><span class="idx-ref">S2</span></td></tr>
+    <tr><td class="mono">by doing so</td><td>固定短语</td><td>通过这样做</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">competitive environment</td><td>Adj+N</td><td>竞争环境</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">concurrently</td><td>连接词</td><td>同时</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">contemporary China</td><td>Adj+N</td><td>当代中国</td><td><span class="idx-ref">S2</span></td></tr>
+    <tr><td class="mono">curb involution</td><td>V+N</td><td>抑制内卷</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">cutthroat competition</td><td>Adj+N</td><td>残酷竞争</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">dampen social vitality</td><td>V+N</td><td>抑制社会活力</td><td><span class="idx-ref">S11</span></td></tr>
+    <tr><td class="mono">driving force behind</td><td>固定短语</td><td>背后的驱动力</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">economic advancement</td><td>Adj+N</td><td>经济发展</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">embrace passivity</td><td>V+N</td><td>接受消极</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">enterprising spirit</td><td>Adj+N</td><td>进取精神</td><td><span class="idx-ref">S9</span></td></tr>
+    <tr><td class="mono">every coin has two sides</td><td>谚语</td><td>凡事皆有两面</td><td><span class="idx-ref">S7</span></td></tr>
+    <tr><td class="mono">excessive lying flat</td><td>Adj+N</td><td>过度躺平</td><td><span class="idx-ref">S9</span></td></tr>
+    <tr><td class="mono">fierce competition</td><td>Adj+N</td><td>激烈的竞争</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">foster atmosphere</td><td>V+N</td><td>营造良好氛围</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">generally speaking</td><td>固定短语</td><td>总的来说</td><td><span class="idx-ref">S3</span></td></tr>
+    <tr><td class="mono">hamper innovation</td><td>V+N</td><td>妨碍创新</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">harness a mindset</td><td>V+N</td><td>驾驭心态</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">impede growth</td><td>V+N</td><td>阻碍成长</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">in addition</td><td>连接词</td><td>此外</td><td><span class="idx-ref">S11</span></td></tr>
+    <tr><td class="mono">in fact</td><td>连接词</td><td>事实上</td><td><span class="idx-ref">S2</span></td></tr>
+    <tr><td class="mono">internal consumption</td><td>Adj+N</td><td>内部消耗</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">just as … goes</td><td>固定短语</td><td>正如…所说</td><td><span class="idx-ref">S7</span></td></tr>
+    <tr><td class="mono">leverage benefits</td><td>V+N</td><td>利用好处</td><td><span class="idx-ref">S13</span></td></tr>
+    <tr><td class="mono">maintain a balance</td><td>V+N</td><td>保持平衡</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">measured approach</td><td>Adj+N</td><td>慎重的方法</td><td><span class="idx-ref">S5</span></td></tr>
+    <tr><td class="mono">mitigate drawbacks</td><td>V+N</td><td>减轻缺点</td><td><span class="idx-ref">S13</span></td></tr>
+    <tr><td class="mono">moderate lying flat</td><td>Adj+N</td><td>适度躺平</td><td><span class="idx-ref">S4</span></td></tr>
+    <tr><td class="mono">negative implications</td><td>Adj+N</td><td>负面影响</td><td><span class="idx-ref">S8</span></td></tr>
+    <tr><td class="mono">nowadays</td><td>连接词</td><td>当今</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">optimize the environment</td><td>V+N</td><td>优化环境</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">passive attitude</td><td>Adj+N</td><td>消极态度</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">pervasive trend</td><td>Adj+N</td><td>普遍的趋势</td><td><span class="idx-ref">S11</span></td></tr>
+    <tr><td class="mono">physical exhaustion</td><td>Adj+N</td><td>身体疲劳</td><td><span class="idx-ref">S5</span></td></tr>
+    <tr><td class="mono">positive aspects</td><td>Adj+N</td><td>积极方面</td><td><span class="idx-ref">S3</span></td></tr>
+    <tr><td class="mono">prompts reflection</td><td>V+N</td><td>促使反思</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">rather than</td><td>固定短语</td><td>而不是</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">result in</td><td>固定短语</td><td>导致</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">social competition / involution</td><td>Adj+N</td><td>社会竞争/内卷</td><td><span class="idx-ref">S1, S4</span></td></tr>
+    <tr><td class="mono">succumb to</td><td>固定短语</td><td>屈服于</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">sustainable development</td><td>Adj+N</td><td>可持续发展</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">tend to do</td><td>固定短语</td><td>倾向于做某事</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">to begin with</td><td>连接词</td><td>首先</td><td><span class="idx-ref">S9</span></td></tr>
+    <tr><td class="mono">to sum up</td><td>连接词</td><td>总而言之</td><td><span class="idx-ref">S13</span></td></tr>
+    <tr><td class="mono">trigger anxiety</td><td>V+N</td><td>引发焦虑</td><td><span class="idx-ref">S5</span></td></tr>
+    <tr><td class="mono">undermine spirit</td><td>V+N</td><td>削弱精神</td><td><span class="idx-ref">S9</span></td></tr>
+    <tr><td class="mono">weaken competitiveness</td><td>V+N</td><td>削弱竞争力</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">widespread concern</td><td>Adj+N</td><td>普遍的关注</td><td><span class="idx-ref">S1</span></td></tr>
+  </table>
+
+  <h3>二、句型模板索引 Template Index</h3>
+  <table>
+    <tr><th>模板</th><th>功能</th><th>句号</th></tr>
+    <tr><td class="mono">There is a widespread concern over the issue that S + tend to V…</td><td>引出话题</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">There are both advantages and disadvantages in…</td><td>总述利弊</td><td><span class="idx-ref">S2</span></td></tr>
+    <tr><td class="mono">Generally speaking, it has several [adj] aspects.</td><td>过渡到分述</td><td><span class="idx-ref">S3</span></td></tr>
+    <tr><td class="mono">[Adj] [N] helps [sb] alleviate [N] from [N].</td><td>因果/对策</td><td><span class="idx-ref">S4</span></td></tr>
+    <tr><td class="mono">[N] triggers [N1] and [N2], and [N3] allows them to V1 and V2.</td><td>因果+对策</td><td><span class="idx-ref">S5</span></td></tr>
+    <tr><td class="mono">[N] prompts [N], encouraging [N] and fostering [N].</td><td>分词拓展效果</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">Just as a popular saying goes, "…"</td><td>引用过渡</td><td><span class="idx-ref">S7</span></td></tr>
+    <tr><td class="mono">[N] is no exception and has [adj] [N].</td><td>转折引出</td><td><span class="idx-ref">S8</span></td></tr>
+    <tr><td class="mono">To begin with, [adj] [N] undermines [N's] [adj] [N].</td><td>分论点主题句</td><td><span class="idx-ref">S9</span></td></tr>
+    <tr><td class="mono">V-ing [N1] and V-ing [N2] impedes [N3], weakens [N4], and results in [N5].</td><td>三重递进</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">In addition, the [adj] trend of [N] dampens [N].</td><td>补充论点</td><td><span class="idx-ref">S11</span></td></tr>
+    <tr><td class="mono">As the [N] behind [N], [N's] [adj] [N] significantly hampers [N].</td><td>角色+影响</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">To sum up, we should fully leverage [N] while V-ing [N].</td><td>结论总述</td><td><span class="idx-ref">S13</span></td></tr>
+    <tr><td class="mono">Specifically, [N] should adopt [N] as [N] rather than V-ing [N], V-ing [N].</td><td>具体建议</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">Concurrently, [N] must V [N] to V [N].</td><td>宏观建议</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">By doing so, we can V [N] to achieve [N] and [N].</td><td>愿景收束</td><td><span class="idx-ref">S16</span></td></tr>
+  </table>
+
+  <h3>三、关键 AWL 学术词汇速查</h3>
+  <table>
+    <tr><th>词汇</th><th>AWL 子列表</th><th>CEFR</th><th>出现句号</th></tr>
+    <tr><td class="mono">achieve</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">advantage / disadvantage</td><td>AWL3</td><td>B1</td><td><span class="idx-ref">S2</span></td></tr>
+    <tr><td class="mono">approach</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S5</span></td></tr>
+    <tr><td class="mono">aspect</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S3</span></td></tr>
+    <tr><td class="mono">attitude</td><td>AWL4</td><td>B2</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">benefit</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S13</span></td></tr>
+    <tr><td class="mono">challenge</td><td>AWL3</td><td>B2</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">competition / competitive</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S1, S10, S15</span></td></tr>
+    <tr><td class="mono">consumption</td><td>AWL4</td><td>B2</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">development</td><td>AWL1</td><td>B2</td><td><span class="idx-ref">S10, S16</span></td></tr>
+    <tr><td class="mono">environment</td><td>AWL1</td><td>B2</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">exception</td><td>AWL5</td><td>B2</td><td><span class="idx-ref">S8</span></td></tr>
+    <tr><td class="mono">foster</td><td>AWL8</td><td>C1</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">growth</td><td>AWL3</td><td>B2</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">implication</td><td>AWL3</td><td>C1</td><td><span class="idx-ref">S8</span></td></tr>
+    <tr><td class="mono">individual</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">innovation</td><td>AWL5</td><td>B2</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">internal</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">irrational</td><td>AWL6</td><td>C1</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">issue</td><td>AWL1</td><td>B2</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">maintain</td><td>AWL3</td><td>B2</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">mitigate</td><td>AWL8</td><td>C1</td><td><span class="idx-ref">S13</span></td></tr>
+    <tr><td class="mono">moderate</td><td>AWL7</td><td>B2</td><td><span class="idx-ref">S4</span></td></tr>
+    <tr><td class="mono">negative / positive</td><td>AWL2</td><td>B1</td><td><span class="idx-ref">S8, S3</span></td></tr>
+    <tr><td class="mono">opportunity</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S10</span></td></tr>
+    <tr><td class="mono">optimize</td><td>AWL9</td><td>B2</td><td><span class="idx-ref">S15</span></td></tr>
+    <tr><td class="mono">phenomenon</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S2</span></td></tr>
+    <tr><td class="mono">progress</td><td>AWL1</td><td>B2</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">reduction</td><td>AWL2</td><td>B2</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">reflection</td><td>AWL6</td><td>B2</td><td><span class="idx-ref">S6</span></td></tr>
+    <tr><td class="mono">significantly</td><td>AWL1</td><td>B2</td><td><span class="idx-ref">S12</span></td></tr>
+    <tr><td class="mono">social</td><td>AWL1</td><td>B2</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">strategy</td><td>AWL4</td><td>B2</td><td><span class="idx-ref">S14</span></td></tr>
+    <tr><td class="mono">sustainable</td><td>AWL7</td><td>C1</td><td><span class="idx-ref">S16</span></td></tr>
+    <tr><td class="mono">tend</td><td>AWL3</td><td>B2</td><td><span class="idx-ref">S1</span></td></tr>
+    <tr><td class="mono">trend</td><td>AWL5</td><td>B2</td><td><span class="idx-ref">S11</span></td></tr>
+    <tr><td class="mono">undermine</td><td>AWL8</td><td>C1</td><td><span class="idx-ref">S9</span></td></tr>
+    <tr><td class="mono">widespread</td><td>AWL4</td><td>C1</td><td><span class="idx-ref">S1</span></td></tr>
+  </table>
+
+  <h3>四、论文结构句型功能映射</h3>
+  <table>
+    <tr><th>论文部分</th><th>适用句号</th><th>功能</th></tr>
+    <tr><td><strong>Introduction</strong></td><td>S1, S2, S3</td><td>背景引入 → 话题界定 → 利弊总述</td></tr>
+    <tr><td><strong>Body / Discussion</strong></td><td>S4–S12</td><td>分论点展开：因果论证、对比论证、并列递进</td></tr>
+    <tr><td><strong>Conclusion</strong></td><td>S13–S16</td><td>总结 → 建议(个人+社会) → 愿景</td></tr>
+  </table>
+
+  <h3>五、易错点汇总</h3>
+  <table>
+    <tr><th>句号</th><th>易错点</th><th>正确用法</th></tr>
+    <tr><td><span class="idx-ref">S1</span></td><td>concern <strong>of</strong></td><td>concern <strong>over/about</strong></td></tr>
+    <tr><td><span class="idx-ref">S1</span></td><td>tend <strong>adopting</strong></td><td>tend <strong>to adopt</strong></td></tr>
+    <tr><td><span class="idx-ref">S2</span></td><td>both A <strong>as well as</strong> B</td><td>both A <strong>and</strong> B</td></tr>
+    <tr><td><span class="idx-ref">S3</span></td><td><strong>General</strong> speaking</td><td><strong>Generally</strong> speaking</td></tr>
+    <tr><td><span class="idx-ref">S4</span></td><td>helps sb <strong>alleviating</strong></td><td>helps sb <strong>alleviate</strong></td></tr>
+    <tr><td><span class="idx-ref">S5</span></td><td>allows them <strong>resting</strong></td><td>allows them <strong>to rest</strong></td></tr>
+    <tr><td><span class="idx-ref">S6</span></td><td>reflection <strong>in</strong></td><td>reflection <strong>on</strong></td></tr>
+    <tr><td><span class="idx-ref">S7</span></td><td>saying <strong>said</strong></td><td>saying <strong>goes</strong></td></tr>
+    <tr><td><span class="idx-ref">S8</span></td><td>no <strong>exceptional</strong></td><td>no <strong>exception</strong></td></tr>
+    <tr><td><span class="idx-ref">S9</span></td><td>enterprise spirit</td><td><strong>enterprising</strong> spirit</td></tr>
+    <tr><td><span class="idx-ref">S10</span></td><td>abandoning… <strong>impede</strong></td><td>abandoning… <strong>impedes</strong> (主语单数)</td></tr>
+    <tr><td><span class="idx-ref">S11</span></td><td>In <strong>addition to</strong> the trend dampens</td><td>In addition, the trend <strong>dampens</strong></td></tr>
+    <tr><td><span class="idx-ref">S12</span></td><td>attitude <strong>for</strong></td><td>attitude <strong>toward(s)</strong></td></tr>
+    <tr><td><span class="idx-ref">S13</span></td><td>while <strong>mitigate</strong></td><td>while <strong>mitigating</strong></td></tr>
+    <tr><td><span class="idx-ref">S14</span></td><td>rather than <strong>succumb</strong></td><td>rather than <strong>succumbing</strong></td></tr>
+    <tr><td><span class="idx-ref">S15</span></td><td>must <strong>to optimize</strong></td><td>must <strong>optimize</strong></td></tr>
+    <tr><td><span class="idx-ref">S16</span></td><td>By <strong>do</strong> so</td><td>By <strong>doing</strong> so</td></tr>
+  </table>
+
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ════════════════════════════════════════════════ -->
+<div style="text-align:center;padding:40px 0 20px;color:var(--text-muted);font-size:0.82em;border-top:1px solid var(--border);margin-top:40px;">
+  <p>本报告由 MiMo 生成 · 共 16 句 × 6 维度 = 96 项分析 · 48 仿写例句</p>
+  <p style="font-family:var(--font-mono);font-size:0.85em;margin-top:6px;">
+    数据结构字段：SentenceID | GrammarTags | VocabularyList | Collocations | TreeStructure | Template | Application<br>
+    支持批量导入 Anki (CSV/TSV) 或 Excel 进行间隔重复记忆卡片制作
+  </p>
+</div>
+
+</div><!-- /.container -->
+</body>
+</html>

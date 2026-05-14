@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>学术写作逐句六维深度解析 · 完整报告</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f5f3f0; font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, sans-serif; padding: 2.5rem 1.8rem; line-height: 1.5; color: #1e2b3c; }
+    .container { max-width: 1350px; margin: 0 auto; background: #ffffff; border-radius: 32px; box-shadow: 0 20px 40px rgba(0,20,30,0.08); padding: 2.8rem 2.8rem; border: 1px solid #e9dfd1; }
+    h1 { font-size: 2.5rem; font-weight: 500; letter-spacing: -0.3px; color: #2b4b3a; border-left: 8px solid #b07c4b; padding-left: 1.8rem; margin-bottom: 0.5rem; }
+    .subtitle { color: #5c5c4f; margin-bottom: 2.8rem; font-style: italic; font-size: 1.1rem; border-bottom: 1px dashed #d9c8b2; padding-bottom: 1.2rem; }
+    .color-legend { display: flex; flex-wrap: wrap; gap: 1.2rem 2.5rem; background: #f9f6f0; padding: 1.2rem 1.8rem; border-radius: 18px; margin-bottom: 2.5rem; font-size: 0.9rem; font-weight: 500; }
+    .legend-item { display: flex; align-items: center; gap: 0.4rem; }
+    .subj-color { background: #1f77b4; width: 18px; height: 18px; border-radius: 6px; }
+    .pred-color { background: #2ca02c; width: 18px; height: 18px; border-radius: 6px; }
+    .obj-color { background: #ff7f0e; width: 18px; height: 18px; border-radius: 6px; }
+    .attr-color { background: #9467bd; width: 18px; height: 18px; border-radius: 6px; }
+    .adv-color { background: #d62728; width: 18px; height: 18px; border-radius: 6px; }
+    .comp-color { background: #7f7f7f; width: 18px; height: 18px; border-radius: 6px; }
+
+    .sentence-block { margin-bottom: 3.2rem; background: #ffffff; border: 1px solid #e2dcd2; border-radius: 24px; padding: 1.8rem 2rem 2rem 2rem; box-shadow: 0 6px 18px rgba(0,0,0,0.02); }
+    .sentence-text { font-size: 1.3rem; font-weight: 500; background: #fafaf7; padding: 1.2rem 1.5rem; border-radius: 16px; margin-bottom: 1.8rem; border-left: 6px solid #b07c4b; word-break: break-word; }
+    .tag-group { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; margin: 0.6rem 0 1.5rem; }
+    .tag { background: #eae1d5; color: #3e3a33; padding: 0.25rem 1rem; border-radius: 30px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.3px; }
+    .section-title { font-weight: 700; font-size: 1.1rem; margin: 1.8rem 0 0.8rem; color: #2b4b3a; display: flex; align-items: center; gap: 0.4rem; }
+    hr { border: 0.5px solid #e0d6c8; margin: 1.2rem 0 1rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; background: #fdfdfb; border-radius: 14px; overflow: hidden; font-size: 0.85rem; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+    th { background: #d9cdb6; color: #2d2d22; font-weight: 600; padding: 0.7rem; text-align: left; }
+    td, th { border: 1px solid #dfd7cb; padding: 0.55rem 0.7rem; vertical-align: middle; }
+    .vocab-list { display: flex; flex-wrap: wrap; gap: 0.9rem 1.5rem; background: #f9f5ed; padding: 1rem 1.2rem; border-radius: 14px; margin: 0.8rem 0 1.3rem; }
+    .vocab-item { font-family: 'Courier New', monospace; }
+    .tree-box { background: #f7f5f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; padding: 1.2rem; border-radius: 14px; white-space: pre; overflow-x: auto; font-size: 0.8rem; line-height: 1.7; margin: 0.8rem 0; border: 1px solid #ddd2c0; }
+    .template-code { background: #2d2d2d; color: #f0e6d2; padding: 1rem 1.4rem; border-radius: 14px; font-family: 'Fira Code', monospace; margin: 0.8rem 0; }
+    .imitation-box { background: #f3efe7; padding: 1rem 1.4rem; border-radius: 12px; margin: 1rem 0; }
+    .index-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.6rem 2rem; background: #f3efe7; padding: 1.5rem; border-radius: 18px; margin-top: 2.5rem; }
+    .highlight-blue { background: #cfe2ff; color:#0a2f44; font-weight:600; padding:0 2px; }
+    .highlight-green { background: #d5f5d0; color:#1a4314; font-weight:600; padding:0 2px; }
+    .highlight-orange { background: #ffe0b5; color:#823b0b; font-weight:600; padding:0 2px; }
+    .highlight-purple { background: #e8d5f5; color:#3d1d6e; font-weight:600; padding:0 2px; }
+    .highlight-red { background: #ffd6d6; color:#871717; font-weight:600; padding:0 2px; }
+    .highlight-gray { background: #e4e4e4; color:#2e2e2e; font-weight:600; padding:0 2px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>📘 学术写作逐句六维解析</h1>
+  <div class="subtitle">范文：The "Lying Flat" Phenomenon Among Chinese Youth · 完整教学研报告（S1–S16）</div>
+  <div class="color-legend">
+    <div class="legend-item"><span class="subj-color"></span> 主语</div>
+    <div class="legend-item"><span class="pred-color"></span> 谓语</div>
+    <div class="legend-item"><span class="obj-color"></span> 宾语</div>
+    <div class="legend-item"><span class="attr-color"></span> 定语</div>
+    <div class="legend-item"><span class="adv-color"></span> 状语</div>
+    <div class="legend-item"><span class="comp-color"></span> 补语</div>
+  </div>
+
+  <!-- S1 -->
+  <div class="sentence-block" id="S1">
+    <div class="sentence-text"><span class="highlight-red">Nowadays,</span> <span class="highlight-blue">there</span> <span class="highlight-green">is</span> <span class="highlight-orange">a widespread concern</span> <span class="highlight-purple">over the issue that Chinese young people tend to adopt a “lying flat” lifestyle under fierce social competition</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">主动</span><span class="tag">存在句</span><span class="tag">同位语从句</span></div>
+    <div class="section-title">📌 1. 语法</div><p>存在句 <em>there be</em> 引出话题，<em>that</em> 引导同位语从句解释<em>issue</em>。学术场景：SCI引言建立背景，雅思Task2开头段提升复杂度。得分点：同位语从句展示抽象名词具体化能力。</p>
+    <div class="section-title">📚 2. 词汇原型</div>
+    <div class="vocab-list"><span>widespread /ˈwaɪdˌsprɛd/ adj. 广泛的 (B2)</span><span>concern /kənˈsɜːn/ n. 忧虑 (B2)</span><span>issue /ˈɪʃuː/ n. 议题 (B2)</span><span>young /jʌŋ/ adj. 年轻的 (A2)</span><span>adopt /əˈdɒpt/ v. 采取 (B2)</span><span>lifestyle /ˈlaɪfˌstaɪl/ n. 生活方式 (B1)</span><span>fierce /fɪəs/ adj. 激烈的 (C1)</span><span>social /ˈsəʊʃəl/ adj. 社会的 (B1)</span><span>competition /ˌkɒmpɪˈtɪʃən/ n. 竞争 (B1)</span></div>
+    <div class="section-title">🔗 3. 搭配</div><table><tr><th>类型</th><th>搭配</th><th>释义</th><th>语域</th><th>位置</th></tr><tr><td>V+N</td><td>adopt a lifestyle</td><td>采取生活方式</td><td>正式</td><td>56-73</td></tr><tr><td>Adj+N</td><td>widespread concern</td><td>普遍担忧</td><td>正式</td><td>27-46</td></tr><tr><td>固定短语</td><td>under fierce social competition</td><td>在激烈社会竞争下</td><td>正式</td><td>109-142</td></tr></table>
+    <div class="section-title">🧩 4. 成分</div><div class="tree-box">[S1] 状语 Nowadays, 形式主语 there, 谓语 is, 实义主语 a widespread concern, 定语 (介词短语) over the issue + 同位语从句 (that...)</div>
+    <div class="section-title">🧠 5. 记忆</div><p>模板：<code>Nowadays, there is [冠词+形容词+名词] over [名词+that同位语从句]</code> 口诀：“如今担忧某议题，that展开具体意”</p>
+    <div class="section-title">🎯 6. 应用</div><p>雅思Task2 同意与否/利弊分析开头；托福综合写作引入话题；学术引言。正式等级4/5。</p>
+    <div class="imitation-box"><strong>仿写 (B2-C1)：</strong><br>1. Nowadays, there is a growing awareness of the fact that remote work reshapes corporate culture.<br>2. Nowadays, there is an intense debate over whether artificial intelligence threatens employment.<br>3. Nowadays, there is a persistent concern that climate change accelerates biodiversity loss.</div>
+  </div>
+
+  <!-- S2 -->
+  <div class="sentence-block" id="S2">
+    <div class="sentence-text"><span class="highlight-red">In fact,</span> <span class="highlight-blue">there</span> <span class="highlight-green">are</span> <span class="highlight-orange">both advantages and disadvantages</span> <span class="highlight-red">in young people’s lying flat phenomenon in contemporary China</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">主动</span><span class="tag">存在句</span></div>
+    <div class="section-title">1. 语法</div><p>存在句复数形式，介词短语作状语限定范围。学术用于引出利弊讨论。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>advantage /ədˈvɑːntɪdʒ/ n. (B1)</span><span>disadvantage /ˌdɪsədˈvɑːntɪdʒ/ n. (B1)</span><span>phenomenon /fɪˈnɒmɪnən/ n. (B2, AWL)</span><span>contemporary /kənˈtɛmpərəri/ adj. (B2)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>固定短语</td><td>both advantages and disadvantages</td><td>利弊</td><td>中性</td><td>19-50</td></tr><tr><td>Adj+N</td><td>contemporary China</td><td>当代中国</td><td>正式</td><td>90-110</td></tr></table>
+    <div class="section-title">4. 成分</div><div class="tree-box">状语 In fact, 形式主语 there, 谓语 are, 实义主语 both advantages and disadvantages, 状语 in young people’s lying flat phenomenon...</div>
+    <div class="section-title">5. 记忆</div><p>模板：<code>In fact, there are both [名词1] and [名词2] in [名词短语]</code> 口诀：“事实上某现象，利弊共存需考量”</p>
+    <div class="section-title">6. 应用</div><p>雅思双边讨论开头，学术引言。等级4。</p>
+    <div class="imitation-box">仿写：1. In fact, there are both benefits and drawbacks in remote education. 2. In fact, there are both strengths and weaknesses in the current policy.</div>
+  </div>
+
+  <!-- S3 -->
+  <div class="sentence-block" id="S3">
+    <div class="sentence-text"><span class="highlight-red">Generally speaking,</span> <span class="highlight-blue">it</span> <span class="highlight-green">has</span> <span class="highlight-orange">several positive aspects</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">插入语</span></div>
+    <div class="section-title">1. 语法</div><p>插入语Generally speaking引出观点。简单句作为段落主题句。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>generally /ˈdʒɛnərəli/ adv. (B1)</span><span>positive /ˈpɒzɪtɪv/ adj. (B1)</span><span>aspect /ˈæspɛkt/ n. (B2)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>固定短语</td><td>Generally speaking</td><td>一般而言</td><td>中性</td><td>1-18</td></tr><tr><td>Adj+N</td><td>positive aspects</td><td>积极方面</td><td>中性</td><td>30-47</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>Generally speaking, [主语] has [形容词+名词]</code></p>
+    <div class="section-title">6. 应用</div><p>主题句，正式等级3。</p>
+    <div class="imitation-box">仿写：Generally speaking, this approach has notable advantages.</div>
+  </div>
+
+  <!-- S4 -->
+  <div class="sentence-block" id="S4">
+    <div class="sentence-text"><span class="highlight-red">Firstly,</span> <span class="highlight-blue">moderate lying flat</span> <span class="highlight-green">helps</span> <span class="highlight-orange">young people</span> <span class="highlight-gray">alleviate overwhelming pressure from intense social involution</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">主动</span><span class="tag">help+宾+不带to不定式</span></div>
+    <div class="section-title">1. 语法</div><p><em>help</em> 后接省略to的不定式作宾补。学术常用 help mitigate/address。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>moderate /ˈmɒdərɪt/ adj. (B2)</span><span>alleviate /əˈliːvieɪt/ v. (C1, AWL5)</span><span>overwhelming /ˌəʊvəˈwɛlmɪŋ/ adj. (C1)</span><span>pressure /ˈprɛʃə/ n. (B1)</span><span>intense /ɪnˈtɛns/ adj. (B2)</span><span>involution /ˌɪnvəˈluːʃən/ n. (专业)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>alleviate pressure</td><td>缓解压力</td><td>正式</td><td>47-66</td></tr><tr><td>Adj+N</td><td>overwhelming pressure</td><td>巨大压力</td><td>正式</td><td>54-74</td></tr></table>
+    <div class="section-title">4. 成分</div><div class="tree-box">状语 Firstly, 主语 moderate lying flat, 谓语 helps, 宾语 young people, 宾补 alleviate overwhelming pressure...</div>
+    <div class="section-title">5. 记忆</div><p>模板：<code>[名词短语] helps [人] [动词原形] [名词短语]</code> 口诀：“某事帮助某人做…”</p>
+    <div class="section-title">6. 应用</div><p>雅思利弊段。等级4。</p>
+    <div class="imitation-box">仿写：Moderate exercise helps individuals relieve chronic stress.</div>
+  </div>
+
+  <!-- S5 -->
+  <div class="sentence-block" id="S5">
+    <div class="sentence-text"><span class="highlight-blue">Fierce competition in study and work</span> <span class="highlight-green">triggers</span> <span class="highlight-orange">anxiety and physical exhaustion</span>, <span class="highlight-red">and</span> <span class="highlight-blue">a measured approach to lying flat</span> <span class="highlight-green">allows</span> <span class="highlight-orange">them to rest and adjust themselves promptly</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">并列句</span><span class="tag">allow sb to do</span></div>
+    <div class="section-title">1. 语法</div><p>并列句，第二个分句使用 allow+宾语+to do。学术中展现因果与解决方案。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>trigger /ˈtrɪɡə/ v. (B2)</span><span>anxiety /æŋˈzaɪɪti/ n. (B2)</span><span>exhaustion /ɪɡˈzɔːstʃən/ n. (B2)</span><span>measured /ˈmɛʒəd/ adj. (C1)</span><span>approach /əˈprəʊtʃ/ n. (B2)</span><span>adjust /əˈdʒʌst/ v. (B2)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>trigger anxiety</td><td>引发焦虑</td><td>正式</td><td>30-46</td></tr><tr><td>Adj+N</td><td>measured approach</td><td>适度方式</td><td>正式</td><td>82-100</td></tr></table>
+    <div class="section-title">4. 成分</div><div class="tree-box">并列句1: 主语 Fierce competition..., 谓语 triggers, 宾语 anxiety... ; 并列句2: 主语 a measured approach..., 谓语 allows, 宾语 them, 宾补 to rest...</div>
+    <div class="section-title">5. 记忆</div><p>模板：<code>[名词短语] triggers [名词], and [名词短语] allows [人] to [动词]</code></p>
+    <div class="section-title">6. 应用</div><p>原因+方案段落。等级4。</p>
+    <div class="imitation-box">仿写：Heavy workload triggers burnout, and flexible scheduling allows employees to recover.</div>
+  </div>
+
+  <!-- S6 -->
+  <div class="sentence-block" id="S6">
+    <div class="sentence-text"><span class="highlight-red">Secondly,</span> <span class="highlight-blue">this phenomenon</span> <span class="highlight-green">prompts</span> <span class="highlight-orange">societal reflection on irrational cutthroat competition</span>, <span class="highlight-red">encouraging the reduction of unnecessary internal consumption and fostering a healthier social atmosphere</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">主动</span><span class="tag">现在分词作结果状语</span></div>
+    <div class="section-title">1. 语法</div><p>现在分词短语表示直接结果，逻辑主语为主句主语。学术写作中常见于结果与影响描述，提升逻辑连贯性。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>prompt /prɒmpt/ v. 促使 (B2, AWL4)</span><span>societal /səˈsaɪətəl/ adj. 社会的 (B2)</span><span>reflection /rɪˈflɛkʃən/ n. 反思 (B2)</span><span>irrational /ɪˈræʃənəl/ adj. 非理性的 (C1)</span><span>cutthroat /ˈkʌtˌθrəʊt/ adj. 残酷的 (C2)</span><span>encourage /ɪnˈkʌrɪdʒ/ v. 鼓励 (B1)</span><span>reduction /rɪˈdʌkʃən/ n. 减少 (B2)</span><span>unnecessary /ʌnˈnɛsəsəri/ adj. 不必要的 (B1)</span><span>internal /ɪnˈtɜːnəl/ adj. 内部的 (B2, AWL5)</span><span>consumption /kənˈsʌmpʃən/ n. 消耗 (B2)</span><span>foster /ˈfɒstə/ v. 培养 (C1)</span><span>healthier /ˈhɛlθiə/ adj. 更健康的 (A2)</span><span>atmosphere /ˈætməsˌfɪə/ n. 氛围 (B1)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>prompt reflection</td><td>促使反思</td><td>正式</td><td>30-50</td></tr><tr><td>V+N</td><td>encourage reduction</td><td>鼓励减少</td><td>正式</td><td>90-110</td></tr><tr><td>V+N</td><td>foster atmosphere</td><td>培养氛围</td><td>正式</td><td>130-148</td></tr><tr><td>Adj+N</td><td>irrational cutthroat competition</td><td>非理性残酷竞争</td><td>正式</td><td>58-89</td></tr></table>
+    <div class="section-title">4. 成分</div><div class="tree-box">状语 Secondly, 主语 this phenomenon, 谓语 prompts, 宾语 societal reflection... (定语 on...), 结果状语 encouraging... and fostering...</div>
+    <div class="section-title">5. 记忆</div><p>模板：<code>Secondly, [主语] prompts [名词短语], [doing... and doing...]</code> 口诀：“其次某物促反思，从而鼓励并培养”</p>
+    <div class="section-title">6. 应用</div><p>雅思利弊分析第二论点；学术讨论部分。等级4。</p>
+    <div class="imitation-box"><strong>仿写 (B2-C1)：</strong><br>1. Secondly, this policy stimulates economic growth, creating more jobs and improving living standards.<br>2. Secondly, the initiative encourages public participation, raising awareness and promoting sustainable practices.<br>3. Secondly, the discovery prompts further investigation, opening new avenues and challenging existing theories.</div>
+  </div>
+
+  <!-- S7 -->
+  <div class="sentence-block" id="S7">
+    <div class="sentence-text"><span class="highlight-red">Just as a popular saying goes,</span> <span class="highlight-blue">"every coin has two sides."</span></div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">方式状语从句</span><span class="tag">引语</span></div>
+    <div class="section-title">1. 语法</div><p>方式状语从句，引用谚语。学术写作中偶尔用于过渡，但不宜过多。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>popular /ˈpɒpjʊlə/ adj. 流行的 (A2)</span><span>saying /ˈseɪɪŋ/ n. 谚语 (B1)</span><span>coin /kɔɪn/ n. 硬币 (A2)</span><span>side /saɪd/ n. 面 (A2)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>固定短语</td><td>every coin has two sides</td><td>事物都有两面性</td><td>中性</td><td>30-55</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>Just as a popular saying goes, "..."</code></p>
+    <div class="section-title">6. 应用</div><p>雅思双边讨论引入。等级2-3。</p>
+    <div class="imitation-box">仿写：Just as a popular saying goes, "no pain, no gain."</div>
+  </div>
+
+  <!-- S8 -->
+  <div class="sentence-block" id="S8">
+    <div class="sentence-text"><span class="highlight-blue">The young people’s lying flat phenomenon</span> <span class="highlight-green">is</span> <span class="highlight-orange">no exception</span> <span class="highlight-red">and has notable negative implications</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">并列谓语</span></div>
+    <div class="section-title">1. 语法</div><p>并列谓语 (is... and has...)，简洁转折。学术中用于承上启下。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>exception /ɪkˈsɛpʃən/ n. 例外 (B1)</span><span>notable /ˈnəʊtəbəl/ adj. 显著的 (C1, AWL)</span><span>negative /ˈnɛɡətɪv/ adj. 消极的 (A2)</span><span>implication /ˌɪmplɪˈkeɪʃən/ n. 影响 (B2, AWL)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>固定短语</td><td>no exception</td><td>无一例外</td><td>中性</td><td>37-49</td></tr><tr><td>Adj+N</td><td>notable negative implications</td><td>显著消极影响</td><td>正式</td><td>55-88</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>[主语] is no exception and has [形容词+名词]</code></p>
+    <div class="section-title">6. 应用</div><p>转折段首。等级4。</p>
+    <div class="imitation-box">仿写：This trend is no exception and has profound social consequences.</div>
+  </div>
+
+  <!-- S9 -->
+  <div class="sentence-block" id="S9">
+    <div class="sentence-text"><span class="highlight-red">To begin with,</span> <span class="highlight-blue">excessive lying flat</span> <span class="highlight-green">undermines</span> <span class="highlight-orange">young people’s enterprising spirit</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">主动</span></div>
+    <div class="section-title">1. 语法</div><p>简单句，动词undermine带宾语。学术论点句。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>excessive /ɪkˈsɛsɪv/ adj. 过度的 (B2)</span><span>undermine /ˌʌndəˈmaɪn/ v. 削弱 (C1, AWL)</span><span>enterprising /ˈɛntəˌpraɪzɪŋ/ adj. 进取的 (C1)</span><span>spirit /ˈspɪrɪt/ n. 精神 (B1)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>undermine spirit</td><td>削弱精神</td><td>正式</td><td>35-58</td></tr><tr><td>Adj+N</td><td>excessive lying flat</td><td>过度躺平</td><td>中性</td><td>18-39</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>To begin with, [名词短语] undermines [名词短语]</code></p>
+    <div class="section-title">6. 应用</div><p>雅思消极面第一论点。等级4。</p>
+    <div class="imitation-box">仿写：To begin with, excessive screen time undermines children's concentration.</div>
+  </div>
+
+  <!-- S10 -->
+  <div class="sentence-block" id="S10">
+    <div class="sentence-text"><span class="highlight-blue">Blindly abandoning struggle and embracing passivity</span> <span class="highlight-green">impedes</span> <span class="highlight-orange">personal growth</span>, <span class="highlight-green">weakens</span> <span class="highlight-orange">social competitiveness</span>, <span class="highlight-red">and results in missed development opportunities</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">动名词主语</span><span class="tag">并列谓语</span></div>
+    <div class="section-title">1. 语法</div><p>动名词短语作主语，三个并列谓语。学术中展现多重后果。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>blindly /ˈblaɪndli/ adv. 盲目地 (B2)</span><span>abandon /əˈbændən/ v. 放弃 (B2)</span><span>struggle /ˈstrʌɡəl/ n. 奋斗 (B2)</span><span>embrace /ɪmˈbreɪs/ v. 拥抱，接受 (B2)</span><span>passivity /pæˈsɪvɪti/ n. 被动 (C1)</span><span>impede /ɪmˈpiːd/ v. 阻碍 (C1, AWL)</span><span>personal /ˈpɜːsənəl/ adj. 个人的 (A2)</span><span>growth /ɡrəʊθ/ n. 成长 (B1)</span><span>weaken /ˈwiːkən/ v. 削弱 (B2)</span><span>competitiveness /kəmˈpɛtɪtɪvnəs/ n. 竞争力 (C1)</span><span>missed /mɪst/ adj. 错过的 (B1)</span><span>development /dɪˈvɛləpmənt/ n. 发展 (B1)</span><span>opportunity /ˌɒpəˈtjuːnɪti/ n. 机会 (A2)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>impede growth</td><td>阻碍成长</td><td>正式</td><td>48-62</td></tr><tr><td>V+N</td><td>weaken competitiveness</td><td>削弱竞争力</td><td>正式</td><td>65-90</td></tr><tr><td>固定短语</td><td>results in</td><td>导致</td><td>正式</td><td>95-105</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>[Doing...] impedes [名词], weakens [名词], and results in [名词]</code></p>
+    <div class="section-title">6. 应用</div><p>消极结果展开。等级4。</p>
+    <div class="imitation-box">仿写：Constantly avoiding challenges impedes personal development, weakens resilience, and results in stagnation.</div>
+  </div>
+
+  <!-- S11 -->
+  <div class="sentence-block" id="S11">
+    <div class="sentence-text"><span class="highlight-red">In addition,</span> <span class="highlight-blue">the pervasive trend of lying flat</span> <span class="highlight-green">dampens</span> <span class="highlight-orange">social vitality</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">主动</span></div>
+    <div class="section-title">1. 语法</div><p>简单句，使用准确动词dampen。学术写作中动词选择体现精确性。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>pervasive /pəˈveɪsɪv/ adj. 普遍的 (C1)</span><span>trend /trɛnd/ n. 趋势 (B1)</span><span>dampen /ˈdæmpən/ v. 抑制 (C1)</span><span>vitality /vaɪˈtælɪti/ n. 活力 (C1)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>dampen vitality</td><td>抑制活力</td><td>正式</td><td>47-65</td></tr><tr><td>Adj+N</td><td>pervasive trend</td><td>普遍趋势</td><td>正式</td><td>17-38</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>In addition, [名词短语] dampens [名词]</code></p>
+    <div class="section-title">6. 应用</div><p>补充论点。等级4。</p>
+    <div class="imitation-box">仿写：In addition, the constant noise dampens productivity.</div>
+  </div>
+
+  <!-- S12 -->
+  <div class="sentence-block" id="S12">
+    <div class="sentence-text"><span class="highlight-red">As the driving force behind progress,</span> <span class="highlight-blue">young people’s passive attitude toward challenges</span> <span class="highlight-green">significantly hampers</span> <span class="highlight-orange">long-term innovation and economic advancement</span>.</div>
+    <div class="tag-group"><span class="tag">一般现在时</span><span class="tag">介词短语作状语</span><span class="tag">主动</span></div>
+    <div class="section-title">1. 语法</div><p>As引导的介词短语说明身份/角色，主语后接强势动词hamper。学术中用于强调重要性。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>driving /ˈdraɪvɪŋ/ adj. 驱动的 (B2)</span><span>force /fɔːs/ n. 力量 (B1)</span><span>progress /ˈprəʊɡrɛs/ n. 进步 (A2)</span><span>passive /ˈpæsɪv/ adj. 被动的 (B2)</span><span>attitude /ˈætɪtjuːd/ n. 态度 (B1)</span><span>challenge /ˈtʃælɪndʒ/ n. 挑战 (B1)</span><span>significantly /sɪɡˈnɪfɪkəntli/ adv. 显著地 (B2, AWL)</span><span>hamper /ˈhæmpə/ v. 阻碍 (C1, AWL)</span><span>long-term /ˌlɒŋˈtɜːm/ adj. 长期的 (B2)</span><span>innovation /ˌɪnəˈveɪʃən/ n. 创新 (B2, AWL)</span><span>economic /ˌiːkəˈnɒmɪk/ adj. 经济的 (B1)</span><span>advancement /ədˈvɑːnsmənt/ n. 进步 (C1)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>hamper innovation</td><td>阻碍创新</td><td>正式</td><td>99-118</td></tr><tr><td>Adv+V</td><td>significantly hampers</td><td>显著阻碍</td><td>正式</td><td>80-104</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>As [名词短语], [主语] significantly hampers [名词短语]</code></p>
+    <div class="section-title">6. 应用</div><p>深入分析消极影响。等级5。</p>
+    <div class="imitation-box">仿写：As the backbone of the team, his absence significantly hampers project continuity.</div>
+  </div>
+
+  <!-- S13 -->
+  <div class="sentence-block" id="S13">
+    <div class="sentence-text"><span class="highlight-red">To sum up,</span> <span class="highlight-blue">we</span> <span class="highlight-green">should fully leverage</span> <span class="highlight-orange">the benefits of the lying flat phenomenon</span> <span class="highlight-red">while mitigating its drawbacks</span>.</div>
+    <div class="tag-group"><span class="tag">情态动词</span><span class="tag">主动</span><span class="tag">while引导时间/对比状语</span></div>
+    <div class="section-title">1. 语法</div><p>should 表示建议，while + 现在分词作状语。学术结论常用。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>fully /ˈfʊli/ adv. 充分地 (B1)</span><span>leverage /ˈliːvərɪdʒ/ v. 利用 (C1, AWL)</span><span>benefit /ˈbɛnɪfɪt/ n. 好处 (A2)</span><span>mitigate /ˈmɪtɪɡeɪt/ v. 减轻 (C1, AWL)</span><span>drawback /ˈdrɔːbæk/ n. 缺点 (C1)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>leverage benefits</td><td>利用好处</td><td>正式</td><td>30-50</td></tr><tr><td>V+N</td><td>mitigate drawbacks</td><td>减轻缺点</td><td>正式</td><td>82-104</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>To sum up, [主语] should fully leverage [名词] while mitigating [名词]</code></p>
+    <div class="section-title">6. 应用</div><p>结论段总结建议。等级4。</p>
+    <div class="imitation-box">仿写：To sum up, governments should fully leverage renewable energy while mitigating its intermittency.</div>
+  </div>
+
+  <!-- S14 -->
+  <div class="sentence-block" id="S14">
+    <div class="sentence-text"><span class="highlight-red">Specifically,</span> <span class="highlight-blue">young people</span> <span class="highlight-green">should adopt</span> <span class="highlight-orange">rational lying flat as a pressure-relief strategy</span> <span class="highlight-red">rather than succumbing to passive inertia</span>, <span class="highlight-red">maintaining a balance between rest and self-improvement</span>.</div>
+    <div class="tag-group"><span class="tag">情态动词</span><span class="tag">rather than对比</span><span class="tag">现在分词伴随状语</span></div>
+    <div class="section-title">1. 语法</div><p>rather than + doing 对比，现在分词短语作伴随。学术建议具体化。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>specifically /spɪˈsɪfɪkli/ adv. 具体来说 (B2, AWL)</span><span>rational /ˈræʃənəl/ adj. 理性的 (B2, AWL)</span><span>pressure-relief /ˈprɛʃə rɪˈliːf/ adj. 减压的</span><span>strategy /ˈstrætɪdʒi/ n. 策略 (A2, AWL)</span><span>succumb /səˈkʌm/ v. 屈服 (C1)</span><span>inertia /ɪˈnɜːʃə/ n. 惰性 (C1)</span><span>maintain /meɪnˈteɪn/ v. 保持 (B2, AWL)</span><span>balance /ˈbæləns/ n. 平衡 (B1)</span><span>self-improvement /ˌsɛlf ɪmˈpruːvmənt/ n. 自我提升 (B2)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>adopt a strategy</td><td>采取策略</td><td>正式</td><td>28-46</td></tr><tr><td>固定短语</td><td>rather than</td><td>而不是</td><td>中性</td><td>72-83</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>Specifically, [人] should adopt [名词] as [名词], rather than [doing...], maintaining [名词]</code></p>
+    <div class="section-title">6. 应用</div><p>具体建议。等级4。</p>
+    <div class="imitation-box">仿写：Specifically, students should adopt time management as a daily habit, rather than procrastinating, maintaining steady progress.</div>
+  </div>
+
+  <!-- S15 -->
+  <div class="sentence-block" id="S15">
+    <div class="sentence-text"><span class="highlight-red">Concurrently,</span> <span class="highlight-blue">society</span> <span class="highlight-green">must optimize</span> <span class="highlight-orange">the competitive environment</span> <span class="highlight-red">to curb excessive involution</span>.</div>
+    <div class="tag-group"><span class="tag">情态动词</span><span class="tag">不定式目的状语</span></div>
+    <div class="section-title">1. 语法</div><p>must 表强烈建议，不定式表目的。学术建议措施。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>concurrently /kənˈkʌrəntli/ adv. 同时 (C1, AWL)</span><span>optimize /ˈɒptɪmaɪz/ v. 优化 (C1, AWL)</span><span>environment /ɪnˈvaɪrənmənt/ n. 环境 (A2)</span><span>curb /kɜːb/ v. 抑制 (C1)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>optimize environment</td><td>优化环境</td><td>正式</td><td>30-54</td></tr><tr><td>V+N</td><td>curb involution</td><td>抑制内卷</td><td>正式</td><td>70-88</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>Concurrently, [社会] must optimize [名词] to [动词] [名词]</code></p>
+    <div class="section-title">6. 应用</div><p>社会层面建议。等级5。</p>
+    <div class="imitation-box">仿写：Concurrently, authorities must optimize public transport to reduce congestion.</div>
+  </div>
+
+  <!-- S16 -->
+  <div class="sentence-block" id="S16">
+    <div class="sentence-text"><span class="highlight-red">By doing so,</span> <span class="highlight-blue">we</span> <span class="highlight-green">can harness</span> <span class="highlight-orange">a balanced lying flat mindset</span> <span class="highlight-red">to achieve individual progress and sustainable social development</span>.</div>
+    <div class="tag-group"><span class="tag">情态动词</span><span class="tag">不定式目的状语</span></div>
+    <div class="section-title">1. 语法</div><p>By doing so 衔接手段，can 表能力/可能性，不定式目的。学术结论常用展望。</p>
+    <div class="section-title">2. 词汇</div><div class="vocab-list"><span>harness /ˈhɑːnɪs/ v. 利用 (C1, AWL)</span><span>balanced /ˈbælənst/ adj. 平衡的 (B1)</span><span>mindset /ˈmaɪndsɛt/ n. 心态 (C1)</span><span>achieve /əˈtʃiːv/ v. 实现 (A2)</span><span>individual /ˌɪndɪˈvɪdʒuəl/ adj. 个人的 (A2)</span><span>sustainable /səˈsteɪnəbəl/ adj. 可持续的 (B2, AWL)</span></div>
+    <div class="section-title">3. 搭配</div><table><tr><td>V+N</td><td>harness mindset</td><td>利用心态</td><td>正式</td><td>29-51</td></tr><tr><td>V+N</td><td>achieve progress</td><td>实现进步</td><td>中性</td><td>65-82</td></tr></table>
+    <div class="section-title">5. 记忆</div><p>模板：<code>By doing so, [主语] can harness [名词] to achieve [名词] and [名词]</code></p>
+    <div class="section-title">6. 应用</div><p>结论展望。等级5。</p>
+    <div class="imitation-box">仿写：By doing so, we can harness technological innovation to achieve economic growth and environmental protection.</div>
+  </div>
+
+  <!-- 一键检索索引 -->
+  <div class="section-title"><i>🔎 一键检索索引（搭配/句型模板及对应句子编号）</i></div>
+  <div class="index-grid">
+    <div>adopt a lifestyle → S1</div><div>widespread concern → S1</div><div>both advantages and disadvantages → S2</div>
+    <div>Generally speaking → S3</div><div>alleviate pressure → S4</div><div>trigger anxiety → S5</div>
+    <div>measured approach → S5</div><div>prompt reflection → S6</div><div>foster atmosphere → S6</div>
+    <div>no exception → S8</div><div>undermine spirit → S9</div><div>impede growth → S10</div>
+    <div>dampen vitality → S11</div><div>hamper innovation → S12</div><div>leverage benefits → S13</div>
+    <div>mitigate drawbacks → S13</div><div>adopt a strategy → S14</div><div>optimize environment → S15</div>
+    <div>curb involution → S15</div><div>harness mindset → S16</div>
+    <div>there be + concern → S1</div><div>help sb do → S4</div><div>rather than doing → S14</div>
+    <div>By doing so → S16</div>
+  </div>
+  <p style="margin-top:2rem; color:#5c5c4f;">✅ 本报告已完整解析范文全部16个句子，覆盖六大维度，彩色标签对应主谓宾定状补，可直接用于教学或导入Anki/Excel。</p>
+</div>
+</body>
+</html>
