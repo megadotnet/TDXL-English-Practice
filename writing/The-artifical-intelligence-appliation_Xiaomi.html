@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英语学术写作范文 · 六维度深度解析报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8f5f0;
+  --bg-alt: #eee9e0;
+  --surface: #ffffff;
+  --surface-alt: #f3f0eb;
+  --accent: #b8860b;
+  --accent-light: #f5e6c4;
+  --text: #2b2520;
+  --text-muted: #7a7067;
+  --border: #d9d0c4;
+  --subject: #1e5fa6;
+  --subject-bg: #d6e8fa;
+  --predicate: #1a7a3a;
+  --predicate-bg: #d2f0dc;
+  --object: #c65d12;
+  --object-bg: #fce4cc;
+  --attributive: #7b3fa0;
+  --attributive-bg: #ead6f5;
+  --adverbial: #b82020;
+  --adverbial-bg: #f8d4d4;
+  --complement: #5a6570;
+  --complement-bg: #dfe3e7;
+  --tag-tense: #2563eb;
+  --tag-tense-bg: #dbeafe;
+  --tag-voice: #059669;
+  --tag-voice-bg: #d1fae5;
+  --tag-clause: #d97706;
+  --tag-clause-bg: #fef3c7;
+  --tag-special: #db2777;
+  --tag-special-bg: #fce7f3;
+  --shadow: 0 2px 12px rgba(43,37,32,0.07);
+  --radius: 8px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Source Serif 4', 'Noto Serif SC', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.72;
+  min-height: 100vh;
+}
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+.sidebar {
+  position: fixed; left: 0; top: 0; bottom: 0;
+  width: 260px;
+  background: #1a1714;
+  color: #d4c8b8;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 28px 0;
+  font-size: 0.82rem;
+}
+.sidebar h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  padding: 0 20px;
+  margin-bottom: 18px;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid #333;
+  padding-bottom: 12px;
+}
+.sidebar a {
+  display: block;
+  color: #b8aa98;
+  text-decoration: none;
+  padding: 5px 20px;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+.sidebar a:hover, .sidebar a.active {
+  color: #fff;
+  background: rgba(184,134,11,0.12);
+  border-left-color: var(--accent);
+}
+.sidebar .toc-group { margin-top: 10px; }
+.sidebar .toc-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6b6158;
+  padding: 8px 20px 4px;
+}
+.main { margin-left: 260px; padding: 40px 48px 80px; max-width: 1080px; }
+.report-header {
+  text-align: center;
+  margin-bottom: 48px;
+  padding: 48px 0 36px;
+  border-bottom: 2px solid var(--accent);
+}
+.report-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.report-header .subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+.report-header .meta {
+  margin-top: 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 48px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent-light);
+  letter-spacing: 0.03em;
+}
+.sentence-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 36px;
+  overflow: hidden;
+}
+.sentence-header {
+  background: linear-gradient(135deg, #1a1714 0%, #2d2822 100%);
+  color: #f0ece4;
+  padding: 18px 28px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.sentence-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  background: var(--accent);
+  color: #1a1714;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.sentence-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+.sentence-body { padding: 0; }
+.dim-section {
+  padding: 22px 28px;
+  border-top: 1px solid var(--border);
+}
+.dim-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.dim-label .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.76rem;
+  font-weight: 500;
+  margin: 2px 4px 2px 0;
+  white-space: nowrap;
+}
+.tag-tense { background: var(--tag-tense-bg); color: var(--tag-tense); }
+.tag-voice { background: var(--tag-voice-bg); color: var(--tag-voice); }
+.tag-clause { background: var(--tag-clause-bg); color: var(--tag-clause); }
+.tag-special { background: var(--tag-special-bg); color: var(--tag-special); }
+.c-subj { color: var(--subject); font-weight: 600; }
+.c-pred { color: var(--predicate); font-weight: 600; }
+.c-obj { color: var(--object); font-weight: 600; }
+.c-attr { color: var(--attributive); font-style: italic; }
+.c-adv { color: var(--adverbial); text-decoration: underline; text-decoration-color: var(--adverbial-bg); text-underline-offset: 3px; }
+.c-comp { color: var(--complement); background: var(--complement-bg); padding: 0 3px; border-radius: 2px; }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; margin: 8px 0 14px; font-size: 0.78rem; }
+.legend span { display: flex; align-items: center; gap: 4px; }
+.legend .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 10px 0;
+}
+th {
+  background: #2b2520;
+  color: #f0ece4;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 12px;
+  text-align: left;
+}
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: var(--surface-alt); }
+.formal { color: #059669; font-weight: 600; }
+.neutral { color: #d97706; font-weight: 600; }
+.informal { color: #dc2626; font-weight: 600; }
+.template-box {
+  background: linear-gradient(135deg, #fef9f0 0%, #fdf5e6 100%);
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 12px 0;
+  position: relative;
+}
+.template-box::before {
+  content: '模板 TEMPLATE';
+  position: absolute;
+  top: -10px; left: 16px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.66rem;
+  padding: 2px 10px;
+  border-radius: 3px;
+  letter-spacing: 0.1em;
+}
+.template-formula {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 8px 0 6px;
+}
+.slot { color: var(--accent); font-weight: 600; background: var(--accent-light); padding: 1px 6px; border-radius: 3px; }
+.mnemonic {
+  font-size: 0.92rem;
+  color: var(--adverbial);
+  margin: 8px 0;
+  padding-left: 16px;
+  border-left: 3px solid var(--adverbial);
+}
+.error-table td:first-child { width: 50px; text-align: center; font-weight: 700; }
+.error-table .wrong { color: #dc2626; }
+.error-table .right { color: #059669; }
+.scenario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 10px 0;
+}
+.scenario-card {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-size: 0.84rem;
+}
+.scenario-card .sc-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.formality-bar {
+  display: flex;
+  gap: 3px;
+  margin: 6px 0;
+}
+.formality-bar span {
+  width: 24px;
+  height: 6px;
+  border-radius: 2px;
+  background: #d9d0c4;
+}
+.formality-bar span.active { background: var(--accent); }
+.tree {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  background: #faf8f5;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 10px 0;
+  overflow-x: auto;
+}
+.tree-level { margin-left: 24px; position: relative; }
+.tree-level::before {
+  content: '';
+  position: absolute;
+  left: -16px; top: 0; bottom: 12px;
+  width: 1px;
+  background: var(--border);
+}
+.tree-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+.depth-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 6px 0 0;
+  padding: 6px 10px;
+  background: var(--surface-alt);
+  border-radius: 4px;
+}
+.imitation-box {
+  background: #f0f7f0;
+  border: 1px solid #b8d8b8;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 6px 0;
+  font-size: 0.9rem;
+}
+.imitation-box .cefr {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  background: var(--predicate);
+  color: #fff;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+.index-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.index-section h3 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--accent-light);
+}
+.index-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dotted var(--border);
+  font-size: 0.85rem;
+}
+.index-item .ref {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.76rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.note-box {
+  background: #fffbe6;
+  border-left: 4px solid #d97706;
+  padding: 10px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border-radius: 0 6px 6px 0;
+}
+.note-box strong { color: #92400e; }
+.source-text {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  font-size: 1rem;
+  line-height: 1.85;
+  margin: 20px 0;
+}
+.source-text .s-highlight {
+  background: var(--accent-light);
+  padding: 1px 4px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.source-text .s-highlight:hover { background: #edd9a8; }
+.success-box {
+  background: #ecfdf5;
+  border-left: 4px solid #059669;
+  padding: 10px 16px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border-radius: 0 6px 6px 0;
+}
+.success-box strong { color: #065f46; }
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; padding: 20px; }
+  .scenario-grid { grid-template-columns: 1fr; }
+}
+@media print {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .sentence-block { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <h2>深度解析报告</h2>
+  <div class="toc-group">
+    <div class="toc-label">原文</div>
+    <a href="#source">▸ 范文全文</a>
+  </div>
+  <div class="toc-group">
+    <div class="toc-label">段落一 · AI 积极面</div>
+    <a href="#S1">S1 存现句 + 同位语从句</a>
+    <a href="#S2">S2 形式主语句</a>
+    <a href="#S3">S3 宾语从句</a>
+    <a href="#S4">S4 存现句 + 平行</a>
+    <a href="#S5">S5 被动语态</a>
+    <a href="#S6">S6 固定表达</a>
+  </div>
+  <div class="toc-group">
+    <div class="toc-label">段落二 · AI 消极面</div>
+    <a href="#S7">S7 插入语转折</a>
+    <a href="#S8">S8 同位语从句</a>
+    <a href="#S9">S9 被动 + 分词</a>
+    <a href="#S10">S10 情态动词</a>
+    <a href="#S11">S11 固定表达</a>
+  </div>
+  <div class="toc-group">
+    <div class="toc-label">段落三 · 个人观点</div>
+    <a href="#S12">S12 同位语从句</a>
+    <a href="#S13">S13 not only…but also</a>
+    <a href="#S14">S14 双重比较</a>
+  </div>
+  <div class="toc-group">
+    <div class="toc-label">附录</div>
+    <a href="#index">▸ 一键检索索引</a>
+  </div>
+</nav>
+
+<div class="main">
+
+<header class="report-header">
+  <h1>英语学术写作范文 · 六维度深度解析</h1>
+  <p class="subtitle">AI &amp; Society — Argumentative Essay Sentence-Level Analysis</p>
+  <p class="meta">14 Sentences · 6 Dimensions · 42 Imitation Examples · CEFR B2–C2 · AWL Sublist 1–10</p>
+</header>
+
+<!-- ═══════ SOURCE TEXT ═══════ -->
+<section id="source">
+  <h2 class="section-title">范文全文 Source Text</h2>
+  <div class="source-text">
+    <p><span class="s-highlight" onclick="document.getElementById('S1').scrollIntoView({behavior:'smooth'})">S1</span> There is a widespread concern over the issue that artificial intelligence is widely applied in modern society. <span class="s-highlight" onclick="document.getElementById('S2').scrollIntoView({behavior:'smooth'})">S2</span> But it is well known that the opinion concerning this hot topic varies from person to person. <span class="s-highlight" onclick="document.getElementById('S3').scrollIntoView({behavior:'smooth'})">S3</span> A majority of people think that artificial intelligence brings great convenience and progress to society. <span class="s-highlight" onclick="document.getElementById('S4').scrollIntoView({behavior:'smooth'})">S4</span> In their view there are two factors contributing to this attitude as follows: in the first place, AI can greatly raise work efficiency and reduce human labor intensity. <span class="s-highlight" onclick="document.getElementById('S5').scrollIntoView({behavior:'smooth'})">S5</span> Furthermore, in the second place, it is widely used in education, medical treatment and transportation to optimize public services. <span class="s-highlight" onclick="document.getElementById('S6').scrollIntoView({behavior:'smooth'})">S6</span> So it goes without saying that artificial intelligence is an important driving force for social development.</p>
+    <p><span class="s-highlight" onclick="document.getElementById('S7').scrollIntoView({behavior:'smooth'})">S7</span> People, however, differ in their opinions on this matter. <span class="s-highlight" onclick="document.getElementById('S8').scrollIntoView({behavior:'smooth'})">S8</span> Some people hold the idea that excessive reliance on artificial intelligence will cause serious problems. <span class="s-highlight" onclick="document.getElementById('S9').scrollIntoView({behavior:'smooth'})">S9</span> In their point of view, on the one hand, many simple manual jobs will be replaced by AI, leading to employment pressure. <span class="s-highlight" onclick="document.getElementById('S10').scrollIntoView({behavior:'smooth'})">S10</span> On the other hand, it may cause personal privacy leakage and even wrong information guidance. <span class="s-highlight" onclick="document.getElementById('S11').scrollIntoView({behavior:'smooth'})">S11</span> Therefore, there is no doubt that the uncontrolled use of AI has potential risks.</p>
+    <p><span class="s-highlight" onclick="document.getElementById('S12').scrollIntoView({behavior:'smooth'})">S12</span> As far as I am concerned, I firmly support the view that we should properly develop and use artificial intelligence. <span class="s-highlight" onclick="document.getElementById('S13').scrollIntoView({behavior:'smooth'})">S13</span> It is not only because AI can promote scientific and technological innovation, but also because it can greatly improve people's living standards. <span class="s-highlight" onclick="document.getElementById('S14').scrollIntoView({behavior:'smooth'})">S14</span> The more rationally we apply artificial intelligence, the more positive value it will create for society.</p>
+  </div>
+</section>
+
+<!-- ═══════ S1 (修正后) ═══════ -->
+<section id="S1" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S1</span>
+    <span class="sentence-text">There is a widespread concern over the issue that artificial intelligence is widely applied in modern society.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析 Grammar</div>
+      <p>
+        <span class="tag tag-tense">Simple Present 一般现在时</span>
+        <span class="tag tag-voice">Passive Voice 被动语态（is widely applied）</span>
+        <span class="tag tag-clause">Appositive Clause 同位语从句（that 引导，结构完整）</span>
+      </p>
+      <p>
+        <span class="tag tag-special">Existential There 存现句</span>
+      </p>
+      <div class="success-box">
+        <strong>✓ 语法修正确认：</strong>同位语从句 "that artificial intelligence is widely applied in modern society" 结构完整：主语 <em>artificial intelligence</em> + 被动谓语 <em>is widely applied</em> + 地点状语 <em>in modern society</em>。"that" 引导的从句对 "the issue" 进行补充说明。
+      </div>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>存现句 "There is…" 在 SCI/SSCI 论文 Introduction 中常用于引出研究背景，如 <em>There is growing evidence that…</em>。同位语从句中使用被动语态 "is widely applied" 是学术写作中描述技术普及程度的标准手法，体现了 impersonal style。雅思 Task 2 开头段使用此句型可展示句式多样性与同位语从句的掌握。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型 Vocabulary</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>widespread</td><td>/ˈwaɪdspred/</td><td>adj.</td><td>广泛的 existing over a large area;普遍的</td><td class="formal">正式</td><td>C1 · AWL-3</td></tr>
+        <tr><td>2</td><td>concern</td><td>/kənˈsɜːn/</td><td>n.</td><td>关注/担忧 a matter of interest or worry</td><td class="formal">正式</td><td>B2 · AWL-1</td></tr>
+        <tr><td>3</td><td>issue</td><td>/ˈɪʃuː/</td><td>n.</td><td>议题 an important topic for debate</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+        <tr><td>4</td><td>artificial</td><td>/ˌɑːtɪˈfɪʃl/</td><td>adj.</td><td>人工的 made by humans; not natural</td><td class="neutral">中性</td><td>B2 · AWL-3</td></tr>
+        <tr><td>5</td><td>intelligence</td><td>/ɪnˈtelɪdʒəns/</td><td>n.</td><td>智能 the ability to learn and reason</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>6</td><td>widely</td><td>/ˈwaɪdli/</td><td>adv.</td><td>广泛地 over a large area or range</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+        <tr><td>7</td><td>apply</td><td>/əˈplaɪ/</td><td>v.</td><td>应用 to use or employ for a purpose</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+        <tr><td>8</td><td>modern</td><td>/ˈmɒdn/</td><td>adj.</td><td>现代的 relating to the present time</td><td class="neutral">中性</td><td>B1</td></tr>
+        <tr><td>9</td><td>society</td><td>/səˈsaɪəti/</td><td>n.</td><td>社会 the community of people living together</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配 Collocations</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语/预制语块</th><th>学术高频连接词</th></tr>
+        <tr>
+          <td>—</td>
+          <td>widespread concern 广泛关注<br>artificial intelligence 人工智能<br>modern society 现代社会</td>
+          <td>there is 存现句式<br>the issue that …的议题<br>be widely applied in 被广泛应用于</td>
+          <td>—</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分 Sentence Components</div>
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--subject)"></span>主语</span>
+        <span><span class="swatch" style="background:var(--predicate)"></span>谓语</span>
+        <span><span class="swatch" style="background:var(--object)"></span>宾语</span>
+        <span><span class="swatch" style="background:var(--attributive)"></span>定语</span>
+        <span><span class="swatch" style="background:var(--adverbial)"></span>状语</span>
+        <span><span class="swatch" style="background:var(--complement)"></span>补语</span>
+      </div>
+      <div class="tree">
+        <span class="c-subj">There</span> <span class="c-pred">is</span> <span class="c-obj">a widespread concern</span> <span class="c-adv">over the issue</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--attributive-bg);color:var(--attributive)">同位语从句</span>
+          <strong>that</strong>
+          <span class="c-subj">artificial intelligence</span>
+          <span class="c-pred">is widely applied</span>
+          <span class="c-adv">in modern society</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句存现句 → that 同位语从句含被动语态）。从句结构完整，可读性良好。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法 Memory</div>
+      <div class="template-box">
+        <p class="template-formula">There is a/an <span class="slot">[adj.]</span> concern over the issue that <span class="slot">[主语]</span> is <span class="slot">[adv.]</span> <span class="slot">[过去分词]</span> in <span class="slot">[n. 领域/范围]</span>.</p>
+        <p class="mnemonic">口诀：存现引出大话题，that 后被动表普及</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>There is a concern that <strong>the application of AI</strong>. <em>(从句缺少谓语)</em></td><td class="right">✓</td><td>…that <strong>AI is widely applied</strong> in modern society.</td></tr>
+        <tr><td class="wrong">✗</td><td>…that artificial intelligence <strong>is widely applying</strong>… <em>(被动应用过去分词)</em></td><td class="right">✓</td><td>…that AI <strong>is widely applied</strong>…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景 Application</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>适用"同意与否"与"双边讨论"题型开头段，引出争议话题。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论（Academic Discussion）中引出背景观点。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Introduction 首段：There is growing concern that… 引出研究动机。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 适用于学术期刊、商务报告、会议摘要。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习 Imitation</div>
+      <div class="imitation-box"><span class="cefr">C1</span> There is a widespread concern over the issue that gene-editing technology is widely applied in medical research.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> There is growing interest in the possibility that renewable energy is increasingly adopted in developing countries.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> There is an ongoing debate over the question that surveillance technology is extensively deployed in urban management.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S2 ═══════ -->
+<section id="S2" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S2</span>
+    <span class="sentence-text">But it is well known that the opinion concerning this hot topic varies from person to person.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Passive Voice 被动语态（is well known）</span> <span class="tag tag-clause">Extraposed Subject Clause 形式主语从句</span></p>
+      <p><span class="tag tag-special">Extraposition 形式主语 it</span> <span class="tag tag-special">Fixed Phrase from person to person</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"It is well known that…" 在 SCI 论文 Introduction 中常用于陈述领域共识，为后续转折做铺垫。雅思 Task 2 中使用可展示被动语态与形式主语的灵活运用，属于 Grammatical Range 高分项。注意：学术语境中更推荐 <em>It is widely acknowledged/recognized that</em>，避免 "well known" 的口语色彩。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>well-known</td><td>/ˌwel ˈnəʊn/</td><td>adj.</td><td>众所周知的 widely known</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>2</td><td>opinion</td><td>/əˈpɪnjən/</td><td>n.</td><td>观点 a personal view or judgment</td><td class="neutral">中性</td><td>B1</td></tr>
+        <tr><td>3</td><td>concerning</td><td>/kənˈsɜːnɪŋ/</td><td>prep.</td><td>关于 about; relating to</td><td class="formal">正式</td><td>B2 · AWL-1</td></tr>
+        <tr><td>4</td><td>vary</td><td>/ˈveəri/</td><td>v.</td><td>变化/不同 to be different</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+        <tr><td>5</td><td>topic</td><td>/ˈtɒpɪk/</td><td>n.</td><td>话题 a subject of discussion</td><td class="neutral">中性</td><td>B1 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>vary opinions 观点各异</td><td>hot topic 热门话题</td><td>It is well known that… 众所周知</td><td>But（句间转折）</td></tr>
+        <tr><td>—</td><td>—</td><td>from person to person 因人而异</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">But</span> <span class="c-subj">it</span> <span class="c-pred">is well known</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--tag-tense-bg);color:var(--tag-tense)">主语从句（真正主语）</span>
+          that <span class="c-subj">the opinion [concerning this hot topic]</span> <span class="c-pred">varies</span> <span class="c-adv">[from person to person]</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句形式主语 → that 主语从句）。"concerning this hot topic" 为介词短语作后置定语修饰 opinion。可读性良好。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">It is well/widely <span class="slot">[过去分词]</span> (acknowledged / recognized / assumed) that <span class="slot">[主语]</span> <span class="slot">[谓语]</span>.</p>
+        <p class="mnemonic">口诀：It 形主真从句，well known 认共识</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>It is well known the opinion varies. <em>(缺 that)</em></td><td class="right">✓</td><td>It is well known <strong>that</strong> the opinion varies.</td></tr>
+        <tr><td class="wrong">✗</td><td>…the opinion concerning this hot topic <strong>vary</strong>. <em>(主谓不一致)</em></td><td class="right">✓</td><td>…the opinion…<strong>varies</strong>.</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"双边讨论"题型中引出观点分歧的通用句。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>综合写作中转述阅读/听力的共识或分歧。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Introduction 段陈述已知共识后准备提出研究空白。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 学术与商务均可，"hot topic"稍偏口语。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">C1</span> It is widely acknowledged that the perspectives regarding this controversial issue diverge significantly.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> It is generally accepted that attitudes toward remote work differ across generations.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> It is commonly assumed that the views concerning globalisation's impact vary from culture to culture.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S3 ═══════ -->
+<section id="S3" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S3</span>
+    <span class="sentence-text">A majority of people think that artificial intelligence brings great convenience and progress to society.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">Object Clause 宾语从句（that 引导）</span></p>
+      <p><span class="tag tag-special">Parallel Structure 平行结构（convenience and progress）</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"A majority of people think that…" 适用于雅思写作开头段引述大众观点，但学术论文中应避免 "people think"，改为 <em>It has been argued that…</em> 或 <em>Research suggests that…</em>。平行结构 "A and B" 是 SCI 写作中列举优势/结果的基本技能。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>majority</td><td>/məˈdʒɒrəti/</td><td>n.</td><td>大多数 the greater number</td><td class="neutral">中性</td><td>B2 · AWL-3</td></tr>
+        <tr><td>2</td><td>think</td><td>/θɪŋk/</td><td>v.</td><td>认为 to hold an opinion</td><td class="informal">非正式</td><td>A2</td></tr>
+        <tr><td>3</td><td>bring</td><td>/brɪŋ/</td><td>v.</td><td>带来 to cause to come</td><td class="neutral">中性</td><td>A2</td></tr>
+        <tr><td>4</td><td>convenience</td><td>/kənˈviːniəns/</td><td>n.</td><td>便利 the state of being convenient</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>5</td><td>progress</td><td>/ˈprəʊɡres/</td><td>n.</td><td>进步 forward movement; development</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+        <tr><td>6</td><td>society</td><td>/səˈsaɪəti/</td><td>n.</td><td>社会 the community of people</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>bring convenience 带来便利</td><td>great convenience 极大便利</td><td>a majority of 大多数</td><td>—</td></tr>
+        <tr><td>bring progress 带来进步</td><td>artificial intelligence 人工智能</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-subj">A majority of people</span> <span class="c-pred">think</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--tag-clause-bg);color:var(--tag-clause)">宾语从句</span>
+          that <span class="c-subj">artificial intelligence</span> <span class="c-pred">brings</span> <span class="c-obj">great <span class="c-attr">convenience</span> and <span class="c-attr">progress</span></span> <span class="c-adv">to society</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句 → 宾语从句）。结构简洁清晰，可读性高。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">A majority of <span class="slot">[n. 人群]</span> <span class="slot">[think/argue/believe]</span> that <span class="slot">[主语]</span> brings <span class="slot">[n.]</span> and <span class="slot">[n.]</span> to <span class="slot">[n. 领域]</span>.</p>
+        <p class="mnemonic">口诀：多数人认为，A 带来 B 和 C</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>A majority of people <strong>thinks</strong> that… <em>(a majority of + 复数名词用复数动词)</em></td><td class="right">✓</td><td>A majority of people <strong>think</strong> that…</td></tr>
+        <tr><td class="wrong">✗</td><td>…brings great convenience and <strong>to progress</strong>. <em>(平行结构错误)</em></td><td class="right">✓</td><td>…brings great <strong>convenience</strong> and <strong>progress</strong>.</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"双边讨论"或"同意与否"中引述正方观点。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中概括一方立场。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Discussion 段总结前人研究发现。建议替换 think 为 argue/maintain。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>3/5 · 适用于议论文，正式学术需升级用词。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> A large number of researchers believe that globalisation brings economic growth and cultural diversity to developing nations.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> A growing proportion of scholars contend that digital technology fosters innovation and efficiency within the healthcare sector.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> The majority of citizens agree that public investment brings prosperity and stability to local communities.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S4 (修正后) ═══════ -->
+<section id="S4" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S4</span>
+    <span class="sentence-text">In their view there are two factors contributing to this attitude as follows: in the first place, AI can greatly raise work efficiency and reduce human labor intensity.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">Present Participle 现在分词短语作后置定语（contributing to…）</span></p>
+      <p><span class="tag tag-special">Existential There 存现句</span> <span class="tag tag-special">Colon Elaboration 冒号展开</span> <span class="tag tag-special">Parallel Verbs raise…and reduce…</span></p>
+      <div class="success-box">
+        <strong>✓ 格式修正确认：</strong>"In their view"（单数，固定搭配）与 "two"（正式写作中数字需拼写）均已修正。原 "views" 与 "2" 的问题已消除。
+      </div>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>冒号展开列举是学术写作中呈现分论点的标准手段。平行动词 "raise…and reduce…" 展示了 Coordination 技巧，在雅思写作 Grammatical Range 项可得分。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>factor</td><td>/ˈfæktə/</td><td>n.</td><td>因素 a contributing element</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+        <tr><td>2</td><td>contribute</td><td>/kənˈtrɪbjuːt/</td><td>v.</td><td>促成 to help cause</td><td class="formal">正式</td><td>B2 · AWL-3</td></tr>
+        <tr><td>3</td><td>attitude</td><td>/ˈætɪtjuːd/</td><td>n.</td><td>态度 a settled way of thinking</td><td class="neutral">中性</td><td>B2 · AWL-3</td></tr>
+        <tr><td>4</td><td>raise</td><td>/reɪz/</td><td>v.</td><td>提高 to increase; elevate</td><td class="neutral">中性</td><td>B1</td></tr>
+        <tr><td>5</td><td>efficiency</td><td>/ɪˈfɪʃnsi/</td><td>n.</td><td>效率 achieving results with minimal waste</td><td class="formal">正式</td><td>B2 · AWL-3</td></tr>
+        <tr><td>6</td><td>reduce</td><td>/rɪˈdjuːs/</td><td>v.</td><td>减少 to make smaller in amount</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+        <tr><td>7</td><td>intensity</td><td>/ɪnˈtensəti/</td><td>n.</td><td>强度 the degree of force or effort</td><td class="formal">正式</td><td>B2 · AWL-4</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>raise efficiency 提高效率</td><td>work efficiency 工作效率</td><td>in their view 在他们看来</td><td>in the first place 首先</td></tr>
+        <tr><td>reduce intensity 降低强度</td><td>human labor 人类劳动</td><td>as follows 如下</td><td>—</td></tr>
+        <tr><td>contribute to 促成</td><td>—</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">In their view</span> <span class="c-subj">there</span> <span class="c-pred">are</span> <span class="c-obj">two factors</span> <span class="c-attr">[contributing to this attitude]</span>
+        <span class="c-adv">as follows:</span>
+        <span class="c-adv">in the first place</span>, <span class="c-subj">AI</span> <span class="c-pred">can raise</span> <span class="c-obj">work efficiency</span> <span class="c-pred">and reduce</span> <span class="c-obj">human labor intensity</span>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句存现句 → 分词定语 + 冒号并列分句）。结构为"总—分"模式，可读性高。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">In their view, there are <span class="slot">[num.]</span> factors contributing to this <span class="slot">[n.]</span>: in the first place, <span class="slot">[S+V+O]</span>; furthermore, <span class="slot">[S+V+O]</span>.</p>
+        <p class="mnemonic">口诀：先说因素有几条，冒号后面逐条列</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>In their <strong>views</strong>… <em>(view 固定单数)</em></td><td class="right">✓</td><td>In their <strong>view</strong>…</td></tr>
+        <tr><td class="wrong">✗</td><td>…<strong>2</strong> factors… <em>(正式写作需拼写数字)</em></td><td class="right">✓</td><td>…<strong>two</strong> factors…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"原因与解决方案"题型中列举原因。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中展开支持性论据。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Discussion 段列举因素或解释机制。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>3/5 · 议论文、报告适用，正式学术需精简表达。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> In their view, there are three reasons contributing to this phenomenon: firstly, technology reduces costs and enhances productivity.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> In their assessment, there are several factors accounting for this trend: primarily, policy reform accelerates development and mitigates inequality.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> From their perspective, there are two causes contributing to the decline: on the one hand, pollution damages ecosystems and reduces biodiversity.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S5 ═══════ -->
+<section id="S5" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S5</span>
+    <span class="sentence-text">Furthermore, in the second place, it is widely used in education, medical treatment and transportation to optimize public services.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Passive Voice 被动语态（is widely used）</span></p>
+      <p><span class="tag tag-clause">Infinitive of Purpose 不定式作目的状语（to optimize…）</span></p>
+      <p><span class="tag tag-special">Serial List 三项并列（education, medical treatment and transportation）</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>被动语态是 SCI/SSCI 论文 Methods 和 Results 部分的核心句型。不定式表目的在雅思写作中展示句式多样性，属于高分结构。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>furthermore</td><td>/ˌfɜːðəˈmɔː/</td><td>adv.</td><td>此外 in addition; moreover</td><td class="formal">正式</td><td>B2 · AWL-2</td></tr>
+        <tr><td>2</td><td>education</td><td>/ˌedʒuˈkeɪʃn/</td><td>n.</td><td>教育 the process of teaching/learning</td><td class="neutral">中性</td><td>A2 · AWL-1</td></tr>
+        <tr><td>3</td><td>treatment</td><td>/ˈtriːtmənt/</td><td>n.</td><td>处理/治疗 medical care</td><td class="neutral">中性</td><td>B2 · AWL-4</td></tr>
+        <tr><td>4</td><td>transportation</td><td>/ˌtrænspɔːˈteɪʃn/</td><td>n.</td><td>交通运输 the system of moving people/goods</td><td class="neutral">中性</td><td>B2 · AWL-5</td></tr>
+        <tr><td>5</td><td>optimize</td><td>/ˈɒptɪmaɪz/</td><td>v.</td><td>优化 to make as effective as possible</td><td class="formal">正式</td><td>C1 · AWL-7</td></tr>
+        <tr><td>6</td><td>service</td><td>/ˈsɜːvɪs/</td><td>n.</td><td>服务 a system providing public needs</td><td class="neutral">中性</td><td>B1 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>optimize services 优化服务</td><td>public services 公共服务</td><td>in the second place 其次</td><td>Furthermore 此外</td></tr>
+        <tr><td>—</td><td>medical treatment 医疗</td><td>be widely used in 被广泛应用于</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">Furthermore</span>, <span class="c-adv">in the second place</span>, <span class="c-subj">it</span> <span class="c-pred">is widely used</span> <span class="c-adv">[in education, medical treatment and transportation]</span> <span class="c-adv">[to optimize public services]</span>
+      </div>
+      <p class="depth-note">嵌套层级：1层（简单句 + 目的状语）。被动句式简洁，层次分明。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">Furthermore, it is widely <span class="slot">[过去分词]</span> in <span class="slot">[领域1]</span>, <span class="slot">[领域2]</span> and <span class="slot">[领域3]</span> to <span class="slot">[v. 目标]</span>.</p>
+        <p class="mnemonic">口诀：被动广泛用，三领域并列，to 表目的</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>It is widely <strong>use</strong> in… <em>(缺过去分词)</em></td><td class="right">✓</td><td>It is widely <strong>used</strong> in…</td></tr>
+        <tr><td class="wrong">✗</td><td>…in education<strong>,</strong> medical treatment and transportation<strong>,</strong> to optimize… <em>(不必要的逗号)</em></td><td class="right">✓</td><td>…in education, medical treatment and transportation to optimize…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"利弊分析"中列举优势的应用领域。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>综合写作中转述阅读材料的具体应用。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Introduction/Related Work 中描述技术的应用范围。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 学术论文、政策报告均可使用。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Furthermore, this method is widely applied in agriculture, manufacturing and logistics to enhance operational efficiency.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Moreover, the technology is extensively employed in research, diagnostics and therapeutics to advance clinical outcomes.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Additionally, solar energy is widely adopted in residential, commercial and industrial sectors to reduce carbon emissions.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S6 ═══════ -->
+<section id="S6" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S6</span>
+    <span class="sentence-text">So it goes without saying that artificial intelligence is an important driving force for social development.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">Extraposed Subject Clause 形式主语从句</span></p>
+      <p><span class="tag tag-special">Fixed Idiom it goes without saying that 不言而喻</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"It goes without saying that" 语气偏口语化，正式学术论文中建议改为 <em>It is evident/apparent that</em> 或 <em>Notably,</em>。雅思写作中此表达可用于结论段加强语气。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>driving force</td><td>/ˈdraɪvɪŋ fɔːs/</td><td>n.</td><td>驱动力 a powerful influence causing action</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>2</td><td>development</td><td>/dɪˈveləpmənt/</td><td>n.</td><td>发展 the process of growing/advancing</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+        <tr><td>3</td><td>social</td><td>/ˈsəʊʃl/</td><td>adj.</td><td>社会的 relating to society</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>—</td><td>driving force 驱动力</td><td>it goes without saying that 不言而喻</td><td>So 因此</td></tr>
+        <tr><td>—</td><td>social development 社会发展</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">So</span> <span class="c-subj">it</span> <span class="c-pred">goes without saying</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--tag-tense-bg);color:var(--tag-tense)">主语从句</span>
+          that <span class="c-subj">artificial intelligence</span> <span class="c-pred">is</span> <span class="c-comp">an important driving force [for social development]</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（形式主语 → that 从句）。"for social development" 为介词短语作 force 的后置定语。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">It goes without saying that <span class="slot">[主语]</span> is a(n) <span class="slot">[adj.]</span> driving force for <span class="slot">[n.]</span>.</p>
+        <p class="mnemonic">口诀：不言而喻是驱动力，for 后跟发展领域</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>It goes without <strong>say</strong> that… <em>(say 应为 saying)</em></td><td class="right">✓</td><td>It goes without <strong>saying</strong> that…</td></tr>
+        <tr><td class="wrong">✗</td><td>…a driving force <strong>of</strong> social development. <em>(介词用 for)</em></td><td class="right">✓</td><td>…a driving force <strong>for</strong> social development.</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>结论段用于总结强调。建议替换为 It is evident that。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中做总结性陈述。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Discussion/Conclusion 段总结核心论点（需升级用词）。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>3/5 · 偏口语化，不适合直接用于学术期刊。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">C1</span> It is self-evident that education constitutes a fundamental catalyst for economic growth.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> It goes without saying that clean water is a vital prerequisite for public health.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> It is readily apparent that renewable energy serves as a pivotal driving force for sustainable development.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S7 ═══════ -->
+<section id="S7" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S7</span>
+    <span class="sentence-text">People, however, differ in their opinions on this matter.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">无从句（简单句）</span></p>
+      <p><span class="tag tag-special">Parenthetical Adverb 插入语（however）</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>插入 "however" 是学术写作中实现语篇转折的经典手段，两端用逗号隔开。在雅思写作中此结构展示 cohesive devices 运用能力，属于 Coherence &amp; Cohesion 评分项。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>differ</td><td>/ˈdɪfə/</td><td>v.</td><td>持不同意见 to be unlike; disagree</td><td class="neutral">中性</td><td>B2 · AWL-3</td></tr>
+        <tr><td>2</td><td>opinion</td><td>/əˈpɪnjən/</td><td>n.</td><td>观点 a belief or judgment</td><td class="neutral">中性</td><td>B1</td></tr>
+        <tr><td>3</td><td>matter</td><td>/ˈmætə/</td><td>n.</td><td>事情 a subject of concern</td><td class="neutral">中性</td><td>B1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>differ in opinions 意见不同</td><td>—</td><td>differ in 在…方面不同</td><td>however 然而（插入语）</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-subj">People</span>, <span class="c-adv">however</span>, <span class="c-pred">differ</span> <span class="c-adv">in their opinions</span> <span class="c-adv">on this matter</span>
+      </div>
+      <p class="depth-note">嵌套层级：1层（简单句）。"however" 为插入状语，两端逗号隔开。句式简洁有力，适合段落开头转折。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula"><span class="slot">[n. 人/群体]</span>, however, <span class="slot">[differ/vary/disagree]</span> in their <span class="slot">[n.]</span> on this <span class="slot">[matter/issue/question]</span>.</p>
+        <p class="mnemonic">口诀：人 + however + differ in + 观点 + on 话题</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>People <strong>however</strong> differ… <em>(however 需逗号隔开)</em></td><td class="right">✓</td><td>People<strong>,</strong> however<strong>,</strong> differ…</td></tr>
+        <tr><td class="wrong">✗</td><td>…differ <strong>from</strong> their opinions… <em>(搭配用 in)</em></td><td class="right">✓</td><td>…differ <strong>in</strong> their opinions…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"双边讨论"题型中引出反方或转折段。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>综合写作中引出阅读与听力的分歧。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Literature Review 中指出研究争议。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 简洁通用，适用于各类正式写作。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Researchers, nevertheless, diverge in their views on this phenomenon.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Scholars, by contrast, remain divided in their interpretations of this finding.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Experts, meanwhile, disagree in their assessments of this approach.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S8 ═══════ -->
+<section id="S8" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S8</span>
+    <span class="sentence-text">Some people hold the idea that excessive reliance on artificial intelligence will cause serious problems.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present + Simple Future</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">Appositive Clause 同位语从句（that 引导）</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>同位语从句 "the idea that…" 是雅思写作和 SCI 论文中引述观点的标准句型。高分范文中常见变体：the view/claim/argument/proposition that…</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>hold</td><td>/həʊld/</td><td>v.</td><td>持有（观点） to maintain (a belief)</td><td class="neutral">中性</td><td>B1</td></tr>
+        <tr><td>2</td><td>excessive</td><td>/ɪkˈsesɪv/</td><td>adj.</td><td>过度的 more than necessary</td><td class="formal">正式</td><td>B2 · AWL-6</td></tr>
+        <tr><td>3</td><td>reliance</td><td>/rɪˈlaɪəns/</td><td>n.</td><td>依赖 dependence on</td><td class="formal">正式</td><td>C1 · AWL-8</td></tr>
+        <tr><td>4</td><td>cause</td><td>/kɔːz/</td><td>v.</td><td>导致 to make happen</td><td class="neutral">中性</td><td>B1 · AWL-1</td></tr>
+        <tr><td>5</td><td>serious</td><td>/ˈsɪəriəs/</td><td>adj.</td><td>严重的 significant; grave</td><td class="neutral">中性</td><td>B1</td></tr>
+        <tr><td>6</td><td>problem</td><td>/ˈprɒbləm/</td><td>n.</td><td>问题 a difficulty needing solution</td><td class="neutral">中性</td><td>A2</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>hold the idea 持有观点</td><td>excessive reliance 过度依赖</td><td>reliance on 对…的依赖</td><td>—</td></tr>
+        <tr><td>cause problems 导致问题</td><td>serious problems 严重问题</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-subj">Some people</span> <span class="c-pred">hold</span> <span class="c-obj">the idea</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--attributive-bg);color:var(--attributive)">同位语从句</span>
+          that <span class="c-subj">excessive reliance [on artificial intelligence]</span> <span class="c-pred">will cause</span> <span class="c-obj">serious problems</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句 → 同位语从句）。可读性高。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula"><span class="slot">[n. 人]</span> hold the <span class="slot">[idea/view/claim]</span> that <span class="slot">[主语]</span> will <span class="slot">[v.]</span> <span class="slot">[adj.]</span> <span class="slot">[n.]</span>.</p>
+        <p class="mnemonic">口诀：某人 hold 观点 that 从句表担忧</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>hold the idea <strong>of</strong> excessive reliance…will cause… <em>(应为 that 从句)</em></td><td class="right">✓</td><td>hold the idea <strong>that</strong>…</td></tr>
+        <tr><td class="wrong">✗</td><td>excessive reliance <strong>to</strong> AI… <em>(reliance 搭配 on)</em></td><td class="right">✓</td><td>excessive reliance <strong>on</strong> AI…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"同意与否"题型中引述反方核心论点。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中概括对立观点。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Introduction 中引述争议性观点以引出研究目的。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 适用于学术、商务等正式场景。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Some scholars maintain the view that over-reliance on automation will exacerbate socioeconomic inequality.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Many experts hold the belief that excessive dependence on technology may undermine human creativity.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Certain researchers advance the argument that uncritical adoption of algorithms will erode individual autonomy.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S9 ═══════ -->
+<section id="S9" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S9</span>
+    <span class="sentence-text">In their point of view, on the one hand, many simple manual jobs will be replaced by AI, leading to employment pressure.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Future 一般将来时</span> <span class="tag tag-voice">Passive Voice 被动语态（will be replaced）</span></p>
+      <p><span class="tag tag-clause">Present Participle Phrase 现在分词短语作结果状语（leading to…）</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"will be replaced by" 被动语态 + 现在分词表结果，是雅思写作中展示复杂句式的高效模板。SCI 论文 Discussion 部分常用此模式表达因果链。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>manual</td><td>/ˈmænjuəl/</td><td>adj.</td><td>手工的 involving physical work</td><td class="neutral">中性</td><td>B2 · AWL-7</td></tr>
+        <tr><td>2</td><td>replace</td><td>/rɪˈpleɪs/</td><td>v.</td><td>取代 to take the place of</td><td class="neutral">中性</td><td>B2 · AWL-4</td></tr>
+        <tr><td>3</td><td>employment</td><td>/ɪmˈplɔɪmənt/</td><td>n.</td><td>就业 the state of having paid work</td><td class="formal">正式</td><td>B2 · AWL-2</td></tr>
+        <tr><td>4</td><td>pressure</td><td>/ˈpreʃə/</td><td>n.</td><td>压力 force or stress</td><td class="neutral">中性</td><td>B2</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>replace jobs 取代岗位</td><td>manual jobs 手工岗位</td><td>in their point of view 在他们看来</td><td>on the one hand 一方面</td></tr>
+        <tr><td>lead to pressure 导致压力</td><td>employment pressure 就业压力</td><td>be replaced by 被…取代</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">In their point of view</span>, <span class="c-adv">on the one hand</span>, <span class="c-subj">many simple manual jobs</span> <span class="c-pred">will be replaced</span> <span class="c-adv">by AI</span>,
+        <span class="c-adv">leading to employment pressure</span> <span style="font-size:0.75rem;color:var(--text-muted)">← 现在分词短语，结果状语</span>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句被动 + 分词结果状语）。分词短语作为结果链的延伸，结构紧凑。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula"><span class="slot">[n. 被影响对象]</span> will be <span class="slot">[过去分词]</span> by <span class="slot">[n. 施动者]</span>, leading to <span class="slot">[n. 负面结果]</span>.</p>
+        <p class="mnemonic">口诀：被动被取代，leading to 跟后果</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>…will be <strong>replacing</strong> by AI… <em>(被动应用过去分词)</em></td><td class="right">✓</td><td>…will be <strong>replaced</strong> by AI…</td></tr>
+        <tr><td class="wrong">✗</td><td>…<strong>lead to</strong> employment pressure. <em>(分词形式错误)</em></td><td class="right">✓</td><td>…<strong>leading to</strong> employment pressure.</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"利弊分析"或"原因与解决方案"中描述负面影响。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>综合写作中转述听力材料的担忧。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Discussion 段描述研究发现的潜在后果。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 适用于学术、政策报告等正式场景。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Numerous routine cognitive tasks will be automated by algorithms, resulting in significant workforce displacement.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Many traditional retail positions will be eliminated by e-commerce, leading to rising unemployment.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> A substantial number of administrative roles will be supplanted by machine learning, contributing to labour market instability.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S10 ═══════ -->
+<section id="S10" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S10</span>
+    <span class="sentence-text">On the other hand, it may cause personal privacy leakage and even wrong information guidance.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present + Modal may</span> <span class="tag tag-voice">Active Voice 主动语态</span></p>
+      <p><span class="tag tag-special">Parallel Structure with "and even" 递进平行结构</span> <span class="tag tag-special">Contrast Marker (on the other hand)</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"may" 表示可能性，是学术写作中避免绝对化表述的重要手段（hedging strategy）。"and even" 用于递进强调。注意 "privacy leakage" 在英文中更常见的表达是 <em>privacy breach/violation</em>。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>cause</td><td>/kɔːz/</td><td>v.</td><td>导致 to make happen</td><td class="neutral">中性</td><td>B1 · AWL-1</td></tr>
+        <tr><td>2</td><td>privacy</td><td>/ˈprɪvəsi/</td><td>n.</td><td>隐私 the state of being free from intrusion</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>3</td><td>leakage</td><td>/ˈliːkɪdʒ/</td><td>n.</td><td>泄露 the accidental release (of information)</td><td class="formal">正式</td><td>C1</td></tr>
+        <tr><td>4</td><td>guidance</td><td>/ˈɡaɪdns/</td><td>n.</td><td>指导 advice or direction</td><td class="neutral">中性</td><td>B2 · AWL-5</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>cause leakage 导致泄露</td><td>personal privacy 个人隐私</td><td>on the other hand 另一方面</td><td>and even 甚至</td></tr>
+        <tr><td>—</td><td>wrong information 错误信息</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">On the other hand</span>, <span class="c-subj">it</span> <span class="c-pred">may cause</span> <span class="c-obj">personal privacy leakage</span> <span class="c-pred">and even</span> <span class="c-obj">wrong information guidance</span>
+      </div>
+      <p class="depth-note">嵌套层级：1层（简单句 + 平行宾语）。"and even" 构成递进关系，增强论证力度。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">On the other hand, it may <span class="slot">[cause/lead to/result in]</span> <span class="slot">[n. 问题1]</span> and even <span class="slot">[n. 问题2]</span>.</p>
+        <p class="mnemonic">口诀：另一面 may cause 两问题，and even 递进加码</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>it may <strong>causes</strong>… <em>(may 后用动词原形)</em></td><td class="right">✓</td><td>it may <strong>cause</strong>…</td></tr>
+        <tr><td class="wrong">✗</td><td>On <strong>the another</strong> hand… <em>(固定搭配 the other)</em></td><td class="right">✓</td><td>On <strong>the other</strong> hand…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"利弊分析"中列举弊端，与 on the one hand 配对使用。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中呈现另一视角的论据。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Discussion 段描述研究的局限性或负面影响。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>3/5 · 适用于议论文，学术论文需升级 "wrong information guidance" 表达。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> On the other hand, it may cause environmental degradation and even irreversible ecosystem damage.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Conversely, it may precipitate data security breaches and even systemic misinformation propagation.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> In contrast, it may lead to rising inequality and even widespread social unrest.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S11 ═══════ -->
+<section id="S11" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S11</span>
+    <span class="sentence-text">Therefore, there is no doubt that the uncontrolled use of AI has potential risks.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">Appositive Clause 同位语从句（that 引导）</span></p>
+      <p><span class="tag tag-special">Existential There 存现句</span> <span class="tag tag-special">Fixed Expression there is no doubt that</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"There is no doubt that" 语气过于绝对。SCI 论文中更推荐 <em>There is considerable evidence that</em> 或 <em>It is increasingly recognized that</em>。在雅思写作中，适度使用可用于结论段。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>uncontrolled</td><td>/ˌʌnkənˈtrəʊld/</td><td>adj.</td><td>不受控的 not regulated or restrained</td><td class="formal">正式</td><td>B2</td></tr>
+        <tr><td>2</td><td>potential</td><td>/pəˈtenʃl/</td><td>adj.</td><td>潜在的 possible; having the capacity</td><td class="formal">正式</td><td>B2 · AWL-2</td></tr>
+        <tr><td>3</td><td>risk</td><td>/rɪsk/</td><td>n.</td><td>风险 the possibility of harm</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>has risks 具有风险</td><td>potential risks 潜在风险</td><td>there is no doubt that 毫无疑问</td><td>Therefore 因此</td></tr>
+        <tr><td>—</td><td>uncontrolled use 不受控的使用</td><td>the use of …的使用</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">Therefore</span>, <span class="c-subj">there</span> <span class="c-pred">is</span> <span class="c-obj">no doubt</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--attributive-bg);color:var(--attributive)">同位语从句</span>
+          that <span class="c-subj">the uncontrolled use [of AI]</span> <span class="c-pred">has</span> <span class="c-obj">potential risks</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句 → 同位语从句）。结构对称，适合作段落总结句。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">Therefore, there is no doubt that <span class="slot">[n. 主语]</span> <span class="slot">[has/poses/creates]</span> <span class="slot">[adj.]</span> <span class="slot">[n.]</span>.</p>
+        <p class="mnemonic">口诀：Therefore + there is no doubt that + 总结论断</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>There is no doubt <strong>about</strong> the use has risks. <em>(应为 that 从句)</em></td><td class="right">✓</td><td>There is no doubt <strong>that</strong> the use has risks.</td></tr>
+        <tr><td class="wrong">✗</td><td>…has <strong>potentially</strong> risks. <em>(应为形容词 potential)</em></td><td class="right">✓</td><td>…has <strong>potential</strong> risks.</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"利弊分析"或"同意与否"中做小结句。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中总结一段论证。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Discussion 末段总结研究意义或风险（建议软化语气）。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 学术写作、政策建议、商务报告均适用。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Therefore, there is no doubt that climate change poses significant threats to global food security.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> Consequently, there is compelling evidence that the indiscriminate deployment of surveillance technologies carries substantial ethical risks.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> Hence, there is no doubt that rapid urbanisation creates considerable environmental challenges.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S12 ═══════ -->
+<section id="S12" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S12</span>
+    <span class="sentence-text">As far as I am concerned, I firmly support the view that we should properly develop and use artificial intelligence.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span> <span class="tag tag-clause">Adverbial Clause 状语从句 + Appositive Clause 同位语从句</span></p>
+      <p><span class="tag tag-special">Fixed Expression as far as I am concerned</span> <span class="tag tag-special">Parallel Verbs develop and use</span></p>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"As far as I am concerned" 属口语化表达，SCI 论文中严禁使用。雅思写作中可用于表明立场，但更高级的替代为 <em>From my perspective</em> 或 <em>In my assessment</em>。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>firmly</td><td>/ˈfɜːmli/</td><td>adv.</td><td>坚定地 in a resolute manner</td><td class="formal">正式</td><td>B2</td></tr>
+        <tr><td>2</td><td>support</td><td>/səˈpɔːt/</td><td>v.</td><td>支持 to approve of and encourage</td><td class="neutral">中性</td><td>B1 · AWL-1</td></tr>
+        <tr><td>3</td><td>properly</td><td>/ˈprɒpəli/</td><td>adv.</td><td>适当地 in the right way</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>4</td><td>develop</td><td>/dɪˈveləp/</td><td>v.</td><td>发展 to grow or advance</td><td class="neutral">中性</td><td>B1 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>support the view 支持观点</td><td>artificial intelligence 人工智能</td><td>as far as I am concerned 就我而言</td><td>—</td></tr>
+        <tr><td>develop and use 发展和使用</td><td>—</td><td>—</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">As far as I am concerned</span>, <span class="c-subj">I</span> <span class="c-adv">firmly</span> <span class="c-pred">support</span> <span class="c-obj">the view</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--attributive-bg);color:var(--attributive)">同位语从句</span>
+          that <span class="c-subj">we</span> <span class="c-pred">should develop</span> and <span class="c-pred">use</span> <span class="c-obj">artificial intelligence</span> <span class="c-adv">properly</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（主句 → 同位语从句）。结构清晰，适合作立场表态句。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">As far as I am concerned, I <span class="slot">[adv.]</span> <span class="slot">[support/endorse/advocate]</span> the <span class="slot">[view/idea/proposal]</span> that we should <span class="slot">[v.]</span> and <span class="slot">[v.]</span> <span class="slot">[n.]</span>.</p>
+        <p class="mnemonic">口诀：就我而言 I 支持，that 后 should 跟主张</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>As far as I <strong>concern</strong>… <em>(缺 am)</em></td><td class="right">✓</td><td>As far as I <strong>am</strong> concerned…</td></tr>
+        <tr><td class="wrong">✗</td><td>…we should properly <strong>develop and using</strong>… <em>(平行结构错误)</em></td><td class="right">✓</td><td>…we should properly <strong>develop</strong> and <strong>use</strong>…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"同意与否"题型中明确个人立场。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中陈述个人观点。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Conclusion 段表达研究建议（需去掉第一人称）。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span></div>3/5 · 适用于议论文、演讲，正式学术需去掉个人化表达。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">B2</span> From my perspective, I strongly support the idea that governments should invest in and promote renewable energy.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> In my assessment, I firmly endorse the proposition that policymakers should regulate and monitor emerging technologies.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> As far as I am concerned, I fully agree with the view that students should study and practise critical thinking.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S13 (修正后) ═══════ -->
+<section id="S13" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S13</span>
+    <span class="sentence-text">It is not only because AI can promote scientific and technological innovation, but also because it can greatly improve people's living standards.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present 一般现在时</span> <span class="tag tag-voice">Active Voice 主动语态</span></p>
+      <p><span class="tag tag-clause">Adverbial Clauses of Reason 原因状语从句（because × 2）</span></p>
+      <p><span class="tag tag-special">Correlative Conjunction not only…but also…</span> <span class="tag tag-special">Extraposition 形式主语 It</span></p>
+      <div class="success-box">
+        <strong>✓ 用词优化确认：</strong>新增副词 "greatly" 修饰 "improve"，加强了论证语气，同时保持了句子结构的平衡性。"greatly improve" 是一个高频学术搭配。
+      </div>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"not only…but also…" 是雅思写作和 SCI 论文中展示平行结构与递进逻辑的核心句型。在雅思 Grammatical Range and Accuracy 项中，正确使用关联连词直接贡献高分。注意：not only 引导从句时不触发倒装。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>promote</td><td>/prəˈməʊt/</td><td>v.</td><td>促进 to encourage or advance</td><td class="formal">正式</td><td>B2 · AWL-2</td></tr>
+        <tr><td>2</td><td>scientific</td><td>/ˌsaɪənˈtɪfɪk/</td><td>adj.</td><td>科学的 relating to science</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+        <tr><td>3</td><td>technological</td><td>/ˌteknəˈlɒdʒɪkl/</td><td>adj.</td><td>技术的 relating to technology</td><td class="neutral">中性</td><td>B2 · AWL-3</td></tr>
+        <tr><td>4</td><td>innovation</td><td>/ˌɪnəˈveɪʃn/</td><td>n.</td><td>创新 the introduction of new ideas</td><td class="formal">正式</td><td>B2 · AWL-3</td></tr>
+        <tr><td>5</td><td>greatly</td><td>/ˈɡreɪtli/</td><td>adv.</td><td>极大地 to a great extent; considerably</td><td class="neutral">中性</td><td>B2</td></tr>
+        <tr><td>6</td><td>improve</td><td>/ɪmˈpruːv/</td><td>v.</td><td>改善 to make better</td><td class="neutral">中性</td><td>B1 · AWL-2</td></tr>
+        <tr><td>7</td><td>standard</td><td>/ˈstændəd/</td><td>n.</td><td>水平 a level of quality</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>promote innovation 促进创新</td><td>scientific innovation 科学创新</td><td>not only…but also… 不仅…而且…</td><td>not only…but also</td></tr>
+        <tr><td>improve standards 提高水平</td><td>technological innovation 技术创新</td><td>living standards 生活水平</td><td>—</td></tr>
+        <tr><td>—</td><td>—</td><td>greatly improve 极大地改善</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-subj">It</span> <span class="c-pred">is</span>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--adverbial-bg);color:var(--adverbial)">原因状语从句 A</span>
+          <strong>not only because</strong> <span class="c-subj">AI</span> <span class="c-pred">can promote</span> <span class="c-obj">scientific and technological innovation</span>,
+        </div>
+        <div class="tree-level">
+          <span class="tree-label" style="background:var(--adverbial-bg);color:var(--adverbial)">原因状语从句 B</span>
+          <strong>but also because</strong> <span class="c-subj">it</span> <span class="c-pred">can greatly improve</span> <span class="c-obj">people's living standards</span>
+        </div>
+      </div>
+      <p class="depth-note">嵌套层级：2层（形式主语 + 两个并列原因状语从句）。"greatly" 作为程度副词修饰 improve，对称结构清晰，逻辑递进。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">It is not only because <span class="slot">[S+V+O 原因1]</span>, but also because <span class="slot">[S+V+O 原因2]</span>.</p>
+        <p class="mnemonic">口诀：It is + not only because A, but also because B</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>…not only because AI can promote…but also <strong>because of</strong> it can improve… <em>(because 与 because of 不对称)</em></td><td class="right">✓</td><td>…not only <strong>because</strong>…but also <strong>because</strong>…</td></tr>
+        <tr><td class="wrong">✗</td><td>It is not only <strong>that</strong> AI can promote…but also <strong>that</strong>… <em>(that 不与 because 搭配在此框架中)</em></td><td class="right">✓</td><td>…not only <strong>because</strong>…but also <strong>because</strong>…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"同意与否"或"利弊分析"中列举支持理由。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中提供双重论据支持观点。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Introduction 中陈述研究意义的双重理由。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span></div>4/5 · 学术写作、商务报告、政策分析均可使用。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">C1</span> It is not only because renewable energy greatly reduces carbon emissions, but also because it fosters sustainable economic growth.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> It is not only because education broadly broadens horizons, but also because it strengthens social cohesion.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> It is not only because bilingualism significantly enhances cognitive flexibility, but also because it facilitates cross-cultural communication.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ S14 (修正后) ═══════ -->
+<section id="S14" class="sentence-block">
+  <div class="sentence-header">
+    <span class="sentence-num">S14</span>
+    <span class="sentence-text">The more rationally we apply artificial intelligence, the more positive value it will create for society.</span>
+  </div>
+  <div class="sentence-body">
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#2563eb"><span class="dot" style="background:#2563eb"></span>维度一 · 语法分析</div>
+      <p><span class="tag tag-tense">Simple Present + Simple Future</span> <span class="tag tag-voice">Active Voice 主动语态</span></p>
+      <p><span class="tag tag-clause">Comparative Correlative Clause 比较关联从句（The more…the more…）</span></p>
+      <p><span class="tag tag-special">Double Comparative 双重比较结构</span> <span class="tag tag-special">Inversion 副词前置（rationally 提前）</span></p>
+      <div class="success-box">
+        <strong>✓ 用词修正确认：</strong>"for the whole world" 改为 "for society"，表达更精准简洁，与全文主题词 "society"（S1: modern society; S6: social development）形成词汇复现衔接。
+      </div>
+      <p style="font-size:0.86rem;color:var(--text-muted);margin-top:8px"><strong>学术写作提示：</strong>"The more…the more…" 是雅思写作和学术论文中表达条件—结果关系的高级句型。SCI 论文中此结构出现在 Discussion 段中表达"越…越…"的相关性论述。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#16a34a"><span class="dot" style="background:#16a34a"></span>维度二 · 词汇原型</div>
+      <table>
+        <tr><th>#</th><th>原型</th><th>IPA</th><th>词性</th><th>释义</th><th>语域</th><th>CEFR/AWL</th></tr>
+        <tr><td>1</td><td>rationally</td><td>/ˈræʃnəli/</td><td>adv.</td><td>理性地 in a logical, reasonable way</td><td class="formal">正式</td><td>C1</td></tr>
+        <tr><td>2</td><td>apply</td><td>/əˈplaɪ/</td><td>v.</td><td>应用 to use for a purpose</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+        <tr><td>3</td><td>positive</td><td>/ˈpɒzətɪv/</td><td>adj.</td><td>积极的 constructive; beneficial</td><td class="neutral">中性</td><td>B2 · AWL-3</td></tr>
+        <tr><td>4</td><td>value</td><td>/ˈvæljuː/</td><td>n.</td><td>价值 worth; importance</td><td class="neutral">中性</td><td>B2 · AWL-2</td></tr>
+        <tr><td>5</td><td>create</td><td>/kriˈeɪt/</td><td>v.</td><td>创造 to bring into existence</td><td class="neutral">中性</td><td>B1 · AWL-2</td></tr>
+        <tr><td>6</td><td>society</td><td>/səˈsaɪəti/</td><td>n.</td><td>社会 the community of people</td><td class="neutral">中性</td><td>B2 · AWL-1</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#d97706"><span class="dot" style="background:#d97706"></span>维度三 · 词汇搭配</div>
+      <table>
+        <tr><th>V+N</th><th>Adj+N</th><th>固定短语</th><th>连接词</th></tr>
+        <tr><td>apply intelligence 应用智能</td><td>positive value 积极价值</td><td>the more…the more… 越…越…</td><td>—</td></tr>
+        <tr><td>create value 创造价值</td><td>artificial intelligence 人工智能</td><td>for society 为社会</td><td>—</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#9333ea"><span class="dot" style="background:#9333ea"></span>维度四 · 句子成分</div>
+      <div class="tree">
+        <span class="c-adv">The more rationally</span> <span class="c-subj">we</span> <span class="c-pred">apply</span> <span class="c-obj">artificial intelligence</span>,
+        <span class="c-adv">the more positive value</span> <span class="c-subj">it</span> <span class="c-pred">will create</span> <span class="c-adv">for society</span>
+      </div>
+      <p class="depth-note">嵌套层级：2层（条件比较分句 → 结果比较分句）。前半句为条件（隐含 if 条件义），后半句为结果。是本文最复杂的句式。</p>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#b82020"><span class="dot" style="background:#b82020"></span>维度五 · 记忆方法</div>
+      <div class="template-box">
+        <p class="template-formula">The more <span class="slot">[adv.]</span> <span class="slot">[S+V+O]</span>, the more <span class="slot">[adj.]</span> <span class="slot">[n.]</span> <span class="slot">[S+V]</span> for <span class="slot">[n.]</span>.</p>
+        <p class="mnemonic">口诀：前半 The more 表条件，后半 The more 表结果</p>
+      </div>
+      <table class="error-table">
+        <tr><th></th><th>易错写法 ✗</th><th>正确写法 ✓</th></tr>
+        <tr><td class="wrong">✗</td><td>The more rationally we apply AI, the more positive value it <strong>creates</strong>. <em>(从句用将来时更佳)</em></td><td class="right">✓</td><td>…it <strong>will create</strong>.</td></tr>
+        <tr><td class="wrong">✗</td><td>The more we apply AI <strong>rationally</strong>,… <em>(副词应紧跟 the more)</em></td><td class="right">✓</td><td>The more <strong>rationally</strong> we apply AI,…</td></tr>
+      </table>
+    </div>
+
+    <div class="dim-section">
+      <div class="dim-label" style="color:#059669"><span class="dot" style="background:#059669"></span>维度六 · 应用场景</div>
+      <div class="scenario-grid">
+        <div class="scenario-card"><div class="sc-label">IELTS Task 2</div>"同意与否"或"利弊分析"结论段表达展望与建议。</div>
+        <div class="scenario-card"><div class="sc-label">TOEFL Writing</div>学术讨论中做总结性推断。</div>
+        <div class="scenario-card"><div class="sc-label">学术论文</div>Conclusion 段展望研究前景：The more X, the more Y。</div>
+        <div class="scenario-card"><div class="sc-label">正式等级</div><div class="formality-bar"><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span></div>5/5 · 适用于最高正式度的学术论文与政策报告。</div>
+      </div>
+    </div>
+
+    <div class="dim-section" style="background:#f0f7f0">
+      <div class="dim-label" style="color:#1a7a3a"><span class="dot" style="background:#1a7a3a"></span>仿写练习</div>
+      <div class="imitation-box"><span class="cefr">C1</span> The more rigorously researchers investigate this phenomenon, the more nuanced understanding they will achieve of its underlying mechanisms.</div>
+      <div class="imitation-box"><span class="cefr">B2</span> The more carefully governments plan urban development, the more liveable cities will become for future generations.</div>
+      <div class="imitation-box"><span class="cefr">C1</span> The more systematically educators integrate technology into curricula, the more transformative outcomes it will yield for student learning.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ MASTER INDEX ═══════ -->
+<section id="index">
+  <h2 class="section-title">一键检索索引 Master Index</h2>
+
+  <div class="index-section">
+    <h3>词汇搭配索引 Collocation Index (A–Z)</h3>
+    <div class="index-item"><span>apply intelligence 应用智能</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>artificial intelligence 人工智能</span><span class="ref">S1, S3, S5, S8, S12, S14</span></div>
+    <div class="index-item"><span>be replaced by 被…取代</span><span class="ref">S9</span></div>
+    <div class="index-item"><span>be widely applied in 被广泛应用于</span><span class="ref">S1</span></div>
+    <div class="index-item"><span>be widely used in 被广泛应用于</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>bring convenience 带来便利</span><span class="ref">S3</span></div>
+    <div class="index-item"><span>bring progress 带来进步</span><span class="ref">S3</span></div>
+    <div class="index-item"><span>cause problems 导致问题</span><span class="ref">S8</span></div>
+    <div class="index-item"><span>contribute to 促成</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>create value 创造价值</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>differ in opinions 意见不同</span><span class="ref">S7</span></div>
+    <div class="index-item"><span>develop and use 发展和使用</span><span class="ref">S12</span></div>
+    <div class="index-item"><span>driving force 驱动力</span><span class="ref">S6</span></div>
+    <div class="index-item"><span>employment pressure 就业压力</span><span class="ref">S9</span></div>
+    <div class="index-item"><span>excessive reliance 过度依赖</span><span class="ref">S8</span></div>
+    <div class="index-item"><span>for society 为社会</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>from person to person 因人而异</span><span class="ref">S2</span></div>
+    <div class="index-item"><span>great convenience 极大便利</span><span class="ref">S3</span></div>
+    <div class="index-item"><span>greatly improve 极大地改善</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>has risks 具有风险</span><span class="ref">S11</span></div>
+    <div class="index-item"><span>hold the idea 持有观点</span><span class="ref">S8</span></div>
+    <div class="index-item"><span>hot topic 热门话题</span><span class="ref">S2</span></div>
+    <div class="index-item"><span>improve standards 提高水平</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>in their point of view 在他们看来</span><span class="ref">S9</span></div>
+    <div class="index-item"><span>in their view 在他们看来</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>lead to pressure 导致压力</span><span class="ref">S9</span></div>
+    <div class="index-item"><span>living standards 生活水平</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>manual jobs 手工岗位</span><span class="ref">S9</span></div>
+    <div class="index-item"><span>medical treatment 医疗</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>modern society 现代社会</span><span class="ref">S1</span></div>
+    <div class="index-item"><span>optimize services 优化服务</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>personal privacy 个人隐私</span><span class="ref">S10</span></div>
+    <div class="index-item"><span>positive value 积极价值</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>potential risks 潜在风险</span><span class="ref">S11</span></div>
+    <div class="index-item"><span>promote innovation 促进创新</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>public services 公共服务</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>raise efficiency 提高效率</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>reduce intensity 降低强度</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>reliance on 对…的依赖</span><span class="ref">S8</span></div>
+    <div class="index-item"><span>replace jobs 取代岗位</span><span class="ref">S9</span></div>
+    <div class="index-item"><span>scientific innovation 科学创新</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>serious problems 严重问题</span><span class="ref">S8</span></div>
+    <div class="index-item"><span>social development 社会发展</span><span class="ref">S6</span></div>
+    <div class="index-item"><span>support the view 支持观点</span><span class="ref">S12</span></div>
+    <div class="index-item"><span>uncontrolled use 不受控的使用</span><span class="ref">S11</span></div>
+    <div class="index-item"><span>vary opinions 观点各异</span><span class="ref">S2</span></div>
+    <div class="index-item"><span>widely applied in 被广泛应用于</span><span class="ref">S1</span></div>
+    <div class="index-item"><span>widespread concern 广泛关注</span><span class="ref">S1</span></div>
+    <div class="index-item"><span>work efficiency 工作效率</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>wrong information 错误信息</span><span class="ref">S10</span></div>
+  </div>
+
+  <div class="index-section">
+    <h3>固定短语索引 Fixed Phrase Index (A–Z)</h3>
+    <div class="index-item"><span>a majority of 大多数</span><span class="ref">S3</span></div>
+    <div class="index-item"><span>as far as I am concerned 就我而言</span><span class="ref">S12</span></div>
+    <div class="index-item"><span>as follows 如下</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>be widely applied in 被广泛应用于</span><span class="ref">S1</span></div>
+    <div class="index-item"><span>for society 为社会</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>from person to person 因人而异</span><span class="ref">S2</span></div>
+    <div class="index-item"><span>in the first place 首先</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>in the second place 其次</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>it goes without saying that 不言而喻</span><span class="ref">S6</span></div>
+    <div class="index-item"><span>it is well known that 众所周知</span><span class="ref">S2</span></div>
+    <div class="index-item"><span>not only…but also… 不仅…而且…</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>on the one hand / on the other hand 一方面/另一方面</span><span class="ref">S9, S10</span></div>
+    <div class="index-item"><span>there is no doubt that 毫无疑问</span><span class="ref">S11</span></div>
+    <div class="index-item"><span>the more…the more… 越…越…</span><span class="ref">S14</span></div>
+  </div>
+
+  <div class="index-section">
+    <h3>句型模板索引 Sentence Template Index (A–Z)</h3>
+    <div class="index-item"><span>A majority of [n.] [think/argue] that S+V+O</span><span class="ref">S3</span></div>
+    <div class="index-item"><span>As far as I am concerned, I [adv.] [support] the [view] that…</span><span class="ref">S12</span></div>
+    <div class="index-item"><span>In their view, there are [n] factors contributing to…</span><span class="ref">S4</span></div>
+    <div class="index-item"><span>It is not only because S+V+O, but also because S+V+O</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>It is well/widely [p.p.] that S+V</span><span class="ref">S2</span></div>
+    <div class="index-item"><span>It goes without saying that S+V+SC</span><span class="ref">S6</span></div>
+    <div class="index-item"><span>[n.], however, differ in their [n.] on this [matter]</span><span class="ref">S7</span></div>
+    <div class="index-item"><span>[n.] hold the [idea] that S+V+O</span><span class="ref">S8</span></div>
+    <div class="index-item"><span>On the other hand, it may [cause] [n.] and even [n.]</span><span class="ref">S10</span></div>
+    <div class="index-item"><span>The more [adv.] S+V, the more [adj.] [n.] S+V</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>There is a/an [adj.] concern over the issue that [S+V] 被动</span><span class="ref">S1</span></div>
+    <div class="index-item"><span>Therefore, there is no doubt that S+V+O</span><span class="ref">S11</span></div>
+    <div class="index-item"><span>Furthermore, it is widely [p.p.] in [领域] to [v.]</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>S+V will be [p.p.] by [n.], leading to [n.]</span><span class="ref">S9</span></div>
+  </div>
+
+  <div class="index-section">
+    <h3>语法结构索引 Grammar Structure Index</h3>
+    <div class="index-item"><span>Appositive Clause 同位语从句</span><span class="ref">S1, S8, S11, S12</span></div>
+    <div class="index-item"><span>Correlative Conjunction (not only…but also)</span><span class="ref">S13</span></div>
+    <div class="index-item"><span>Double Comparative (the more…the more)</span><span class="ref">S14</span></div>
+    <div class="index-item"><span>Existential There 存现句</span><span class="ref">S1, S4, S11</span></div>
+    <div class="index-item"><span>Extraposed Subject Clause 形式主语从句</span><span class="ref">S2, S6, S13</span></div>
+    <div class="index-item"><span>Insertion / Parenthetical 插入语</span><span class="ref">S7</span></div>
+    <div class="index-item"><span>Infinitive of Purpose 目的状语</span><span class="ref">S5</span></div>
+    <div class="index-item"><span>Object Clause 宾语从句</span><span class="ref">S3</span></div>
+    <div class="index-item"><span>Parallel Structure 平行结构</span><span class="ref">S3, S4, S10, S12</span></div>
+    <div class="index-item"><span>Passive Voice 被动语态</span><span class="ref">S1, S2, S5, S9</span></div>
+    <div class="index-item"><span>Present Participle (as adverbial/result) 现在分词</span><span class="ref">S4, S9</span></div>
+  </div>
+</section>
+
+<footer style="text-align:center;padding:40px 0 20px;border-top:2px solid var(--accent-light);margin-top:48px;">
+  <p style="font-family:'DM Mono',monospace;font-size:0.76rem;color:var(--text-muted);letter-spacing:0.08em;">
+    英语学术写作范文 · 六维度深度解析报告 · 修订版 Rev.2<br>
+    14 SENTENCES · 6 DIMENSIONS · 42 IMITATIONS · CEFR B2–C2 · AWL 1–10<br>
+    Generated for Teaching &amp; Self-Study · Supports Anki / Excel Import
+  </p>
+</footer>
+
+</div>
+</body>
+</html>
